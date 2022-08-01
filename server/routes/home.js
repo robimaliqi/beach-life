@@ -1,12 +1,13 @@
-const { response } = require('express');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    response.json(
-        {
+    res.json(
+        [
+            {
             name: "Beach Life",
-        },
+        }
+        ]
     )
 });
 
