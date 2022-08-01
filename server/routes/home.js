@@ -1,14 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json(
-        [
-            {
-            name: "Beach Life",
-        }
-        ]
-    )
+router.get("/", (req, res) => {
+  res.json({
+    name: "Beach Life",
+  });
 });
 
 module.exports = router;
