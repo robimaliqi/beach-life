@@ -6,7 +6,7 @@ const home = require('./routes/home');
 app.use('/api/home', home);
 
 app.get("/api", (req, res) => {
-  res.send({ express: "NICE BACKEND" });
+  res.send({ express: "Backend connected to React" });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
