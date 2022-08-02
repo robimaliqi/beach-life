@@ -1,3 +1,29 @@
+Beach Life
+==========
+
+By Hafiz Alimi, Sophie Gilder, Robi Maliqi, Joe McGarry, Aisha Yusuff
+
+# How to use
+
+````console
+cd client
+npm install
+cd ../server
+npm install
+````
+
+To run the server
+````console
+cd server
+nodemon
+````
+
+To run the app
+````console
+cd client
+npm start
+````
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
