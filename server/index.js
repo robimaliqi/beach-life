@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 5000; // If errors with .env the port will number will be 5000
 const homeRouter = require("./routes/home");
 const resultsRouter = require("./routes/results");
 const registerRouter = require("./routes/register");
