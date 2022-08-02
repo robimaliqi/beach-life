@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export const Reviews = () => {
-  return <h1>Reviews</h1>;
+  return <Header title="Reviews" />;
 };

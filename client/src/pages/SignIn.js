@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export const SignIn = () => {
-  return <h1>Sign In</h1>;
+  return <Header title="Sign In" />;
 };

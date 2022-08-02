@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export const Results = () => {
-  return <h1>Results</h1>;
+  return <Header title="Results" />;
 };

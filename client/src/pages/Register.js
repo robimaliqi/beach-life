@@ -1,3 +1,5 @@
+import { Header } from "../components/Header";
+
 export const Register = () => {
-  return <h1>Register</h1>;
+  return <Header title="Register" />;
 };
