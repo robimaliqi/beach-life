@@ -1,11 +1,19 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 1234;
-const home = require('./routes/home');
+const homeRouter = require("./routes/home");
+const resultsRouter = require("./routes/results");
+const registerRouter = require("./routes/register");
+const signinRouter = require("./routes/signin");
+const reviewsRouter = require("./routes/reviews");
 
-app.use('/api/home', home);
+app.use("/home", homeRouter);
+app.use("/results", resultsRouter);
+app.use("/register", registerRouter);
+app.use("/signin", signinRouter);
+app.use("/reviews", reviewsRouter);
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
 });
 
