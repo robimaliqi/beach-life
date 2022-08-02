@@ -8,7 +8,7 @@ const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
 
 app.use("/home", homeRouter);
-app.use("/result", resultsRouter);
+app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
