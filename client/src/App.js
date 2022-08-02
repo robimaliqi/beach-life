@@ -5,17 +5,21 @@ import { Results } from "./pages/Results";
 import { Register } from "./pages/Register";
 import { SignIn } from "./pages/SignIn";
 import { Reviews } from "./pages/Reviews";
+import { NavBar } from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/" element={<Results />} />
-      <Route path="/" element={<Register />} />
-      <Route path="/" element={<SignIn />} />
-      <Route path="/" element={<Reviews />} />
-    </Routes>
+    <div className="main-container">
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/reviews" element={<Reviews />} />
+      </Routes>
+    </div>
   );
 }
 
