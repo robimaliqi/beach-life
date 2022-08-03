@@ -23,5 +23,29 @@ export const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    const result = USER_REGEX.test(user);
+    console.log(result);
+    console.log(user);
+    setValidName(result);
+  }, [user]);
+
+  useEffect(() => {
+    const result = PWD_REGEX.test(password);
+    console.log(result);
+    console.log(password);
+    setValidPassword(result);
+    const match = password === matchPassword;
+    setValidMatch(match);
+  }, [password, matchPassword]);
+
+  useEffect(() => {
+    setErrorMessage("");
+  }, [user, password, matchPassword]);
+
   return <Header title="Register" />;
 };
