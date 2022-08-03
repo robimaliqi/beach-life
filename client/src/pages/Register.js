@@ -47,5 +47,18 @@ export const Register = () => {
     setErrorMessage("");
   }, [user, password, matchPassword]);
 
-  return <Header title="Register" />;
+  return (
+    <>
+      <Header title="Register" />
+      <section>
+        <p
+          ref={errorRef}
+          className={errorMessage ? "errormessage" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errorMessage}
+        </p>
+      </section>
+    </>
+  );
 };
