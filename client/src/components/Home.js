@@ -9,7 +9,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    fetch("/api/home")
+    fetch("/home")
       .then((response) => response.json())
       .then((home) => {
         this.setState({ home: home });
