@@ -1,14 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { MongoClient } = require("mongodb");
-require("dotenv").config({ path: "../../.env" });
+const db = require('../database-config');
 
-const uri = process.env.MONGO_URI;
-
-const dbConnection = new MongoClient(uri);
-
-router.get("/", async (req, res) => {
-      dbConnection.db("beach_life")
+router.get("/beaches", async (req, res) => {
+      db.getDb("beach_life")
       .collection("beaches")
       .find({})
       .toArray(function (err, result) {
