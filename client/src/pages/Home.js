@@ -1,3 +1,12 @@
+import Map from "../components/Map";
+
 export const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>Home</h1>
+      <div class="map">
+        <Map />
+      </div>
+    </div>)
+  ;
 };
