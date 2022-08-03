@@ -1,5 +1,9 @@
 import { Header } from "../components/Header/Header";
 
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+};
+
 export const Register = () => {
   return (
     <div className="container">
@@ -19,6 +23,11 @@ export const Register = () => {
           <div className="password">
             <label clasName="label">Password</label>
             <input className="input" type="password" />
+          </div>
+          <div>
+            <button className="submit" onClick={handleFormSubmit}>
+              Register
+            </button>
           </div>
         </form>
       </div>
