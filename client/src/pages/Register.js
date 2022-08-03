@@ -12,6 +12,14 @@ export const Register = () => {
             <label clasName="label">Full Name</label>
             <input className="input" type="text" />
           </div>
+          <div className="email">
+            <label clasName="label">Email</label>
+            <input className="input" type="email" />
+          </div>
+          <div className="password">
+            <label clasName="label">Password</label>
+            <input className="input" type="password" />
+          </div>
         </form>
       </div>
     </div>
