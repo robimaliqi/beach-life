@@ -1,26 +1,31 @@
-import { Header } from "../components/Header/Header";
 import { useRef, useState, useEffect } from "react";
+import {
+  faCheck,
+  faTimes,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export const Register = () => {
   const userRef = useRef();
-  const errorRef = userRef();
+  const errRef = useRef();
 
   const [user, setUser] = useState("");
-  const [validName, setValidName] = userState(false);
-  const [validFocus, setUserFocus] = userState(false);
+  const [validName, setValidName] = useState(false);
+  const [userFocus, setUserFocus] = useState(false);
 
-  const [password, setPassword] = useState("");
-  const [validPassword, setValidPassword] = userState(false);
-  const [passwordFocus, setPasswordFocus] = userState(false);
+  const [pwd, setPwd] = useState("");
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
 
-  const [matchPassword, setMatchPassword] = useState("");
-  const [validMatch, setValidMatch] = userState(false);
-  const [matchFocus, setMatchFocus] = userState(false);
+  const [matchPwd, setMatchPwd] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
@@ -28,37 +33,68 @@ export const Register = () => {
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(user);
-    console.log(result);
-    console.log(user);
-    setValidName(result);
+    setValidName(USER_REGEX.test(user));
   }, [user]);
 
   useEffect(() => {
-    const result = PWD_REGEX.test(password);
-    console.log(result);
-    console.log(password);
-    setValidPassword(result);
-    const match = password === matchPassword;
-    setValidMatch(match);
-  }, [password, matchPassword]);
+    setValidPwd(PWD_REGEX.test(pwd));
+    setValidMatch(pwd === matchPwd);
+  }, [pwd, matchPwd]);
 
   useEffect(() => {
-    setErrorMessage("");
-  }, [user, password, matchPassword]);
+    setErrMsg("");
+  }, [user, pwd, matchPwd]);
 
   return (
-    <>
-      <Header title="Register" />
-      <section>
+    <section>
+      <p
+        ref={errRef}
+        className={errMsg ? "errmsg" : "offscreen"}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
+      <h1>Register</h1>
+      <form>
+        <label htmlFor="username">
+          Username:
+          <FontAwesomeIcon
+            icon={faCheck}
+            className={validName ? "valid" : "hide"}
+          />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className={validName || !user ? "hide" : "invalid"}
+          />
+        </label>
+        <br />
+        <input
+          type="text"
+          id="username"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(e) => setUser(e.target.value)}
+          value={user}
+          required
+          aria-invalid={validName ? "false" : "true"}
+          aria-describedby="uidnote"
+          onFocus={() => setUserFocus(true)}
+          onBlur={() => setUserFocus(false)}
+        />
         <p
-          ref={errorRef}
-          className={errorMessage ? "errormessage" : "offscreen"}
-          aria-live="assertive"
+          id="uidnote"
+          className={
+            userFocus && user && !validName ? "instructions" : "offscreen"
+          }
         >
-          {errorMessage}
+          <FontAwesomeIcon icon={faInfoCircle} />
+          4 to 24 characters.
+          <br />
+          Must begin with a letter.
+          <br />
+          Letters, numbers, underscores, hyphens allowed.
         </p>
-      </section>
-    </>
+      </form>
+    </section>
   );
 };
