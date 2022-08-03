@@ -45,7 +45,7 @@ function Map() {
       This key will API key only works on this Stackblitz. To use this code in your own project,
       sign up for an API key on the TomTom Developer Portal.
       */
-      key: "OhBFAgCm3ZtmkiIXCoSjPXVc65QRDDc8",
+      key: "Sorry",
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,
