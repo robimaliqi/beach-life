@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config({ path: "../.env" });
 const cors = require("cors");
 const port = process.env.PORT || 1111; // If the .env file is not working then the port number will be 9999
 const app = express();
+const database = require('./database-config')
 
 // Routers
 const homeRouter = require("./routes/home");
@@ -26,4 +27,8 @@ app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => {
+  database.connectToServer(function (err) {
+    if (err) console.error(err);
+  });
+  console.log(`Listening on port ${port}`)});
