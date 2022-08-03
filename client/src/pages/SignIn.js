@@ -91,7 +91,7 @@ const errorMessage = () => {
 return (
 	<div className="form">
 	<div>
-		<h1>User Registration</h1>
+		<h1>Sign In</h1>
 	</div>
 
 	{/* Calling to the methods */}
