@@ -8,8 +8,6 @@ import {
   FormGroup,
   Label,
   Input,
-  Navbar,
-  NavbarBrand,
 } from "reactstrap";
 
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
@@ -19,9 +17,9 @@ const MAX_ZOOM = 17;
 
 function Map() {
   const mapElement = useRef();
-  const [mapLongitude, setMapLongitude] = useState(-121.91599);
-  const [mapLatitude, setMapLatitude] = useState(37.36765);
-  const [mapZoom, setMapZoom] = useState(13);
+  const [mapLongitude, setMapLongitude] = useState(-0.624582898103651);
+  const [mapLatitude, setMapLatitude] = useState(54.4916967106725);
+  const [mapZoom, setMapZoom] = useState(7);
   const [map, setMap] = useState({});
 
   const increaseZoom = () => {
@@ -47,7 +45,7 @@ function Map() {
       This key will API key only works on this Stackblitz. To use this code in your own project,
       sign up for an API key on the TomTom Developer Portal.
       */
-      key: "SEE JOE FOR API KEY",
+      key: "OhBFAgCm3ZtmkiIXCoSjPXVc65QRDDc8",
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,
@@ -58,13 +56,9 @@ function Map() {
 
   return (
     <div className="App">
-      <Navbar dark={true} style={{ backgroundColor: "#4287f5" }}>
-        <NavbarBrand>TomTom Maps + React = 😃</NavbarBrand>
-      </Navbar>
       <Container className="mapContainer">
         <Row>
           <Col xs="4">
-            <h4>Map Controls</h4>
             <FormGroup>
               <Label for="longitude">Longitude</Label>
               <Input
