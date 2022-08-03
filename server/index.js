@@ -13,6 +13,9 @@ app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
 
+// middleware
+app.use(cors({ origin: true, credentials: true }));
+
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
 });
