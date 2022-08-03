@@ -45,11 +45,23 @@ function Map() {
       This key will API key only works on this Stackblitz. To use this code in your own project,
       sign up for an API key on the TomTom Developer Portal.
       */
-      key: "Sorry",
+      key: "API KEY",
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,
     });
+    var marker = new tt.Marker().setLngLat([-0.2713284100911, 50.8265866683731]).addTo(map);
+    var popupOffsets = {
+      top: [0, 0],
+      bottom: [0, -70],
+      'bottom-right': [0, -70],
+      'bottom-left': [0, -70],
+      left: [25, -35],
+      right: [-25, -35]
+    }
+    
+    var popup = new tt.Popup({offset: popupOffsets}).setHTML("Shoreham Beach");
+    marker.setPopup(popup).togglePopup();
     setMap(map);
     return () => map.remove();
   }, []);
