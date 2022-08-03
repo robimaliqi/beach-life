@@ -8,21 +8,13 @@ const uri = process.env.MONGO_URI;
 const dbConnection = new MongoClient(uri);
 
 router.get("/", async (req, res) => {
-    try {
-      const db = dbConnection.db("beach_life");
-      const beach = db.collection("beaches");
-      const beaches = await beach.find((err, localBeaches) => {
+      dbConnection.db("beach_life")
+      .collection("beaches")
+      .find({})
+      .toArray(function (err, result) {
         if (err) throw err;
+        res.json(result);
       });
-      res.setHeader("Content-Type", "application/json");
-      res.end(
-        JSON.stringify({
-          beaches: beaches,
-        })
-      );
-    } finally {
-      await dbConnection.close();
-    }
   });
 
 module.exports = router;
