@@ -3,6 +3,12 @@ require("../mongodb_helper");
 const User = require("../../models/user");
 
 describe("User schema", () => {
+  beforeEach((done) => {
+    mongoose.connection.collections.users.drop(() => {
+      done();
+    });
+  });
+
   it("should contain a first name property", () => {
     const user = new User({
       firstName: "Test",
