@@ -16,4 +16,11 @@ describe("User schema", () => {
     });
     expect(user.lastName).toEqual("Example");
   });
+
+  it("should contain an email property", () => {
+    const user = new User({
+      email: "test@example.com",
+    });
+    expect(user.email).toEqual("test@example.com");
+  });
 });
