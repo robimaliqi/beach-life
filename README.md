@@ -1,7 +1,7 @@
 Beach Life
 ==========
 
-By Hafiz Alimi, Sophie Gilder, Robi Maliqi, Joe McGarry, Aisha Yusuff
+By Aisha, Hafiz, Joe, Robi & Sophie
 
 # How to use
 

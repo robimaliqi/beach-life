@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Map from "./Map";
+
 
 class Home extends Component {
   constructor(props) {
@@ -20,7 +22,11 @@ class Home extends Component {
     return (
       <div>
         <h1>{this.state.home.name}</h1>
+        <div class="map">
+          <Map />
+        </div>
       </div>
+
     );
   }
 }
