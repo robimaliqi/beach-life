@@ -20,11 +20,10 @@ const MAX_ZOOM = 17;
 
 function Map() {
   const mapElement = useRef();
-  const [mapLongitude, setMapLongitude] = useState(-0.624582898103651);
-  const [mapLatitude, setMapLatitude] = useState(54.4916967106725);
-  const [mapZoom, setMapZoom] = useState(7);
+  const [mapLongitude, setMapLongitude] = useState(-1.4582515931151268);
+  const [mapLatitude, setMapLatitude] = useState(53.39687281540704);
+  const [mapZoom, setMapZoom] = useState(5);
   const [map, setMap] = useState({});
-  // const [beaches, setBeaches] = useState([]);
 
   const increaseZoom = () => {
     if (mapZoom < MAX_ZOOM) {
@@ -51,17 +50,18 @@ function Map() {
       zoom: mapZoom,
     });
 
-    var popupOffsets = {
-      top: [0, 0],
-      bottom: [0, -70],
-      'bottom-right': [0, -70],
-      'bottom-left': [0, -70],
-      left: [25, -35],
-      right: [-25, -35]
-    }
+    // var popupOffsets = {
+    //   top: [0, 0],
+    //   bottom: [0, -70],
+    //   'bottom-right': [0, -70],
+    //   'bottom-left': [0, -70],
+    //   left: [25, -35],
+    //   right: [-25, -35]
+    // }
 
     beaches.forEach((beach) => {
-      let marker = new tt.Marker().setLngLat([beach.long, beach.lat]).addTo(map1);
+      // let marker = 
+      new tt.Marker().setLngLat([beach.long, beach.lat]).addTo(map1);
       // let popup = new tt.Popup({offset: popupOffsets}).setHTML(beach.name);
       // marker.setPopup(popup).togglePopup();
       setMap(map1);
