@@ -3,7 +3,8 @@ import React, { useState } from "react";
 
 export const Register = () => {
   const [values, setValues] = useState({
-    fullname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
   });
@@ -12,8 +13,11 @@ export const Register = () => {
 
   const validation = (values) => {
     let errors = {};
-    if (!values.fullname) {
-      errors.fullname = "Name is required.";
+    if (!values.firstName) {
+      errors.fullname = "First name is required.";
+    }
+    if (!values.lastName) {
+      errors.fullname = "Last name is required.";
     }
     if (!values.email) {
       errors.email = "Email is required";
@@ -47,15 +51,26 @@ export const Register = () => {
         <h1>Register</h1>
         <form className="form-wrapper">
           <div className="name">
-            <label className="label">Full Name</label>
+            <label className="label">First Name</label>
             <input
               className="input"
               type="text"
-              name="fullname"
-              value={values.fullname}
+              name="firstName"
+              value={values.firstNname}
               onChange={handleChange}
             />
-            {errors.fullname && <p className="error">{errors.fullname}</p>}
+            {errors.firstname && <p className="error">{errors.firstName}</p>}
+            <div>
+              <label className="label">Last Name</label>
+              <input
+                className="input"
+                type="text"
+                name="lastName"
+                value={values.lastNname}
+                onChange={handleChange}
+              />
+              {errors.lastname && <p className="error">{errors.lastName}</p>}
+            </div>
           </div>
           <div className="email">
             <label className="label">Email</label>
