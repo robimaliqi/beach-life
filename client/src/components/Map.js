@@ -13,7 +13,7 @@ import {
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 
-const ttApiKey = require('../tt-api-key');
+const ttApiKey = require("../tt-api-key");
 
 const MAX_ZOOM = 17;
 
@@ -23,7 +23,7 @@ function Map() {
   const [mapLatitude, setMapLatitude] = useState(54.4916967106725);
   const [mapZoom, setMapZoom] = useState(7);
   const [map, setMap] = useState({});
-  const [beaches, setBeaches] = useState({});
+  const [beaches, setBeaches] = useState([{name: "Shoreham Beach", long: -1.18604276684644, lat: 54.6646667372081}]);
 
   const increaseZoom = () => {
     if (mapZoom < MAX_ZOOM) {
@@ -49,36 +49,34 @@ function Map() {
         Accept: "application/json",
       },
     })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        setBeaches({
-          beaches: responseJson,
-        });
-      });
+    .then((response) => setBeaches(response.json()))
+  }, []);
 
-    console.log(beaches)
-
-    let map = tt.map({
+  useEffect(() => {
+    let map1 = tt.map({
       key: ttApiKey,
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,
     });
 
-    var marker = new tt.Marker().setLngLat([-0.2713284100911, 50.8265866683731]).addTo(map);
-    var popupOffsets = {
-      top: [0, 0],
-      bottom: [0, -70],
-      'bottom-right': [0, -70],
-      'bottom-left': [0, -70],
-      left: [25, -35],
-      right: [-25, -35]
-    }
-    
-    var popup = new tt.Popup({offset: popupOffsets}).setHTML("Shoreham Beach");
-    marker.setPopup(popup).togglePopup();
-    setMap(map);
-    return () => map.remove();
+    beaches.forEach((beach) => {
+      new tt.Marker().setLngLat([beach.long, beach.lat]).addTo(map1);
+    });
+
+    // var popupOffsets = {
+    //   top: [0, 0],
+    //   bottom: [0, -70],
+    //   'bottom-right': [0, -70],
+    //   'bottom-left': [0, -70],
+    //   left: [25, -35],
+    //   right: [-25, -35]
+    // }
+
+    // var popup = new tt.Popup({offset: popupOffsets}).setHTML("Shoreham Beach");
+    // marker.setPopup(popup).togglePopup();
+    setMap(map1);
+    return () => map1.remove();
   }, []);
 
   return (
