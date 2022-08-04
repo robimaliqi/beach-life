@@ -8,6 +8,27 @@ export const Register = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validation = (values) => {
+    let errors = {};
+    if (!values.fullname) {
+      errors.fullname = "Name is required.";
+    }
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      errors.email = "Emailis invalid.";
+    }
+    if (!values.password) {
+      errors.password = "Password is required.";
+    } else if (values.password.length < 5) {
+      errors.password = "Password must be at least five characters.";
+    }
+
+    return errors;
+  };
+
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -17,6 +38,7 @@ export const Register = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setErrors(validation(values));
   };
 
   return (
@@ -35,6 +57,7 @@ export const Register = () => {
               value={values.fullname}
               onChange={handleChange}
             />
+            {errors.fullname && <p className="error">{errors.fullname}</p>}
           </div>
           <div className="email">
             <label className="label">Email</label>
@@ -45,6 +68,7 @@ export const Register = () => {
               value={values.email}
               onChange={handleChange}
             />
+            {errors.email && <p className="error">{errors.email}</p>}
           </div>
           <div className="password">
             <label className="label">Password</label>
@@ -55,6 +79,7 @@ export const Register = () => {
               value={values.password}
               onChange={handleChange}
             />
+            {errors.password && <p className="error">{errors.password}</p>}
           </div>
           <div>
             <button className="submit" onClick={handleFormSubmit}>
