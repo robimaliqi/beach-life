@@ -27,7 +27,7 @@ export const Register = () => {
         </div>
         <form className="form-wrapper">
           <div className="name">
-            <label clasName="label">Full Name</label>
+            <label className="label">Full Name</label>
             <input
               className="input"
               type="text"
@@ -37,7 +37,7 @@ export const Register = () => {
             />
           </div>
           <div className="email">
-            <label clasName="label">Email</label>
+            <label className="label">Email</label>
             <input
               className="input"
               type="email"
@@ -47,7 +47,7 @@ export const Register = () => {
             />
           </div>
           <div className="password">
-            <label clasName="label">Password</label>
+            <label className="label">Password</label>
             <input
               className="input"
               type="password"
