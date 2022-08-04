@@ -16,4 +16,17 @@ describe("SignIn", () => {
     expect(titleValue).toBeInTheDocument();
     
   });
+  it("should render the Sign In page and find the Submit button", async () => {
+    render(
+      <MemoryRouter>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent('Submit');
+    
+  });
 })
