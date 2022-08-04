@@ -1,24 +1,24 @@
 import { Header } from "../components/Header/Header";
 import React, { useState } from "react";
 
-const [values, setValues] = useState({
-  fullname: "",
-  email: "",
-  password: "",
-});
-
-const handleChange = (event) => {
-  setValues({
-    ...values,
-    [event.target.name]: event.target.value,
-  });
-};
-
-const handleFormSubmit = (event) => {
-  event.preventDefault();
-};
-
 export const Register = () => {
+  const [values, setValues] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="container">
       <div className="app-wrapper">
