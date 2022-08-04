@@ -1,4 +1,4 @@
-import { Header } from "../components/Header/Header";
+import { Header } from "../../components/Header/Header";
 import React, { useState } from "react";
 
 export const Register = () => {
@@ -44,9 +44,7 @@ export const Register = () => {
   return (
     <div className="container">
       <div className="app-wrapper">
-        <div>
-          <Header title="Register" />
-        </div>
+        <h1>Register</h1>
         <form className="form-wrapper">
           <div className="name">
             <label className="label">Full Name</label>
@@ -83,7 +81,7 @@ export const Register = () => {
           </div>
           <div>
             <button className="submit" onClick={handleFormSubmit}>
-              Register
+              Sign Up
             </button>
           </div>
         </form>

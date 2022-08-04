@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Home } from "./pages/Home";
 import { Results } from "./pages/Results";
-import { Register } from "./pages/Register";
+import { Register } from "./pages/register/Register";
 import { SignIn } from "./pages/SignIn";
 import { Reviews } from "./pages/Reviews";
 import { NavBar } from "./components/NavBar/NavBar";
