@@ -9,4 +9,11 @@ describe("User schema", () => {
     });
     expect(user.firstName).toEqual("Test");
   });
+
+  it("should contain a last name property", () => {
+    const user = new User({
+      lastName: "Example",
+    });
+    expect(user.lastName).toEqual("Example");
+  });
 });
