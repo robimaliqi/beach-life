@@ -23,4 +23,11 @@ describe("User schema", () => {
     });
     expect(user.email).toEqual("test@example.com");
   });
+
+  it("should contain a password property", () => {
+    const user = new User({
+      password: "password123",
+    });
+    expect(user.password).toEqual("password123");
+  });
 });
