@@ -30,4 +30,29 @@ describe("User schema", () => {
     });
     expect(user.password).toEqual("password123");
   });
+
+  it("can save a new user", (done) => {
+    const user = new User({
+      firstName: "Test",
+      lastName: "Example",
+      email: "test@example.com",
+      password: "password123",
+    });
+
+    user.save((err) => {
+      expect(err).toBeNull();
+
+      User.find((err, users) => {
+        expect(err).toBeNull();
+
+        expect(users[0]).toMatchObject({
+          firstName: "Test",
+          lastName: "Example",
+          email: "test@example.com",
+          password: "password123",
+        });
+        done();
+      });
+    });
+  });
 });
