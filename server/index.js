@@ -18,9 +18,8 @@ app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
 
-app.use(express.json());
-
 // middleware
+app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
 app.get("/", (req, res) => {
