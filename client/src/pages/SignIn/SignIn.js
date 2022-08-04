@@ -1,31 +1,3 @@
-// import { Header } from "../components/Header/Header";
-// import React from "react"
-
-
-
-
-
-
-
-// export const SignIn = () => {
-
-//   const [name, setNAme] = useState("GFG");
-
-//   const handleChange = () => ();
-
-
-//   return(
-//     <div>
-//       <Header title="Sign In" />
-//       <form>
-//         <input value={name} onChange={handleChange}/>
-//       </form>
-//       <h1>hello</h1>
-//     </div>
-    
-//   )
-// };
-
 import { useState } from 'react';
 
 export function SignIn() {
