@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -34,5 +34,56 @@
   }
   to {
     transform: rotate(360deg);
-  }
+  } */
+
+.form{
+  text-align: center;
+}
+  
+.label{
+display: flex;
+justify-content: center;
+font-size: larger;
+padding: 5px;
+}
+
+.input{
+
+padding: 5px;
+border-radius: 5px;
+font-size: larger;
+display: block;
+padding: 5px;
+margin: 10px auto;
+}
+
+.btn{
+color: white;
+background-color: red;
+border-radius: 5px;
+font-size: larger;
+display: block;
+padding: 5px;
+margin: 10px auto;
+}
+
+.messages{
+display: flex;
+justify-content: center;
+}
+
+.error{
+display: block;
+color: red;
+width: fit-content;
+height: 50px;
+padding: 5px;
+}
+
+.success{
+display: block;
+color: black;
+width: fit-content;
+height: 50px;
+padding: 5px;
 }
