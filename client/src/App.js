@@ -3,7 +3,7 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Results } from "./pages/Results";
 import { Register } from "./pages/register/Register";
-import { SignIn } from "./pages/SignIn";
+import { SignIn } from "./pages/SignIn/SignIn";
 import { Reviews } from "./pages/Reviews";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Route, Routes } from "react-router-dom";
