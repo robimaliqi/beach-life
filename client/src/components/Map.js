@@ -11,6 +11,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
+import { Dropdown } from "./Dropdown";
+
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 const beachList = require("./beachList");
@@ -27,12 +29,12 @@ function Map() {
   const [map, setMap] = useState({});
   const [beaches, setBeaches] = useState(beachList);
 
-  const filterBeaches = (selection) => {
-    const filteredBeaches = beaches.filter((beach) => {
-      beach.district === selection
-    });
-    setBeaches(filteredBeaches);
-  };
+  // const filterBeaches = (selection) => {
+  //   const filteredBeaches = beaches.filter((beach) => {
+  //     beach.district === selection
+  //   });
+  //   setBeaches(filteredBeaches);
+  // };
 
   useEffect(() => {
     let map1 = tt.map({
@@ -62,13 +64,15 @@ function Map() {
 
   return (
     <div>
-      
+      <div>
+        <Dropdown />
+      </div>
       <div className="map">
         <div className="mapContainer">
           <div ref={mapElement} className="mapDiv" />
+        </div>
       </div>
     </div>
-  </div>
   );
 }
 
