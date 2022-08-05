@@ -12,7 +12,7 @@ import {
 
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
-const beaches = require('./beachList')
+const beaches = require("./beachList");
 
 const ttApiKey = require("../tt-api-key");
 
@@ -53,14 +53,15 @@ function Map() {
     beaches.forEach((beach) => {
       let marker = new tt.Marker({
         width: 20,
-        height: 20
-      }).setLngLat([beach.long, beach.lat]).addTo(map1);
+        height: 20,
+      })
+        .setLngLat([beach.long, beach.lat])
+        .addTo(map1);
       let popup = new tt.Popup({
         closeButton: false,
         anchor: "bottom",
-        offset: 20
-      })
-        .setHTML(beach.name);
+        offset: 20,
+      }).setHTML(beach.name);
       marker.setPopup(popup);
       setMap(map1);
       return () => map1.remove();
