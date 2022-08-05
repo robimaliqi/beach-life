@@ -50,20 +50,18 @@ function Map() {
       zoom: mapZoom,
     });
 
-    // var popupOffsets = {
-    //   top: [0, 0],
-    //   bottom: [0, -70],
-    //   'bottom-right': [0, -70],
-    //   'bottom-left': [0, -70],
-    //   left: [25, -35],
-    //   right: [-25, -35]
-    // }
-
     beaches.forEach((beach) => {
-      // let marker = 
-      new tt.Marker().setLngLat([beach.long, beach.lat]).addTo(map1);
-      // let popup = new tt.Popup({offset: popupOffsets}).setHTML(beach.name);
-      // marker.setPopup(popup).togglePopup();
+      let marker = new tt.Marker({
+        width: 20,
+        height: 20
+      }).setLngLat([beach.long, beach.lat]).addTo(map1);
+      let popup = new tt.Popup({
+        closeButton: false,
+        anchor: "bottom",
+        offset: 20
+      })
+        .setHTML(beach.name);
+      marker.setPopup(popup);
       setMap(map1);
       return () => map1.remove();
     });
