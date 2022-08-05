@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
-const beaches = require("./beachList");
+const beachList = require("./beachList");
 
 const ttApiKey = require("../tt-api-key");
 
@@ -25,22 +25,13 @@ function Map() {
   const [mapLatitude, setMapLatitude] = useState(53.39687281540704);
   const [mapZoom, setMapZoom] = useState(5);
   const [map, setMap] = useState({});
+  const [beaches, setBeaches] = useState(beachList);
 
-  const increaseZoom = () => {
-    if (mapZoom < MAX_ZOOM) {
-      setMapZoom(mapZoom + 1);
-    }
-  };
-
-  const decreaseZoom = () => {
-    if (mapZoom > 1) {
-      setMapZoom(mapZoom - 1);
-    }
-  };
-
-  const updateMap = () => {
-    map.setCenter([parseFloat(mapLongitude), parseFloat(mapLatitude)]);
-    map.setZoom(mapZoom);
+  const filterBeaches = (selection) => {
+    const filteredBeaches = beaches.filter((beach) => {
+      beach.district === selection
+    });
+    setBeaches(filteredBeaches);
   };
 
   useEffect(() => {
@@ -70,11 +61,14 @@ function Map() {
   }, []);
 
   return (
-    <div className="map">
-      <div className="mapContainer">
-        <div ref={mapElement} className="mapDiv" />
+    <div>
+      
+      <div className="map">
+        <div className="mapContainer">
+          <div ref={mapElement} className="mapDiv" />
       </div>
     </div>
+  </div>
   );
 }
 
