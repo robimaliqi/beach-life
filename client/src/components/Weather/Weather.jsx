@@ -3,26 +3,26 @@ import { useState } from "react";
 import { getBeachWeatherData } from "../../api/WeatherForecast";
 
 export const Weather = () => {
-  // Get today's date
-  const currentDate = new Date(Date.now());
-  const today = currentDate.toISOString();
+  const date = new Date();
+  const today = date.toISOString().split(".")[0];
   console.log(today);
 
   const [location, setlocation] = useState(
-    ("50.8202727622679", "-0.145883429349536")
+    "50.8202727622679, -0.145883429349536"
   );
   // const [startDate, setStartDate] = useState(today);
   // const [endDate, setEndDate] = useState(today);
-  const [weather, setWeather] = useState();
+  const [weather, setWeather] = useState({});
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await getBeachWeatherData({
+      const data = await getBeachWeatherData({
         // SearchParams
         startDateTime: today,
         endDateTime: today,
-        location,
+        location: location,
       }).then((data) => {
+        console.log(data);
         setWeather(data);
       });
     };
@@ -34,6 +34,7 @@ export const Weather = () => {
     <div>
       <p>Weather Forecast</p>
       <div>
+        <h1>hi</h1>
         <p className="day">Monday </p>
         <p className="temperature">22°</p>
       </div>

@@ -33,4 +33,3 @@ export const getBeachWeatherData = async (searchParams) => {
   const weeklyData = beachData.slice(0, 7);
   return weeklyData;
 };
-
