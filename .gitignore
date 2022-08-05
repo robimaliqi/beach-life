@@ -28,3 +28,7 @@ yarn-error.log*
 #Database - MongoDB
 /server/db_info
 /server/db-config.js
+
+# Client - Api
+client/src/api/tt-api-key.js
+
