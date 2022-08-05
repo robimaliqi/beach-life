@@ -70,53 +70,10 @@ function Map() {
   }, []);
 
   return (
-    <div className="App">
-      <Container className="mapContainer">
-        <Row>
-          <Col xs="4">
-            <FormGroup>
-              <Label for="longitude">Longitude</Label>
-              <Input
-                type="text"
-                name="longitude"
-                value={mapLongitude}
-                onChange={(e) => setMapLongitude(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="latitude">Latitude</Label>
-              <Input
-                type="text"
-                name="latitude"
-                value={mapLatitude}
-                onChange={(e) => setMapLatitude(e.target.value)}
-              />
-            </FormGroup>
-            <Col xs="12">
-              <Row>Zoom</Row>
-              <Row>
-                <Button outline color="primary" onClick={decreaseZoom}>
-                  -
-                </Button>
-                <div className="mapZoomDisplay">{mapZoom}</div>
-                <Button outline color="primary" onClick={increaseZoom}>
-                  +
-                </Button>
-              </Row>
-            </Col>
-            <Col xs="12">
-              <Row className="updateButton">
-                <Button color="primary" onClick={updateMap}>
-                  Update Map
-                </Button>
-              </Row>
-            </Col>
-          </Col>
-          <Col xs="8">
-            <div ref={mapElement} className="mapDiv" />
-          </Col>
-        </Row>
-      </Container>
+    <div className="map">
+      <div className="mapContainer">
+        <div ref={mapElement} className="mapDiv" />
+      </div>
     </div>
   );
 }

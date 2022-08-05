@@ -30,7 +30,7 @@ export const Beaches = (props) => {
 
   return (
     <div>
-      <div>Welcome to {findBeachName(id)}</div>
+      <h1>Welcome to {findBeachName(id)}</h1>
     </div>
   );
 };

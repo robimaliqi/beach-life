@@ -4,6 +4,10 @@
 
 .mapContainer {
   margin-top: 25px;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  padding: 10px;
 }
 
 .mapDiv{
@@ -20,7 +24,6 @@
   margin-top: 20px;
 }
 
-  
 .label{
 display: flex;
 justify-content: center;
