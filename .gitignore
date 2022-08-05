@@ -31,4 +31,5 @@ yarn-error.log*
 
 # Client - Api
 client/src/api/tt-api-key.js
+client/src/weatherApiKey.js
 
