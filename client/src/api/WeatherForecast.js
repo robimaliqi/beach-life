@@ -8,6 +8,7 @@ export const getWeatherData = (searchParams) => {
     aggregateHours: 24,
     unitGroup: "uk",
     contentType: "json",
+    iconSet: "icons1",
     ...searchParams,
     key: weatherAPI_KEY,
   });
@@ -32,3 +33,4 @@ export const getBeachWeatherData = async (searchParams) => {
   const weeklyData = beachData.slice(0, 7);
   return weeklyData;
 };
+
