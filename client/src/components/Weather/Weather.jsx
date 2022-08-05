@@ -8,9 +8,7 @@ export const Weather = () => {
       endDateTime: "2022-08-05T00:00:00",
       location: "54.5867919627395,-0.969779715531797",
     });
-    const allData = Object.values(data)[0];
-    const beachData = Object.values(allData)[0].values;
-    console.log(beachData);
+    console.log(data);
   };
 
   fetchWeather();
