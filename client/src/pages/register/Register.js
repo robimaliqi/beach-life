@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header/Header";
 import React, { useState } from "react";
 
 export const Register = () => {
@@ -14,10 +13,10 @@ export const Register = () => {
   const validation = (values) => {
     let errors = {};
     if (!values.firstName) {
-      errors.fullname = "First name is required.";
+      errors.firstName = "First name is required.";
     }
     if (!values.lastName) {
-      errors.fullname = "Last name is required.";
+      errors.lastName = "Last name is required.";
     }
     if (!values.email) {
       errors.email = "Email is required";
@@ -48,28 +47,28 @@ export const Register = () => {
   return (
     <div className="container">
       <div className="app-wrapper">
-        <h1>Register</h1>
-        <form className="form-wrapper">
+        <form className="form">
+          <h1>Register</h1>
           <div className="name">
             <label className="label">First Name</label>
             <input
               className="input"
               type="text"
               name="firstName"
-              value={values.firstNname}
+              value={values.firstName}
               onChange={handleChange}
             />
-            {errors.firstname && <p className="error">{errors.firstName}</p>}
+            {errors.firstName && <p className="error">{errors.firstName}</p>}
             <div>
               <label className="label">Last Name</label>
               <input
                 className="input"
                 type="text"
                 name="lastName"
-                value={values.lastNname}
+                value={values.lastName}
                 onChange={handleChange}
               />
-              {errors.lastname && <p className="error">{errors.lastName}</p>}
+              {errors.lastName && <p className="error">{errors.lastName}</p>}
             </div>
           </div>
           <div className="email">
@@ -95,7 +94,7 @@ export const Register = () => {
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
           <div>
-            <button className="submit" onClick={handleFormSubmit}>
+            <button className="btn" type="submit" onClick={handleFormSubmit}>
               Sign Up
             </button>
           </div>
