@@ -1,14 +1,16 @@
-import { getWeatherData } from "../../api/WeatherForecast";
+import { getBeachWeatherData } from "../../api/WeatherForecast";
 
 export const Weather = () => {
   const fetchWeather = async () => {
-    const data = await getWeatherData({
+    const data = await getBeachWeatherData({
       // SearchParams
       startDateTime: "2022-08-05T00:00:00",
       endDateTime: "2022-08-05T00:00:00",
       location: "54.5867919627395,-0.969779715531797",
     });
-    console.log(data);
+    const allData = Object.values(data)[0];
+    const beachData = Object.values(allData)[0].values;
+    console.log(beachData);
   };
 
   fetchWeather();

@@ -16,3 +16,16 @@ export const getWeatherData = (searchParams) => {
     .then((res) => res.json())
     .then((data) => data);
 };
+
+// API call only shows information about the beach
+const currentBeach = (data) => {
+  const { locations } = data;
+  return { locations };
+};
+
+export const getBeachWeatherData = async (searchParams) => {
+  const beachWeatherData = await getWeatherData(searchParams).then(
+    currentBeach
+  );
+  return beachWeatherData;
+};
