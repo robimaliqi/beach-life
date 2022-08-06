@@ -63,6 +63,8 @@ const options = ["Sussex", "Cornwall", "Devon"];
 
 const MAX_ZOOM = 17;
 
+// DropdownMenu is in this file as I kept getting errors importing it as an external component
+
 function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -77,6 +79,7 @@ function DropdownMenu() {
   // TODO: Make map get filtered after selecting from the dropdown
   // TODO: Make dropdown div/size smaller
   // TODO: Make dropdown list scrollable?
+
   return (
     <Main>
       <h1>Select a district:</h1>
