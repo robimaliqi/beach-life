@@ -5,6 +5,7 @@ export const WeatherCard = ({ forecasts }) => {
         forecasts.map((forecast, index) => {
           return (
             <div key={index}>
+              <p> Date: {forecast.datetimeStr}</p>
               <p>Temperature: {forecast.maxt.toFixed()}°C</p>
               <img
                 src={require(`../../assets/weatherIcons/${forecast.icon}.png`)}
