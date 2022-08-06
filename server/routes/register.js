@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req.body)
   const user = new User(req.body);
   user.save((err) => {
     if (err) {
