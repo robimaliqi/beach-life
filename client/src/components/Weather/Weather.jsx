@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getBeachWeatherData } from "../../api/WeatherForecast";
 
-export const Weather = () => {
+export const Weather = (items) => {
   const date = new Date();
   const today = date.toISOString().split(".")[0];
   console.log(today);
@@ -34,7 +34,6 @@ export const Weather = () => {
     <div>
       <p>Weather Forecast</p>
       <div>
-        <h1>hi</h1>
         <p className="day">Monday </p>
         <p className="temperature">22°</p>
       </div>

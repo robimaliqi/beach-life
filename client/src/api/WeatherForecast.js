@@ -28,8 +28,11 @@ export const getBeachWeatherData = async (searchParams) => {
   const beachWeatherData = await getWeatherData(searchParams).then(
     currentBeach
   );
-  const allData = Object.values(beachWeatherData)[0];
-  const beachData = Object.values(allData)[0].values;
+  const data = Object.values(beachWeatherData)[0];
+  const beachData = Object.values(data)[0].values;
   const weeklyData = beachData.slice(0, 7);
-  return weeklyData;
+  const formattedData = weeklyData.map((day) => {
+    return { conditions: day.conditions, icon: day.icon, temp: day.temp };
+  });
+  return formattedData;
 };
