@@ -42,13 +42,13 @@ export const Register = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
-    console.log({ values });
-    fetch(`/register`, {
+    console.log(values)
+    fetch(`/register/new`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ values }),
+      body: JSON.stringify(values),
     });
   };
 

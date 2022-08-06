@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   console.log(req.body)
   const user = new User(req.body);
   user.save((err) => {
