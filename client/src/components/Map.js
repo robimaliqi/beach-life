@@ -85,9 +85,12 @@ function DropdownMenu() {
         {isOpen && (
           <DropDownListContainer>
             <DropDownList>
-              {options.map((option) => (
-                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                  {option}
+              {beachList.map((beach) => (
+                <ListItem
+                  onClick={onOptionClicked(beach.district)}
+                  key={Math.random()}
+                >
+                  {beach.district}
                 </ListItem>
               ))}
             </DropDownList>
@@ -105,13 +108,6 @@ function Map() {
   const [mapZoom, setMapZoom] = useState(5);
   const [map, setMap] = useState({});
   const [beaches, setBeaches] = useState(beachList);
-
-  // const filterBeaches = (selection) => {
-  //   const filteredBeaches = beaches.filter((beach) => {
-  //     beach.district === selection
-  //   });
-  //   setBeaches(filteredBeaches);
-  // };
 
   useEffect(() => {
     let map1 = tt.map({
