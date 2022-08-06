@@ -7,7 +7,7 @@ export const Weather = (forecasts) => {
   const date = new Date();
   const today = date.toISOString().split(".")[0];
 
-  const [location, setlocation] = useState(
+  const [location, setLocation] = useState(
     "50.8202727622679, -0.145883429349536"
   );
 
