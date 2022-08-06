@@ -74,7 +74,9 @@ function DropdownMenu() {
     setIsOpen(false);
     console.log(selectedOption);
   };
-
+  // TODO: Make map get filtered after selecting from the dropdown
+  // TODO: Make dropdown div/size smaller
+  // TODO: Make dropdown list scrollable?
   return (
     <Main>
       <h1>Select a district:</h1>
