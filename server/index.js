@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config({ path: "../.env" });
 const cors = require("cors");
 const port = process.env.PORT || 1111; // If the .env file is not working then the port number will be 9999
 const app = express();
+const mongoose = require("mongoose");
 
 // Routers
 const homeRouter = require("./routes/home");
@@ -24,8 +25,6 @@ app.use(cors({ origin: true, credentials: true }));
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
 });
-
-const mongoose = require("mongoose");
 
 // Connect to the database
 mongoose
