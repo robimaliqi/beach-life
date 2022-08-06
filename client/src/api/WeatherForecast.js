@@ -32,7 +32,13 @@ export const getBeachWeatherData = async (searchParams) => {
   const beachData = Object.values(data)[0].values;
   const weeklyData = beachData.slice(0, 7);
   const formattedData = weeklyData.map((day) => {
-    return { conditions: day.conditions, icon: day.icon, temp: day.temp };
+    return {
+      conditions: day.conditions,
+      icon: day.icon,
+      maxt: day.maxt,
+      datetimeStr: day.datetimeStr,
+      datetime: day.datetime,
+    };
   });
   return formattedData;
 };
