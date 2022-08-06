@@ -42,3 +42,46 @@ export const getBeachWeatherData = async (searchParams) => {
   });
   return formattedData;
 };
+
+export const dayOfWeek = (date) => {
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const d = new Date(date);
+  let dayName = days[d.getDay()].substring(0, 3);
+
+  // Format today's date
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0);
+  const today = currentDate.toDateString().substring(0, 3);
+
+  if (dayName === today) {
+    dayName = "Today";
+  }
+  return dayName;
+};
+
+// Sun Aug 07 - date format
+// // Format today's date
+// const currentDate = new Date();
+// currentDate.setHours(0, 0, 0, 0);
+// const today = currentDate.toString().split("2022")[0];
+
+// export const dayOfWeek = (date) => {
+//   const d = new Date(date);
+//   let dayName = d.toString().split("2022")[0];
+
+//   if (dayName === today) {
+//     dayName = "Today";
+//   }
+//   // console.log(new Date().toISOString());
+//   console.log(today);
+//   console.log(dayName);
+//   return dayName;
+// };
