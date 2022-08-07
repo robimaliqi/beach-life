@@ -67,7 +67,7 @@ export const dayOfWeek = (date) => {
   return dayName;
 };
 
-// Sun Aug 07 - date format
+// // Sun Aug 07 - date format
 // // Format today's date
 // const currentDate = new Date();
 // currentDate.setHours(0, 0, 0, 0);
