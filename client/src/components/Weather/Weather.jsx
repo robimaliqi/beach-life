@@ -20,8 +20,8 @@ export const Weather = (forecasts) => {
         startDateTime: today,
         endDateTime: today,
         location: location,
-      }).then(async (data) => {
-        await setWeather(data);
+      }).then((data) => {
+        setWeather(data);
       });
     };
 
