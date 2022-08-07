@@ -17,7 +17,7 @@ export const WeatherCard = ({ forecasts }) => {
               <div className="icon-wrapper">
                 <img
                   className="weather-icon"
-                  src={require(`../../assets/weatherIcons/${forecast.icon}.png`)}
+                  src={require(`../../assets/weatherIcons1/${forecast.icon}.png`)}
                   alt={`${forecast.icon} weather icon`}
                 />
               </div>
