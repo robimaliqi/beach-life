@@ -47,60 +47,58 @@ export const Register = () => {
 
   return (
     <div className="container">
-      <div className="app-wrapper">
-        <h1>Register</h1>
-        <form className="form-wrapper">
-          <div className="name">
-            <label className="label">First Name</label>
+      <form className="form">
+        <Header title="Register" />
+        <div className="name">
+          <label className="label">First Name</label>
+          <input
+            className="input"
+            type="text"
+            name="firstName"
+            value={values.firstNname}
+            onChange={handleChange}
+          />
+          {errors.firstname && <p className="error">{errors.firstName}</p>}
+          <div>
+            <label className="label">Last Name</label>
             <input
               className="input"
               type="text"
-              name="firstName"
-              value={values.firstNname}
+              name="lastName"
+              value={values.lastNname}
               onChange={handleChange}
             />
-            {errors.firstname && <p className="error">{errors.firstName}</p>}
-            <div>
-              <label className="label">Last Name</label>
-              <input
-                className="input"
-                type="text"
-                name="lastName"
-                value={values.lastNname}
-                onChange={handleChange}
-              />
-              {errors.lastname && <p className="error">{errors.lastName}</p>}
-            </div>
+            {errors.lastname && <p className="error">{errors.lastName}</p>}
           </div>
-          <div className="email">
-            <label className="label">Email</label>
-            <input
-              className="input"
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
-          <div className="password">
-            <label className="label">Password</label>
-            <input
-              className="input"
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-          </div>
-          <div>
-            <button className="submit" onClick={handleFormSubmit}>
-              Sign Up
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div className="email">
+          <label className="label">Email</label>
+          <input
+            className="input"
+            type="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+          />
+          {errors.email && <p className="error">{errors.email}</p>}
+        </div>
+        <div className="password">
+          <label className="label">Password</label>
+          <input
+            className="input"
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={handleChange}
+          />
+          {errors.password && <p className="error">{errors.password}</p>}
+        </div>
+        <div>
+          <button className="btn" onClick={handleFormSubmit}>
+            Sign Up
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
