@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 
 export const SearchBar = ({ placeholder, data }) => {
   const [filteredData, setFilteredData] = useState([]);
@@ -28,7 +29,9 @@ export const SearchBar = ({ placeholder, data }) => {
           onChange={handleFilter}
           className="search-field"
         />
-        <div className="search-icon"></div>
+        <div className="search-icon">
+          <SearchRoundedIcon />
+        </div>
       </div>
       {filteredData.length !== 0 && (
         <div className="data-result">
