@@ -15,13 +15,14 @@ const resultsRouter = require("./routes/results");
 const registerRouter = require("./routes/register");
 const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
-
+const beachesRouter = require("./routes/beaches");
 
 app.use("/home", homeRouter);
 app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/beaches", beachesRouter);
 
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
@@ -32,7 +33,7 @@ mongoose
   .connect(process.env.MONGO_URI, {
     UseNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "beach_life"
+    dbName: "beach_life",
   })
   .then(() => {
     console.log("Connected to MongoDB");
@@ -42,5 +43,5 @@ mongoose
   });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on port ${port}`);
 });
