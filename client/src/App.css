@@ -1,4 +1,4 @@
-.form{
+.form {
   text-align: center;
 }
 
@@ -6,7 +6,7 @@
   margin-top: 25px;
 }
 
-.mapDiv{
+.mapDiv {
   height: 500px;
 }
 
@@ -20,51 +20,50 @@
   margin-top: 20px;
 }
 
-  
-.label{
-display: flex;
-justify-content: center;
-font-size: larger;
-padding: 5px;
+.label {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  padding: 5px;
 }
 
-.input{
-
-padding: 5px;
-border-radius: 5px;
-font-size: larger;
-display: block;
-padding: 5px;
-margin: 10px auto;
+.input {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
 }
 
-.btn{
-color: white;
-background-color: red;
-border-radius: 5px;
-font-size: larger;
-display: block;
-padding: 5px;
-margin: 10px auto;
+.btn {
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  font-size: larger;
+  display: block;
+  padding: 5px;
+  margin: 10px auto;
 }
 
-.messages{
-display: flex;
-justify-content: center;
+.messages {
+  display: flex;
+  justify-content: center;
 }
 
-.error{
-display: block;
-color: red;
-width: fit-content;
-height: 50px;
-padding: 5px;
+.error {
+  display: block;
+  color: red;
+  /* width: fit-content; */
+  /* height: 50px;
+  padding: 5px; */
+  text-align: center;
 }
 
-.success{
-display: block;
-color: black;
-width: fit-content;
-height: 50px;
-padding: 5px;
+.success {
+  display: block;
+  color: black;
+  width: fit-content;
+  height: 50px;
+  padding: 5px;
 }
