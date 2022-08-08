@@ -3,13 +3,11 @@ import { useState } from "react";
 import { getBeachWeatherData } from "../../api/WeatherForecast";
 import { WeatherCard } from "./WeatherCard";
 
-export const Weather = (forecasts) => {
+export const Weather = ({ beach }) => {
   const date = new Date();
   const today = date.toISOString().split(".")[0];
 
-  const [location, setLocation] = useState(
-    "50.8202727622679, -0.145883429349536"
-  );
+  const [location, setLocation] = useState(beach);
 
   const [weather, setWeather] = useState([]);
 
@@ -19,14 +17,14 @@ export const Weather = (forecasts) => {
         // SearchParams
         startDateTime: today,
         endDateTime: today,
-        location: location,
+        locations: location,
       }).then((data) => {
         setWeather(data);
       });
     };
 
     fetchWeather();
-  }, [location]);
+  }, []);
 
   return (
     <div>
