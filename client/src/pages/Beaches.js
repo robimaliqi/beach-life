@@ -1,52 +1,55 @@
-import { useParams } from "react-router-dom";
+import { useParams, useState } from "react-router-dom";
 const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
 
-const STATIONS_ID_ENDPOINT =
-  "https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations?name=Shoreham";
+const TIDE_ENDPOINT = ``;
 
-const BEACH_TIDE_ENDPOINT =
-  "https://admiraltyapi.azure-api.net/uktidalapi/api/V1/Stations/{stationId}/TidalEvents[?duration]";
+//TODO: Get date now and in +X days to end
+//TODO: Get Lat and Long in variable
+
+const getLat = (id) => {
+  return beaches.map((beach) => {
+    if (beach._id === id) {
+      return beach.lat;
+    }
+  });
+};
+
+const getLong = (id) => {
+  return beaches.map((beach) => {
+    if (beach._id === id) {
+      return beach.long;
+    }
+  });
+};
+
 export const Beaches = (props) => {
+  const { date } = new Date(Date.now).toLocaleDateString();
   const { id } = useParams();
+  const { lat } = getLat(id);
+  const { long } = getLong(id);
 
   const getStationID = (id) => {
-    fetch(`${STATIONS_ID_ENDPOINT}`, {
-      headers: {
-        "Content-Type": "text/json",
-        "Ocp-Apim-Subscription-Key": "3bec6e72255f433bad2ecb55420fb29c",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST,PATCH",
-      },
-    })
+    fetch(
+      `https://api.stormglass.io/v2/tide/extremes/pointlat=${lat}&lng=${long}&start=2022-08-08&end=2022-08-12`,
+      {
+        headers: {
+          Authorization:
+            "e3908e60-170a-11ed-a226-0242ac130002-e3908ed8-170a-11ed-a226-0242ac130002",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((responseData) => {
         console.log(responseData);
       })
-      .catch((error) => console.log(error)); //get beach ID
-    //make another call to BEACH_TIDE_ENDPOINT using above ID to get tide info
+      .catch((error) => console.log(error));
   };
 
   const findBeachName = (id) => {
     return beaches.map((beach) => {
       if (beach._id === id) {
         return beach.name;
-      }
-    });
-  };
-
-  const getLat = (id) => {
-    return beaches.map((beach) => {
-      if (beach._id === id) {
-        return beach.lat;
-      }
-    });
-  };
-
-  const getLong = (id) => {
-    return beaches.map((beach) => {
-      if (beach._id === id) {
-        return beach.long;
       }
     });
   };
