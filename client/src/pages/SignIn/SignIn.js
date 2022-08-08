@@ -33,19 +33,18 @@ export function SignIn() {
     }
   };
 
-  // Showing success message
-  const successMessage = () => {
-    return (
-      <div
-        className="success"
-        style={{
-          display: submitted ? "" : "none",
-        }}
-      >
-        <h1>User {email} successfully registered!!</h1>
-      </div>
-    );
-  };
+  // // Showing success message
+  // const successMessage = () => {
+  // 	return (
+  // 	<div
+  // 		className="success"
+  // 		style={{
+  // 		display: submitted ? '' : 'none',
+  // 		}}>
+  // 		<h1>User {email} successfully registered!!</h1>
+  // 	</div>
+  // 	);
+  // };
 
   // Showing error message if error is true
   const errorMessage = () => {
@@ -56,7 +55,7 @@ export function SignIn() {
           display: error ? "" : "none",
         }}
       >
-        <h1>Please enter all the fields</h1>
+        <p>Please enter all the fields</p>
       </div>
     );
   };
@@ -71,7 +70,7 @@ export function SignIn() {
         {/* Calling to the methods */}
         <div className="messages">
           {errorMessage()}
-          {successMessage()}
+          {/* {successMessage()} */}
         </div>
 
         <form>
