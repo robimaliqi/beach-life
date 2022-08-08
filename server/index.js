@@ -4,7 +4,8 @@ const cors = require("cors");
 const port = process.env.PORT || 1111; // If the .env file is not working then the port number will be 9999
 const app = express();
 const mongoose = require("mongoose");
-const session = require("express-session")
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 // middleware
 app.use(express.json());
@@ -16,10 +17,14 @@ const resultsRouter = require("./routes/results");
 const registerRouter = require("./routes/register");
 const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
+const sessionsRouter = require("./routes/sessions");
+const usersRouter = require("./routes/users");
 
 // middleware function to check for logged-in users
 const sessionChecker = (req, res, next) => {
   if (!req.session.user && !req.cookies.user_sid) {
+    console.log(req.cookies.user_sid);
+    console.log("anything");
     res.redirect("/sessions/new");
   } else {
     next();
@@ -31,9 +36,9 @@ app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
-
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
@@ -44,7 +49,7 @@ mongoose
   .connect(process.env.MONGO_URI, {
     UseNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: "beach_life"
+    dbName: "beach_life",
   })
   .then(() => {
     console.log("Connected to MongoDB");
@@ -54,7 +59,7 @@ mongoose
   });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on port ${port}`);
 });
 
 app.use(
@@ -108,18 +113,3 @@ app.use((err, req, res) => {
 });
 
 module.exports = app;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
