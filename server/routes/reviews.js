@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Review = require('../models/review')
+const Review = require("../models/review");
 
 router.get("/", (req, res) => {
   res.json({
@@ -8,15 +8,19 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post('/new', (req, res) => {
-  console.log(req.body)
-  const review = new Review(req.body);
+router.post("/:id", (req, res) => {
+  console.log(req.body);
+  body = {
+    text: req.body.text,
+    beachId: req.params.id,
+  }
+  const review = new Review(body);
   review.save((err) => {
     if (err) {
       throw err;
     }
-    res.send("")
+    res.send("");
   });
-})
+});
 
 module.exports = router;
