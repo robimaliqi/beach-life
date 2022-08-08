@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 export const SearchBar = ({ placeholder, data }) => {
   const [filteredData, setFilteredData] = useState([]);
@@ -30,7 +31,11 @@ export const SearchBar = ({ placeholder, data }) => {
           className="search-field"
         />
         <div className="search-icon">
-          <SearchRoundedIcon />
+          {wordEntered.length === 0 ? (
+            <SearchRoundedIcon />
+          ) : (
+            <CloseRoundedIcon />
+          )}
         </div>
       </div>
       {filteredData.length !== 0 && (
