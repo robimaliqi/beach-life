@@ -35,7 +35,7 @@ export const Beaches = (props) => {
   const beachCoOrds = `${latitude}, ${longitude}`;
 
   return (
-    <div>
+    <div className="container">
       <h1>Welcome to {findBeachName(id)}</h1>
       <Weather beach={beachCoOrds} />
     </div>
