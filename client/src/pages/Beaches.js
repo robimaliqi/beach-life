@@ -31,11 +31,10 @@ export const Beaches = (props) => {
 
   const getStationID = (id) => {
     fetch(
-      `https://api.stormglass.io/v2/tide/extremes/pointlat=${lat}&lng=${long}&start=2022-08-08&end=2022-08-12`,
+      `https://api.stormglass.io/v2/tide/extremes/point?lat=50.8265866683731&lng=-0.2713284100911&start=2022-08-08&end=2022-08-12`,
       {
         headers: {
-          Authorization:
-            "e3908e60-170a-11ed-a226-0242ac130002-e3908ed8-170a-11ed-a226-0242ac130002",
+          Authorization: tidalAPIKey,
         },
       }
     )
