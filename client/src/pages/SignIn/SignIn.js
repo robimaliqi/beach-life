@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import { response } from "../../../../server";
 
 export function SignIn() {
 
@@ -44,21 +45,12 @@ export function SignIn() {
         email: email,
         password: password
       }),
-    });
-  };
-
-  // // Showing success message
-  // const successMessage = () => {
-  // 	return (
-  // 	<div
-  // 		className="success"
-  // 		style={{
-  // 		display: submitted ? '' : 'none',
-  // 		}}>
-  // 		<h1>User {email} successfully registered!!</h1>
-  // 	</div>
-  // 	);
-  // };
+    })
+    .then((response) => {
+        console.log(response)
+        if (response.status === 200) {navigate('/')}
+      })
+    };
 
   // Showing error message if error is true
   const errorMessage = () => {

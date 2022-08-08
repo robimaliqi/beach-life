@@ -19,10 +19,12 @@ router.post("/new", async (req, res) => {
         console.log(`sesh: ${req.session.user}`)
         res.send("200");
       } else {
+        res.status(401)
         res.send("401");
         console.log('not a valid password')
       }
     } else {
+      res.status(401)
       res.send("401");
       console.log('not a valid email')
     }
