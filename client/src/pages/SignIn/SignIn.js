@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function SignIn() {
+
+  let navigate = useNavigate()
+
   // States for registration
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +32,7 @@ export function SignIn() {
       setError(true);
     } else {
       setSubmitted(true);
+      navigate('/')
       setError(false);
     }
   };
