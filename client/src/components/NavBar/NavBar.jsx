@@ -18,11 +18,6 @@ export const NavBar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/results" className="nav-link">
-              Results
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/register" className="nav-link">
               Register
             </Link>
