@@ -10,101 +10,12 @@ import {
   Input,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 const beachList = require("./beachList");
 const ttApiKey = require("../tt-api-key");
 
-const Main = styled("div")`
-  font-family: sans-serif;
-  background: #f0f0f0;
-  height: 100vh;
-`;
-
-const DropDownContainer = styled("div")`
-  width: 10.5em;
-  margin: 0 auto;
-`;
-
-const DropDownHeader = styled("div")`
-  margin-bottom: 0.8em;
-  padding: 0.4em 2em 0.4em 1em;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  font-weight: 500;
-  font-size: 1.3rem;
-  color: #3faffa;
-  background: #ffffff;
-`;
-
-const DropDownListContainer = styled("div")``;
-
-const DropDownList = styled("ul")`
-  padding: 0;
-  margin: 0;
-  padding-left: 1em;
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  box-sizing: border-box;
-  color: #3faffa;
-  font-size: 1.3rem;
-  font-weight: 500;
-  &:first-child {
-    padding-top: 0.8em;
-  }
-`;
-
-const ListItem = styled("li")`
-  list-style: none;
-  margin-bottom: 0.8em;
-`;
-
-const options = ["Sussex", "Cornwall", "Devon"];
-
 const MAX_ZOOM = 17;
-
-// DropdownMenu is in this file as I kept getting errors importing it as an external component
-
-function DropdownMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const toggling = () => setIsOpen(!isOpen);
-
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setIsOpen(false);
-    console.log(selectedOption);
-  };
-  // TODO: Make map get filtered after selecting from the dropdown
-  // TODO: Make dropdown div/size smaller
-  // TODO: Make dropdown list scrollable?
-
-  return (
-    <Main>
-      <h1>Select a district:</h1>
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
-          {selectedOption || "Sussex"}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {beachList.map((beach) => (
-                <ListItem
-                  onClick={onOptionClicked(beach.district)}
-                  key={Math.random()}
-                >
-                  {beach.district}
-                </ListItem>
-              ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
-    </Main>
-  );
-}
 
 function Map() {
   const mapElement = useRef();
@@ -142,9 +53,6 @@ function Map() {
 
   return (
     <div>
-      <div>
-        <DropdownMenu />
-      </div>
       <div className="map">
         <div className="mapContainer">
           <div ref={mapElement} className="mapDiv" />
