@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Map from "./Map";
 
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -22,11 +21,10 @@ class Home extends Component {
     return (
       <div>
         <h1>{this.state.home.name}</h1>
-        <div class="map">
+        <div className="map">
           <Map />
         </div>
       </div>
-
     );
   }
 }
