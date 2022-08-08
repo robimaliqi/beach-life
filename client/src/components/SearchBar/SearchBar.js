@@ -20,6 +20,11 @@ export const SearchBar = ({ placeholder, data }) => {
     }
   };
 
+  const clearInput = () => {
+    setFilteredData([]);
+    setWordEntered("");
+  };
+
   return (
     <div className="search">
       <div className="search-inputs">
@@ -34,7 +39,7 @@ export const SearchBar = ({ placeholder, data }) => {
           {wordEntered.length === 0 ? (
             <SearchRoundedIcon />
           ) : (
-            <CloseRoundedIcon />
+            <CloseRoundedIcon onClick={clearInput} />
           )}
         </div>
       </div>
