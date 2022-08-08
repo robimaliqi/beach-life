@@ -5,11 +5,12 @@ const port = process.env.PORT || 1111; // If the .env file is not working then t
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 
 // middleware
 app.use(express.json());
 app.use(cors());
+
 
 // Routers
 const homeRouter = require("./routes/home");
@@ -25,11 +26,24 @@ const sessionChecker = (req, res, next) => {
   if (!req.session.user && !req.cookies.user_sid) {
     console.log(req.cookies.user_sid);
     console.log("anything");
-    res.redirect("/sessions/new");
+    res.redirect("/signin/new");
   } else {
     next();
   }
 };
+
+app.use(
+  session({
+    key: "user_sid",
+    secret: "super_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 3600000,
+      // you will currently be kicked out after 1 hour
+    },
+  })
+);
 
 app.use("/home", sessionChecker, homeRouter);
 app.use("/results", resultsRouter);
@@ -38,7 +52,7 @@ app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
-app.use(cookieParser());
+// app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });
@@ -61,19 +75,6 @@ mongoose
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-app.use(
-  session({
-    key: "user_sid",
-    secret: "super_secret",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      expires: 3600000,
-      // you will currently be kicked out after 1 hour
-    },
-  })
-);
 
 // clear the cookies after user logs out
 app.use((req, res, next) => {

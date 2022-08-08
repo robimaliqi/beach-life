@@ -32,9 +32,19 @@ export function SignIn() {
       setError(true);
     } else {
       setSubmitted(true);
-      navigate('/')
+      // navigate('/')
       setError(false);
     }
+    fetch(`/signin/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+    });
   };
 
   // // Showing success message
