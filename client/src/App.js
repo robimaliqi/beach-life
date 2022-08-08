@@ -14,10 +14,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/results" element={<Results />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/reviews" element={<Reviews />} />
       </Routes>
     </div>
   );

@@ -5,7 +5,6 @@ const port = process.env.PORT || 1111; // If the .env file is not working then t
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
-// const cookieParser = require("cookie-parser");
 
 // middleware
 app.use(express.json());
@@ -18,7 +17,6 @@ const resultsRouter = require("./routes/results");
 const registerRouter = require("./routes/register");
 const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
-const sessionsRouter = require("./routes/sessions");
 const usersRouter = require("./routes/users");
 
 // middleware function to check for logged-in users
@@ -50,9 +48,7 @@ app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
-app.use("/sessions", sessionsRouter);
 app.use("/users", usersRouter);
-// app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send({ express: "Backend connected to React" });

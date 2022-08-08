@@ -16,8 +16,8 @@ router.post("/new", async (req, res) => {
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
         req.session.user = user;
-        console.log(`sesh: ${req.session.user}`)
         res.send("200");
+        res.status(200)
       } else {
         res.status(401)
         res.send("401");
