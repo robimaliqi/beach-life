@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header/Header";
 import React, { useState } from "react";
 
 export const Register = () => {
@@ -14,10 +13,10 @@ export const Register = () => {
   const validation = (values) => {
     let errors = {};
     if (!values.firstName) {
-      errors.fullname = "First name is required.";
+      errors.firstName = "First name is required.";
     }
     if (!values.lastName) {
-      errors.fullname = "Last name is required.";
+      errors.lastName = "Last name is required.";
     }
     if (!values.email) {
       errors.email = "Email is required";
@@ -43,62 +42,72 @@ export const Register = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
+    console.log(values);
+    fetch(`/register/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
   };
 
   return (
     <div className="container">
-      <form className="form">
-        <Header title="Register" />
-        <div className="name">
-          <label className="label">First Name</label>
-          <input
-            className="input"
-            type="text"
-            name="firstName"
-            value={values.firstNname}
-            onChange={handleChange}
-          />
-          {errors.firstname && <p className="error">{errors.firstName}</p>}
-          <div>
-            <label className="label">Last Name</label>
+      <div className="app-wrapper">
+        <form className="form">
+          <h1>Register</h1>
+          <div className="name">
+            <label className="label">First Name</label>
             <input
               className="input"
               type="text"
-              name="lastName"
-              value={values.lastNname}
+              name="firstName"
+              value={values.firstName}
               onChange={handleChange}
             />
-            {errors.lastname && <p className="error">{errors.lastName}</p>}
+            {errors.firstName && <p className="error">{errors.firstName}</p>}
+            <div>
+              <label className="label">Last Name</label>
+              <input
+                className="input"
+                type="text"
+                name="lastName"
+                value={values.lastName}
+                onChange={handleChange}
+              />
+              {errors.lastName && <p className="error">{errors.lastName}</p>}
+            </div>
           </div>
-        </div>
-        <div className="email">
-          <label className="label">Email</label>
-          <input
-            className="input"
-            type="email"
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p className="error">{errors.email}</p>}
-        </div>
-        <div className="password">
-          <label className="label">Password</label>
-          <input
-            className="input"
-            type="password"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p className="error">{errors.password}</p>}
-        </div>
-        <div>
-          <button className="btn" onClick={handleFormSubmit}>
-            Sign Up
-          </button>
-        </div>
-      </form>
+          <div className="email">
+            <label className="label">Email</label>
+            <input
+              className="input"
+              type="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+            />
+            {errors.email && <p className="error">{errors.email}</p>}
+          </div>
+          <div className="password">
+            <label className="label">Password</label>
+            <input
+              className="input"
+              type="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+            />
+            {errors.password && <p className="error">{errors.password}</p>}
+          </div>
+          <div>
+            <button className="btn" type="submit" onClick={handleFormSubmit}>
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

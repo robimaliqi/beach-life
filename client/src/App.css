@@ -4,6 +4,10 @@
 
 .mapContainer {
   margin-top: 25px;
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  padding: 10px;
 }
 
 .mapDiv {
@@ -54,9 +58,10 @@
 .error {
   display: block;
   color: red;
-  width: fit-content;
-  height: 50px;
-  padding: 5px;
+  /* width: fit-content; */
+  /* height: 50px;
+  padding: 5px; */
+  text-align: center;
 }
 
 .success {
