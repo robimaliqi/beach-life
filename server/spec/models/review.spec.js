@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 require("../mongodb_helper");
 const Review = require("../../models/review");
+const User = require("../../models/user")
 
 describe("Review schema", () => {
   beforeEach((done) => {
