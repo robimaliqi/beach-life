@@ -20,12 +20,13 @@ export const SearchBar = ({ placeholder, data }) => {
 
   return (
     <div className="search">
-      <div className="searchInputs">
+      <div className="search-inputs">
         <input
           type="text"
           placeholder={placeholder}
           value={wordEntered}
           onChange={handleFilter}
+          className="search-field"
         />
         <div className="search-icon"></div>
       </div>

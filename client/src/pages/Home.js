@@ -1,6 +1,6 @@
 import Map from "../components/Map";
 import { SearchBar } from "../components/SearchBar/SearchBar";
-import BeachData from "../components/SearchBar/UkBeaches.json";
+import BeachData from "../components/beachList";
 
 export const Home = () => {
   return (
