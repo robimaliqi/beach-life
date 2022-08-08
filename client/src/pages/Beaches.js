@@ -1,5 +1,7 @@
+import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
 const beaches = require("../components/beachList");
+
 
 export const Beaches = (props) => {
   const { id } = useParams();
@@ -31,6 +33,7 @@ export const Beaches = (props) => {
   return (
     <div>
       <h1>Welcome to {findBeachName(id)}</h1>
+      <div className="review"><Review /></div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 require("../mongodb_helper");
 const Review = require("../../models/review");
-const User = require("../../models/user")
 
 describe("Review schema", () => {
   beforeEach((done) => {
@@ -17,4 +16,3 @@ describe("Review schema", () => {
     expect(review.text).toEqual("This is a review");
   });
 });
-
