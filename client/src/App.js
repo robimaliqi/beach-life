@@ -9,6 +9,11 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+
+  const logOut = () => {
+    fetch('/signin/destroy', { method: 'DELETE' });
+  }
+
   return (
     <div>
       <NavBar />

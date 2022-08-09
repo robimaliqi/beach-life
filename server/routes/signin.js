@@ -28,7 +28,15 @@ router.post("/new", async (req, res) => {
       res.send("401");
       console.log('not a valid email')
     }
+})
 
+router.delete("/destroy", (req, res) => {
+  console.log("logging out");
+  if (req.session.user) {
+    req.session.destroy();
+  }
+  res.send("user logged out")
+  console.log(`session: ${req.session}`)
 })
 
 module.exports = router;
