@@ -1,4 +1,5 @@
 import "./navBar.css";
+import { LogOut } from "../logOut"
 import { Link } from "react-router-dom";
 
 export const NavBar = () => {
@@ -24,9 +25,15 @@ export const NavBar = () => {
           </li>
           <li className="nav-item">
             <Link to="/signin" className="nav-link">
-              Sign In
+              Log In
             </Link>
           </li>
+          <li className="nav-item">
+            <LogOut className="nav-link">
+              Log Out
+            </LogOut>
+          </li>
+
         </ul>
       </nav>
     </header>
