@@ -42,7 +42,7 @@ export const Register = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
-    console.log(values)
+    console.log(values);
     fetch(`/register/new`, {
       method: "POST",
       headers: {

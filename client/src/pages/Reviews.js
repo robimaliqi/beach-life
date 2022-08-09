@@ -1,5 +1,9 @@
 import { Header } from "../components/Header/Header";
 
 export const Reviews = () => {
-  return <Header title="Reviews" />;
+  return (
+    <div className="container">
+      <Header title="Reviews" />
+    </div>
+  );
 };
