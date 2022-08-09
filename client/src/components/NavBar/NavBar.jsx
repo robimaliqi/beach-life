@@ -27,11 +27,6 @@ export const NavBar = () => {
               Sign In
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="reviews" className="nav-link">
-              Reviews
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>

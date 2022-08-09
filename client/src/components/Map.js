@@ -1,21 +1,9 @@
 import * as React from "react";
 import { useState, useEffect, useRef } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  FormGroup,
-  Label,
-  Input,
-} from "reactstrap";
-import { Link } from "react-router-dom";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 const beachList = require("./beachList");
 const ttApiKey = require("../tt-api-key");
-
-const MAX_ZOOM = 17;
 
 function Map() {
   const mapElement = useRef();

@@ -1,6 +1,8 @@
+import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
 import { Weather } from "../components/Weather/Weather";
 const beaches = require("../components/beachList");
+
 
 export const Beaches = (props) => {
   const { id } = useParams();
@@ -38,6 +40,7 @@ export const Beaches = (props) => {
     <div className="container">
       <h1>Welcome to {findBeachName(id)}</h1>
       <Weather beach={beachCoOrds} />
+      <div className="review"><Review id={id} /></div>
     </div>
   );
 };
