@@ -2,20 +2,23 @@ const express = require("express");
 const router = express.Router();
 const Review = require("../models/review");
 
-router.get("/", (req, res) => {
-  res.json({
-    name: "Reviews",
-  });
+router.get("/:id", async (req, res) => {
+  const reviews = await Review.find({ beachId: req.params.id });
+  res.setHeader("Content-Type", "application/json");
+  res.end(
+    JSON.stringify({
+      reviews: reviews,
+    })
+  );
 });
 
-router.post("/:id", (req, res) => {
-  console.log(req.body);
+router.post("/:id", async (req, res) => {
   body = {
     text: req.body.text,
     beachId: req.params.id,
-  }
+  };
   const review = new Review(body);
-  review.save((err) => {
+  await review.save((err) => {
     if (err) {
       throw err;
     }
