@@ -4,9 +4,9 @@ export const Home = () => {
   return (
     <div>
       <h1>Beach Life</h1>
-      <div class="map">
+      <div className="map">
         <Map />
       </div>
-    </div>)
-  ;
+    </div>
+  );
 };
