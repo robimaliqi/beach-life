@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export function Review(props) {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState, formState: { errors, isSubmitSuccessful } } = useForm();
   const [reviews, setReviews ] = useState({reviews: [{
-    _id: "1",
+    _id: "",
     firstName: "",
-    text: "testing",
+    text: "",
     beachId: "",
   }]
 })
@@ -23,6 +23,7 @@ const fetchReviews = () => {
       setReviews(responseJson);
     });
 };
+
   const onSubmit = (data) => {
     console.log(data);
     fetch(`/reviews/${props.id}`, {
@@ -38,6 +39,12 @@ const fetchReviews = () => {
   useEffect(() => {
     fetchReviews();
   }, [])
+
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({ text: "" });
+    }
+  }, [formState, reset]);
 
   return (
     <div>
