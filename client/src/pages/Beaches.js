@@ -19,7 +19,12 @@ export const Beaches = (props) => {
       long: "",
     },
   ]);
-  const [tides, setTides] = useState([{ date: "", type: "" }]);
+  const [tides, setTides] = useState([
+    // don't change this
+    { time: "2022-08-09T05:06:07", 
+    type: "high"
+  }
+  ]);
   const getBeach = (id) => {
     return beachList.filter((beach) => {
       return beach._id === id;
@@ -33,36 +38,41 @@ export const Beaches = (props) => {
     setBeach(getBeach(id));
   }, []);
 
-  useEffect(() => {
-    fetch(
-      //`https://api.stormglass.io/v2/tide/extremes/point?lat=${lat}&lng=${long}&start=${today}&end=${endDate}`,
-      {
-        headers: {
-          Authorization: tidalAPIKey,
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((responseData) => {
-        setTides(responseData.data);
-        console.log(tides);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://api.stormglass.io/v2/tide/extremes/point?lat=${lat}&lng=${long}&start=${today}&end=${endDate}`,
+  //     {
+  //       headers: {
+  //         Authorization: tidalAPIKey,
+  //       },
+  //     }
+  //   )
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       setTides(responseData.data);
+  //       console.log(tides);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []);
+
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString();
+  }
+
+  const formatTime = (date) => {
+    return new Date(date).toLocaleTimeString("en-gb");
+  }
 
   return (
     <div>
       <h1>Welcome to {beach[0].name}</h1>
-      <div>
-        {lat}, {long}
-      </div>
-      <div className="tides">
-        {tides.map((tide, index) => {
+      <ul className="tides">
+        {tides.map((tide, index) => (
           <li className="tide" key={index}>
-            {tide.date}: {tide.type}
-          </li>;
-        })}
-      </div>
+            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
