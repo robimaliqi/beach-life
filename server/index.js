@@ -10,7 +10,6 @@ const session = require("express-session");
 app.use(express.json());
 app.use(cors());
 
-
 // Routers
 const homeRouter = require("./routes/home");
 const resultsRouter = require("./routes/results");

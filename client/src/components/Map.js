@@ -37,7 +37,6 @@ function Map() {
         offset: 20,
       }).setHTML(`<a href="/beaches/${beach._id}"> ${beach.name}</a>`);
       marker.setPopup(popup);
-
       setMap(map1);
       return () => map1.remove();
     });
