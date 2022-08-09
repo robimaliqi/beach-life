@@ -30,7 +30,7 @@ export const SearchBar = ({ placeholder, data }) => {
     <div className="search">
       <div className="search-inputs">
         <div className="search-icon">
-          <SearchRoundedIcon id="search-icon-only"/>
+          <SearchRoundedIcon id="search-icon-only" />
         </div>
         <input
           type="text"
@@ -51,12 +51,7 @@ export const SearchBar = ({ placeholder, data }) => {
         <div className="data-result">
           {filteredData.slice(0, 6).map((value, key) => {
             return (
-              <a
-                className="data-item"
-                href={"/results"}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="data-item" href={`/beaches/${value._id}`}>
                 <p className="beach-name">{value.name} </p>
               </a>
             );
