@@ -2,8 +2,9 @@ import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Weather } from "../components/Weather/Weather";
-import { data } from "../components/beachApiResult";
-const tidalAPIKey = require("../tide-api");
+// import { data } from "../components/beachApiResult";
+import { Address } from "../components/Address/Address";
+// const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
@@ -72,6 +73,7 @@ export const Beaches = (props) => {
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
+      <Address data={beaches} beachId={id} />
       <Weather beach={beachCoOrds} />
       <ul className="tides">
         {tides.map((tide, index) => (
