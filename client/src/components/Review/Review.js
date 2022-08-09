@@ -5,7 +5,9 @@ export function Review(props) {
   const { register, handleSubmit, reset, formState, formState: { errors, isSubmitSuccessful } } = useForm();
   const [reviews, setReviews ] = useState({reviews: [{
     _id: "",
-    firstName: "",
+    user: {
+      firstName: "",
+    },
     text: "",
     beachId: "",
   }]
@@ -55,7 +57,10 @@ const fetchReviews = () => {
       </form>
       <ul className="reviews">
         {reviews.reviews.map((review) => (
-          <li className="review" key={review._id}> {review.text} </li>
+          <li className="review" key={review._id}>
+            <div className="review-author">{review.user.firstName}</div>
+            <div className="review-text">{review.text} </div>
+          </li>
         ))}
       </ul>
     </div>
