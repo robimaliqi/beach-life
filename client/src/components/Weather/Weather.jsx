@@ -28,8 +28,10 @@ export const Weather = ({ beach }) => {
 
   return (
     <div>
-      <p>Weather Forecast</p>
-      <div>{weather && <WeatherCard forecasts={weather} />}</div>
+      <div>
+        <p>Weather Forecast</p>
+        {weather && <WeatherCard forecasts={weather} />}
+      </div>
     </div>
   );
 };

@@ -73,7 +73,7 @@ export const Beaches = (props) => {
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
-      <Address data={beaches} beachId={id} />
+      <Address beachData={beaches} beachId={id} />
       <Weather beach={beachCoOrds} />
       <ul className="tides">
         {tides.map((tide, index) => (
