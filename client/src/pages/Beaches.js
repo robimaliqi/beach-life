@@ -40,7 +40,7 @@ export const Beaches = (props) => {
     <div className="container">
       <h1>Welcome to {findBeachName(id)}</h1>
       <Weather beach={beachCoOrds} />
-      <div className="review"><Review id={id} /></div>
+      <div className="review"><Review id={id} user={props.user}/></div>
     </div>
   );
 };
