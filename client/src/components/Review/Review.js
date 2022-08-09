@@ -53,29 +53,18 @@ const fetchReviews = () => {
     return new Date(dateString).toLocaleDateString();
   }
 
-  if (props.user) {
-    return (
-      <div>
+  return (
+    <div>
+      {props.user && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea {...register("text", { required: true })} />
           {errors.text && <span>This field is required</span>}
           <input type="submit" />
         </form>
-        <ul className="reviews">
-          {reviews.reviews.map((review) => (
-            <li className="review" key={review._id}>
-              <div className="review-author">{review.user.firstName}</div>
-              <div className="reviewDate">{formatDate(review.createdAt)}</div>
-              <div className="review-text">{review.text} </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  } else {
-    return (
-      <div>
+      )}
+      {!props.user && (
         <div className="login-advice">You must be logged in to leave a review</div>
+      )}
         <ul className="reviews">
           {reviews.reviews.map((review) => (
             <li className="review" key={review._id}>
@@ -86,7 +75,5 @@ const fetchReviews = () => {
           ))}
         </ul>
       </div>
-    );
-
-  }
+  );
 }
