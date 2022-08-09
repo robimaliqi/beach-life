@@ -33,7 +33,6 @@ export function SignIn() {
       setError(true);
     } else {
       setSubmitted(true);
-      // navigate('/')
       setError(false);
     }
     fetch(`/signin/new`, {
