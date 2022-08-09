@@ -10,6 +10,7 @@ export function Review(props) {
     },
     text: "",
     beachId: "",
+    createdAt: "",
   }]
 })
 
@@ -48,6 +49,10 @@ const fetchReviews = () => {
     }
   }, [formState, reset]);
 
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString();
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,6 +64,7 @@ const fetchReviews = () => {
         {reviews.reviews.map((review) => (
           <li className="review" key={review._id}>
             <div className="review-author">{review.user.firstName}</div>
+            <div className="reviewDate">{formatDate(review.createdAt)}</div>
             <div className="review-text">{review.text} </div>
           </li>
         ))}
