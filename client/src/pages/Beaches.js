@@ -28,30 +28,29 @@ export const Beaches = (props) => {
     },
   ]);
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     setBeach(getBeach(id));
+    fetch(
+      `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach[0].lat}&lng=${beach[0].long}&start=${today}&end=${endDate}`,
+      {
+        headers: {
+          Authorization: tidalAPIKey,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData);
+      })
+      .catch((error) => console.log(error));
   }, []);
-
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.stormglass.io/v2/tide/extremes/point?lat=${beach[0].lat}&lng=${beach[0].long}&start=${today}&end=${endDate}`,
-  //     {
-  //       headers: {
-  //         Authorization: tidalAPIKey,
-  //       },
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
-  //       console.log(responseData);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
 
   return (
     <div>
       <h1>Welcome to {beach[0].name}</h1>
-      <div>{beach[0].lat}</div>
+      <div>{beach[0].long}</div>
     </div>
   );
 };
