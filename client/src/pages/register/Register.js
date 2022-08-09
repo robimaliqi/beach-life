@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+
+  let navigate = useNavigate()
+
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -27,6 +31,8 @@ export const Register = () => {
       errors.password = "Password is required.";
     } else if (values.password.length < 5) {
       errors.password = "Password must be at least five characters.";
+    } else{
+        navigate('/signin')
     }
 
     return errors;
@@ -42,7 +48,7 @@ export const Register = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(values));
-    console.log(values)
+    console.log(values);
     fetch(`/register/new`, {
       method: "POST",
       headers: {
@@ -50,6 +56,7 @@ export const Register = () => {
       },
       body: JSON.stringify(values),
     });
+   
   };
 
   return (
