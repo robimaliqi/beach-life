@@ -12,7 +12,9 @@ export function LogOut() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="submit" className="nav-item" value="Log Out"/>
+        <div className="nav-item">
+          <input type="submit" className="nav-link" value="Log Out"/>
+        </div>
       </form>
     </div>
   );

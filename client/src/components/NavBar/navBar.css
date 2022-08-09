@@ -41,6 +41,8 @@ link = nav-link */
   border-radius: 1px;
   margin: 5px;
   transition: 0.2s;
+  background-color: transparent;
+  border: none;
 }
 
 .nav-link {
