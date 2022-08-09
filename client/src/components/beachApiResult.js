@@ -1,4 +1,4 @@
-const data = [
+export const data = [
   {
     height: -1.511285599353008,
     time: "2022-08-08T00:58:00+00:00",
@@ -80,23 +80,3 @@ const data = [
     type: "high",
   },
 ];
-
-const meta = {
-  cost: 1,
-  dailyQuota: 10,
-  datum: "MSL",
-  end: "2022-08-12 00:00",
-  lat: 50.8265866683731,
-  lng: -0.2713284100911,
-  requestCount: 6,
-  start: "2022-08-08 00:00",
-  station: {
-    distance: 2,
-    lat: 50.83,
-    lng: -0.25,
-    name: "shoreham",
-    source: "sg",
-  },
-};
-
-module.exports = { data, meta };
