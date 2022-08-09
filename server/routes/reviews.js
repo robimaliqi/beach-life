@@ -3,22 +3,23 @@ const router = express.Router();
 const Review = require("../models/review");
 
 router.get("/:id", async (req, res) => {
-  const reviews = await Review.find({ beachId: req.params.id });
+  const reviews = await Review.find({ beachId: req.params.id }).populate("user");;
   res.setHeader("Content-Type", "application/json");
   res.end(
     JSON.stringify({
-      reviews: reviews,
+      reviews: reviews.reverse(),
     })
   );
 });
 
-router.post("/:id", async (req, res) => {
+router.post("/:id", (req, res) => {
   body = {
     text: req.body.text,
+    user: req.session.user,
     beachId: req.params.id,
   };
   const review = new Review(body);
-  await review.save((err) => {
+  review.save((err) => {
     if (err) {
       throw err;
     }
