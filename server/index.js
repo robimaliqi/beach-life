@@ -18,7 +18,6 @@ const registerRouter = require("./routes/register");
 const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
 const beachesRouter = require("./routes/beaches");
-const usersRouter = require("./routes/users");
 
 // middleware function to check for logged-in users
 const sessionChecker = (req, res, next) => {
@@ -51,7 +50,6 @@ app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
-app.use("/users", usersRouter);
 app.use("/beaches", beachesRouter);
 
 app.get("/", (req, res) => {
