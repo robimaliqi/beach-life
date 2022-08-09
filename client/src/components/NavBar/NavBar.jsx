@@ -33,6 +33,7 @@ export const NavBar = () => {
               Log Out
             </LogOut>
           </li>
+
         </ul>
       </nav>
     </header>
