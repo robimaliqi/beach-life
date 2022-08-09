@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Home } from "./pages/Home";
-import { Results } from "./pages/Results";
 import { Register } from "./pages/register/Register";
 import { SignIn } from "./pages/SignIn/SignIn";
 import { Reviews } from "./pages/Reviews";
@@ -11,7 +10,7 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <NavBar />
       <Routes>
         <Route path="/beaches/:id" element={<Beaches />} />

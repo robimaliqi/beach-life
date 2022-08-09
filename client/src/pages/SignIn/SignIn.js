@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { response } from "../../../../server";
+import { Header } from "../../components/Header/Header";
 
 export function SignIn() {
 
@@ -66,39 +66,41 @@ export function SignIn() {
   };
 
   return (
-    <div className="form">
-      <div>
-        <h1>Sign In</h1>
+    <div className="container">
+      <div className="form">
+        <div>
+          <Header title="Sign In" />
+        </div>
+
+        {/* Calling to the methods */}
+        <div className="messages">
+          {errorMessage()}
+          {/* {successMessage()} */}
+        </div>
+
+        <form>
+          {/* Labels and inputs for form data */}
+          <label className="label">Email</label>
+          <input
+            onChange={handleEmail}
+            className="input"
+            value={email}
+            type="email"
+          />
+
+          <label className="label">Password</label>
+          <input
+            onChange={handlePassword}
+            className="input"
+            value={password}
+            type="password"
+          />
+
+          <button onClick={handleSubmit} className="btn" type="submit">
+            Submit
+          </button>
+        </form>
       </div>
-
-      {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {/* {successMessage()} */}
-      </div>
-
-      <form>
-        {/* Labels and inputs for form data */}
-        <label className="label">Email</label>
-        <input
-          onChange={handleEmail}
-          className="input"
-          value={email}
-          type="email"
-        />
-
-        <label className="label">Password</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          type="password"
-        />
-
-        <button onClick={handleSubmit} className="btn" type="submit">
-          Submit
-        </button>
-      </form>
     </div>
   );
 }
