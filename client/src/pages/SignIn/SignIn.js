@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 
 export function SignIn() {
+
+  let navigate = useNavigate()
+
   // States for registration
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,20 +35,21 @@ export function SignIn() {
       setSubmitted(true);
       setError(false);
     }
-  };
-
-  // // Showing success message
-  // const successMessage = () => {
-  // 	return (
-  // 	<div
-  // 		className="success"
-  // 		style={{
-  // 		display: submitted ? '' : 'none',
-  // 		}}>
-  // 		<h1>User {email} successfully registered!!</h1>
-  // 	</div>
-  // 	);
-  // };
+    fetch(`/signin/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      }),
+    })
+    .then((response) => {
+        console.log(response)
+        if (response.status === 200) {navigate('/')}
+      })
+    };
 
   // Showing error message if error is true
   const errorMessage = () => {
