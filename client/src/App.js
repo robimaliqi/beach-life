@@ -6,7 +6,6 @@ import { SignIn } from "./pages/SignIn/SignIn";
 import { Beaches } from "./pages/Beaches";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Route, Routes } from "react-router-dom";
-// import { PromiseProvider } from "mongoose";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,7 +15,6 @@ function App() {
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson)
       setIsLoggedIn(responseJson)
     })
   }, []);

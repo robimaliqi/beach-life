@@ -75,6 +75,7 @@ const fetchReviews = () => {
   } else {
     return (
       <div>
+        <div className="login-advice">You must be logged in to leave a review</div>
         <ul className="reviews">
           {reviews.reviews.map((review) => (
             <li className="review" key={review._id}>
