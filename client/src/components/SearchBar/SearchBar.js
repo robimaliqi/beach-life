@@ -1,3 +1,4 @@
+import "./SearchBar.css";
 import { useState } from "react";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
@@ -28,6 +29,9 @@ export const SearchBar = ({ placeholder, data }) => {
   return (
     <div className="search">
       <div className="search-inputs">
+        <div className="search-icon">
+          <SearchRoundedIcon id="search-icon-only"/>
+        </div>
         <input
           type="text"
           placeholder={placeholder}
@@ -36,10 +40,10 @@ export const SearchBar = ({ placeholder, data }) => {
           className="search-field"
         />
         <div className="search-icon">
-          {wordEntered.length === 0 ? (
-            <SearchRoundedIcon />
+          {wordEntered.length !== 0 ? (
+            <CloseRoundedIcon id="clear-text-btn" onClick={clearInput} />
           ) : (
-            <CloseRoundedIcon onClick={clearInput} />
+            ""
           )}
         </div>
       </div>
@@ -53,7 +57,7 @@ export const SearchBar = ({ placeholder, data }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <p>{value.name} </p>
+                <p className="beach-name">{value.name} </p>
               </a>
             );
           })}
