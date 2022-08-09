@@ -1,8 +1,10 @@
+import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Weather } from "../components/Weather/Weather";
 import { data } from "../components/beachApiResult";
 const tidalAPIKey = require("../tide-api");
-const beachList = require("../components/beachList");
+const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
   const today = new Date().toISOString().split("T")[0];
@@ -19,24 +21,28 @@ export const Beaches = (props) => {
       long: "",
     },
   ]);
+
   const [tides, setTides] = useState([
     // don't change this
-    { time: "2022-08-09T05:06:07", 
-    type: "high"
-  }
+    { time: "2022-08-09T05:06:07", type: "high" },
   ]);
+
   const getBeach = (id) => {
-    return beachList.filter((beach) => {
+    return beaches.filter((beach) => {
       return beach._id === id;
     });
   };
 
   const lat = getBeach(id)[0].lat;
   const long = getBeach(id)[0].long;
+  const beachCoOrds = `${lat}, ${long}`;
 
   useEffect(() => {
     setBeach(getBeach(id));
   }, []);
+
+  // this is commented out because there is a limit on how many times it can be called
+  // DO NOT DELETE
 
   // useEffect(() => {
   //   fetch(
@@ -57,15 +63,16 @@ export const Beaches = (props) => {
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString();
-  }
+  };
 
   const formatTime = (date) => {
     return new Date(date).toLocaleTimeString("en-gb");
-  }
+  };
 
   return (
-    <div>
+    <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
+      <Weather beach={beachCoOrds} />
       <ul className="tides">
         {tides.map((tide, index) => (
           <li className="tide" key={index}>
@@ -73,6 +80,9 @@ export const Beaches = (props) => {
           </li>
         ))}
       </ul>
+      <div className="review">
+        <Review id={id} />
+      </div>
     </div>
   );
 };
