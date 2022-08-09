@@ -34,9 +34,9 @@ router.delete("/destroy", (req, res) => {
   console.log("logging out");
   if (req.session.user) {
     req.session.destroy();
+    res.clearCookie("user_sid");
   }
   res.send("user logged out")
-  console.log(`session: ${req.session}`)
 })
 
 module.exports = router;

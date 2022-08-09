@@ -19,16 +19,16 @@ const signinRouter = require("./routes/signin");
 const reviewsRouter = require("./routes/reviews");
 const beachesRouter = require("./routes/beaches");
 
-// middleware function to check for logged-in users
-const sessionChecker = (req, res, next) => {
-  if (!req.session.user && !req.cookies.user_sid) {
-    console.log(req.cookies.user_sid);
-    console.log("anything");
-    res.redirect("/signin/new");
-  } else {
-    next();
-  }
-};
+// // middleware function to check for logged-in users
+// const sessionChecker = (req, res, next) => {
+//   if (!req.session.user && !req.cookies.user_sid) {
+//     console.log(req.cookies.user_sid);
+//     console.log("anything");
+//     res.redirect("/signin/new");
+//   } else {
+//     next();
+//   }
+// };
 
 app.use(
   session({
@@ -37,15 +37,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      expires: 3600000,
-      // you will currently be kicked out after 1 hour
+      expires: false,
     },
   })
 );
 
-
-
-app.use("/home", sessionChecker, homeRouter);
+app.use("/home", homeRouter);
 app.use("/results", resultsRouter);
 app.use("/register", registerRouter);
 app.use("/signin", signinRouter);
@@ -74,7 +71,7 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// clear the cookies after user logs out
+// // clear the cookies after user logs out
 // app.use((req, res, next) => {
 //   if (req.cookies.user_sid && !req.session.user) {
 //     res.clearCookie("user_sid");
@@ -82,12 +79,12 @@ app.listen(port, () => {
 //   next();
 // });
 
-// catch 404 and forward to error handler
+// // catch 404 and forward to error handler
 // app.use((req, res, next) => {
 //   next(createError(404));
 // });
 
-// error handler
+// // error handler
 // app.use((err, req, res) => {
 //   // set locals, only providing error in development
 //   res.locals.message = err.message;
