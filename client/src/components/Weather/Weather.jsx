@@ -29,7 +29,6 @@ export const Weather = ({ beach }) => {
   return (
     <div>
       <div>
-        <p>Weather Forecast</p>
         {weather && <WeatherCard forecasts={weather} />}
       </div>
     </div>
