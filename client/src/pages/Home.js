@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div className="backgroundImage">
       <div data-spy="scroll">
-        <SearchBar placeholder="Where would you like to go?" data={BeachData} />
+        {/* <SearchBar placeholder="Where would you like to go?" data={BeachData} /> */}
         {/* <div className="map">
           <Map />
         </div> */}

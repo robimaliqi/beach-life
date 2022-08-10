@@ -1,11 +1,10 @@
-.navbar {
+header {
   width: fit-content;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: normal;
   padding: 0 1rem;
-  z-index: 2;
   position: absolute;
   top: 20px;
   left: 0px;
@@ -23,10 +22,6 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-}
-
-.menu {
-  display: flex;
 }
 
 /* ul = nav-bar-list
@@ -56,7 +51,7 @@ link = nav-link */
 
 .nav-bar .nav-bar-list .nav-item .nav-link:hover {
   color: white;
-  /* background-color: rgb(116, 151, 237); */
+  background-color: rgb(116, 151, 237);
   padding: 2px 8px;
   margin: 5px 0;
 }
@@ -82,25 +77,18 @@ link = nav-link */
     display: block;
   }
 
-  /* .menu .line {
-    width: 30px;
-    height: 3px;
-    background-color: blue;
-    margin: 6px 0;
-    border-radius: 1px;
-  } */
   .logo {
     padding: auto;
   }
 
-  /* .nav-bar {
-  position: absolute;
-  top: 50px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-  background-color: darkblue;
-} */
+  .nav-bar {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    background-color: darkblue;
+  }
 
   .nav-bar-list {
     display: block;
