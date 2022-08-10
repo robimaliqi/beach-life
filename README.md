@@ -26,6 +26,19 @@ cd client
 npm start
 ````
 
+# Testing
+To run the unit tests on the back-end:
+```terminal
+cd server
+npm test
+```
+
+To run the unit tests on the front-end:
+```terminal
+cd client
+npm test
+```
+
 # Dependencies and APIs
 The map is rendered using [TomTom's Map API](https://developer.tomtom.com/map-display-api/documentation/product-information/introduction). 
 
