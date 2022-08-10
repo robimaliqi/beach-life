@@ -73,17 +73,19 @@ export const Beaches = (props) => {
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
-      <Address beachData={beaches} beachId={id} />
-      <Weather beach={beachCoOrds} />
-      <ul className="tides">
-        {tides.map((tide, index) => (
-          <li className="tide" key={index}>
-            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-          </li>
-        ))}
-      </ul>
-      <div className="review">
-        <Review id={id} />
+      <div className="body-container">
+        <Address beachData={beaches} beachId={id} />
+        <Weather beach={beachCoOrds} />
+        <ul className="tides">
+          {tides.map((tide, index) => (
+            <li className="tide" key={index}>
+              {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
+            </li>
+          ))}
+        </ul>
+        <div className="review">
+          <Review id={id} />
+        </div>
       </div>
     </div>
   );

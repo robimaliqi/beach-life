@@ -27,40 +27,9 @@ export const Address = ({ beachData, beachId }) => {
       });
   });
 
-  //   0:
-  // id: "postcode.13094846708526280"
-  // text: "BN3 2FR"
-  // [[Prototype]]: Object
-  // 1:
-  // id: "locality.17109650525051410"
-  // text: "Brighton and Hove"
-  // [[Prototype]]: Object
-  // 2:
-  // id: "place.5931384973928250"
-  // text: "Hove"
-  // wikidata: "Q989616"
-  // [[Prototype]]: Object
-  // 3:
-  // id: "district.16502354337146750"
-  // text: "The City Of Brighton And Hove"
-  // wikidata: "Q1022488"
-  // [[Prototype]]: Object
-  // 4:
-  // id: "region.13483278848453920"
-  // short_code: "GB-ENG"
-  // text: "England"
-  // wikidata: "Q21"
-  // [[Prototype]]: Object
-  // 5:
-  // id: "country.12171874284814600"
-  // short_code: "gb"
-  // text: "United Kingdom"
-  // wikidata: "Q145"
-  // [[Prototype]]: Object
-
   return (
     <div>
-      <p>Location: {geoLocation}</p>
+      <p className="location">Location: {geoLocation}</p>
     </div>
   );
 };

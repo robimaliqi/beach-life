@@ -1,11 +1,11 @@
 .weather-container {
-  /* background-color: lightgray; */
-  margin-top: 20px;
+  margin: 20px;
+  background-color: rgb(238, 244, 247);
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* padding: 55px; */
 }
 
 .weather-day {
