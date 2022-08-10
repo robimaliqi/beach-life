@@ -57,7 +57,10 @@ export const Tides = (props) => {
             {dayOfWeek(tide.time)}
           </p>
           <p className="weather-data" id="temp">
-            {formatTime(tide.time)}, {tide.type}
+            {formatTime(tide.time)}
+          </p>
+          <p className="weather-data" id="condition">
+            {tide.type}
           </p>
         </div>
       ))};
