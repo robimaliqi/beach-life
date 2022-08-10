@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 
 export function SignIn() {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   // States for registration
   const [email, setEmail] = useState("");
@@ -42,14 +41,15 @@ export function SignIn() {
       },
       body: JSON.stringify({
         email: email,
-        password: password
+        password: password,
       }),
-    })
-    .then((response) => {
-        console.log(response)
-        if (response.status === 200) {navigate('/')}
-      })
-    };
+    }).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        navigate("/");
+      }
+    });
+  };
 
   // Showing error message if error is true
   const errorMessage = () => {
@@ -66,7 +66,7 @@ export function SignIn() {
   };
 
   return (
-    <div className="container">
+    <div className="form-container">
       <div className="form">
         <div>
           <Header title="Sign In" />
@@ -80,20 +80,20 @@ export function SignIn() {
 
         <form>
           {/* Labels and inputs for form data */}
-          <label className="label">Email</label>
           <input
             onChange={handleEmail}
             className="input"
             value={email}
             type="email"
+            placeholder="Email"
           />
 
-          <label className="label">Password</label>
           <input
             onChange={handlePassword}
             className="input"
             value={password}
             type="password"
+            placeholder="Password"
           />
 
           <button onClick={handleSubmit} className="btn" type="submit">

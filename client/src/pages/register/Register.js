@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const [values, setValues] = useState({
     firstName: "",
@@ -31,8 +30,8 @@ export const Register = () => {
       errors.password = "Password is required.";
     } else if (values.password.length < 5) {
       errors.password = "Password must be at least five characters.";
-    } else{
-        navigate('/signin')
+    } else {
+      navigate("/signin");
     }
 
     return errors;
@@ -56,55 +55,55 @@ export const Register = () => {
       },
       body: JSON.stringify(values),
     });
-   
   };
 
   return (
-    <div className="container">
-      <div className="app-wrapper">
+    <div className="form-container">
+      <div className="register">
         <form className="form">
           <h1>Register</h1>
+          <span>Register and Rate A Beach</span>
           <div className="name">
-            <label className="label">First Name</label>
             <input
               className="input"
               type="text"
               name="firstName"
               value={values.firstName}
               onChange={handleChange}
+              placeholder="First Name"
             />
             {errors.firstName && <p className="error">{errors.firstName}</p>}
             <div>
-              <label className="label">Last Name</label>
               <input
                 className="input"
                 type="text"
                 name="lastName"
                 value={values.lastName}
                 onChange={handleChange}
+                placeholder="Last Name"
               />
               {errors.lastName && <p className="error">{errors.lastName}</p>}
             </div>
           </div>
           <div className="email">
-            <label className="label">Email</label>
             <input
               className="input"
               type="email"
               name="email"
               value={values.email}
               onChange={handleChange}
+              placeholder="Email"
             />
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
           <div className="password">
-            <label className="label">Password</label>
             <input
               className="input"
               type="password"
               name="password"
               value={values.password}
               onChange={handleChange}
+              placeholder="Password"
             />
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
