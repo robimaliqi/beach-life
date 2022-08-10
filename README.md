@@ -26,6 +26,15 @@ cd client
 npm start
 ````
 
+# Dependencies and APIs
+The map is rendered using [TomTom's Map API](https://developer.tomtom.com/map-display-api/documentation/product-information/introduction). 
+
+To get the information regarding high/low tides, we used the [Stormglass API](https://stormglass.io/). The free key that we used is limited to 10 calls a day, which was problematic for testing however the API was much easier to work with than the Admiralty Tidal API which we also came across. 
+
+The weather information uses [Visual Crossing's Weather API](https://www.visualcrossing.com/weather-api).
+
+The beaches is a CSV file we have loaded locally, which we found on [Environment Agency's Bathing Water website](https://environment.data.gov.uk/bwq/profiles/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
