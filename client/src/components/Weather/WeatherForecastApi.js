@@ -1,4 +1,4 @@
-import { weatherAPI_KEY } from "../../weatherApiKey";
+// import { weatherAPI_KEY } from "../../weatherApiKey";
 const BASE_URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast";
 
@@ -10,7 +10,7 @@ const getWeatherData = (searchParams) => {
     contentType: "json",
     iconSet: "icons1",
     ...searchParams,
-    key: weatherAPI_KEY,
+    key: process.env.weatherAPI_KEY,
   });
 
   return fetch(url)
