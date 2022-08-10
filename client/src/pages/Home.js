@@ -17,13 +17,11 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div id="background-home-image">
       <NavBar user={isLoggedIn} />
-      <div className="container" data-spy="scroll">
+      <div data-spy="scroll">
         <SearchBar placeholder="Where would you like to go?" data={BeachData} />
-        <div className="map">
-          <Map />
-        </div>
+        <div className="map">{<Map />}</div>
       </div>
     </div>
   );
