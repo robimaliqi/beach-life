@@ -2,12 +2,10 @@ import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
+import { SmallMap } from "../components/SmallMap";
 import { data } from "../components/beachApiResult";
-import "@tomtom-international/web-sdk-maps/dist/maps.css";
-import * as tt from "@tomtom-international/web-sdk-maps";
 const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
-const ttApiKey = require("../tt-api-key");
 
 export const Beaches = (props) => {
   const today = new Date().toISOString().split("T")[0];
@@ -40,31 +38,11 @@ export const Beaches = (props) => {
   const long = getBeach(id)[0].long;
   const beachCoOrds = `${lat}, ${long}`;
 
-  const mapElement = useRef();
-  const [map, setMap] = useState({});
-
   useEffect(() => {
     setBeach(getBeach(id));
   }, []);
 
-  useEffect(() => {
-    let map = tt.map({
-      key: ttApiKey,
-      container: mapElement.current,
-      center: [long, lat],
-      zoom: 15,
-    });
-
-      var element = document.createElement('div');
-      element.id = 'marker';
-      let marker = new tt.Marker({
-        element: element,
-      })
-        .setLngLat([long, lat])
-        .addTo(map);
-      setMap(map);
-      return () => map.remove();
-  }, []);
+  
 
   // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
@@ -97,7 +75,7 @@ export const Beaches = (props) => {
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
-      <div ref={mapElement} className="mapDiv" />
+      <SmallMap lat={lat} long={long} />
       <Weather beach={beachCoOrds} />
       <ul className="tides">
         {tides.map((tide, index) => (
