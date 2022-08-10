@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  height: 60px;
+  height: 70px;
   background-color: darkblue;
   display: flex;
   align-items: center;
@@ -9,19 +9,16 @@ header {
 }
 
 .logo {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
   color: white;
+  margin: auto;
   margin-right: 200px;
   margin-left: 20px;
   padding-bottom: 1%;
   text-align: center;
   align-items: center;
   justify-content: center;
-}
-
-.menu {
-  display: none;
 }
 
 /* ul = nav-bar-list
@@ -35,10 +32,11 @@ link = nav-link */
 .nav-bar .nav-bar-list .nav-item .nav-link {
   display: block;
   color: white;
-  font-size: 18px;
-  padding: 2px 8px;
+  font-size: 21px;
+  padding: 2px 9px;
   border-radius: 1px;
   margin: 5px;
+  margin-top: 5px;
   transition: 0.2s;
   background-color: transparent;
   border: none;
@@ -52,7 +50,7 @@ link = nav-link */
   color: white;
   background-color: rgb(116, 151, 237);
   padding: 2px 8px;
-  margin: 5px 0;
+  margin: 5px 1px;
 }
 
 @media only screen and (max-width: 1320px) {
@@ -100,6 +98,5 @@ link = nav-link */
     margin: 5px auto 0 auto;
     padding-bottom: 1px;
     text-align: center;
-    height: 600%;
   }
 }
