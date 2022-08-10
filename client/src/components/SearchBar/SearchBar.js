@@ -48,21 +48,19 @@ export const SearchBar = ({ placeholder, data }) => {
             ""
           )}
         </div>
-
-        <div>
-          {filteredData.length !== 0 && (
-            <div className="data-result">
-              {filteredData.slice(0, 6).map((value, key) => {
-                return (
-                  <a className="data-item" href={`/beaches/${value._id}`}>
-                    <p className="beach-name">{value.name} </p>
-                  </a>
-                );
-              })}
-            </div>
-          )}
-        </div>
       </div>
+
+      {filteredData.length !== 0 && (
+        <div className="data-result">
+          {filteredData.slice(0, 6).map((value, key) => {
+            return (
+              <a className="data-item" href={`/beaches/${value._id}`}>
+                <p className="beach-name">{value.name} </p>
+              </a>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

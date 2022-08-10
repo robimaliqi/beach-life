@@ -3,8 +3,8 @@
 }
 
 .mapContainer {
-  margin-top: 25px;
   margin: auto;
+  margin-top: 400px;
   width: 40%;
   text-align: center;
   padding: 10px;
@@ -115,5 +115,5 @@
   background-image: url("./assets/background.jpg");
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  height: 800px;
 }
