@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { data } from "./beachApiResult";
+import { dayOfWeek } from "../../api/WeatherForecast";
 const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
@@ -46,45 +47,37 @@ export const Tides = (props) => {
     return new Set(justDates)
   }
 
-  const dates = getDates(tides)
-
-  const createTideObject = () => {
-    console.log(dates)
-    let newObject = {}
-    dates.forEach(element => {
-      newObject[element] = [];
-    });
-    tides.forEach(tide => {
-      const time = formatTime(tide.time)
-      const date = formatDate(tide.time)
-      newTideObject[date].push({
-        time: time,
-        type: tide.type
-      })
-    })
-    return newObject;
-  }
-
-  const newTideObject = createTideObject;
-  
+  const dates = getDates(tides)  
 
   return (
-    <div>
-      {/* <ul className="tides">
-        {Object.keys(newTideObject).forEach((key) => (
-          <li className="tide" key={key}>
-            {key}
-          </li>
-        ))}
-      </ul> */}
-
-      <ul className="tides">
-        {tides.map((tide, index) => (
-          <li className="tide" key={index}>
-            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-          </li>
-        ))}
-      </ul>
+    <div className="weather-container p-3">
+      {tides.map((tide, index) => (
+        <div key={index} className="col weather-day">
+          <p className="weather-data" id="date">
+            {formatDate(tide.time)}
+          </p>
+          <p className="weather-data" id="temp">
+            {formatTime(tide.time)}, {tide.type}
+          </p>
+        </div>
+      ))};
     </div>
+    // <div>
+    //   <ul className="tide-dates">
+    //     {dates.map((date, index) => (
+    //       <li className="tide" key={index}>
+    //         {date}
+    //       </li>
+    //     ))}
+    //   </ul>
+
+    //   <ul className="tides">
+    //     {tides.map((tide, index) => (
+    //       <li className="tide" key={index}>
+    //         {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
+    //       </li>
+    //     ))}
+    //   </ul>
+    // </div>
   )
 }
