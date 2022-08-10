@@ -82,10 +82,24 @@
 }
 
 .form-container {
+  background-color: white;
   width: 30%;
-  height: 80%;
+  height: 69%;
   margin: auto;
+  margin-top: 85px;
+  padding-top: 50px;
   padding: 20px;
   box-shadow: 10px 10px 30px grey;
   border-radius: 8px;
+}
+
+#background-register-image {
+  background-image: url("./assets/register.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+#background-sign-in-image {
+  background-image: url("./assets/sign-in.jpg");
 }

@@ -6,7 +6,6 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 100px;
-  margin-bottom: 4%;
 }
 
 .logo {
@@ -59,19 +58,16 @@ link = nav-link */
 @media only screen and (max-width: 1320px) {
   header {
     padding: 0 30px;
-    margin-bottom: 5%;
   }
 }
 @media only screen and (max-width: 1100px) {
   header {
     padding: 0 30px;
-    margin-bottom: 8%;
   }
 }
 @media only screen and (max-width: 1000px) {
   header {
     padding: 0 30px;
-    margin-bottom: 15%;
   }
   /* .menu {
     display: block;

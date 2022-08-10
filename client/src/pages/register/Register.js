@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { useEffect } from "react";
 
 export const Register = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch(`/signin/user`, {})
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setIsLoggedIn(responseJson);
+      });
+  }, []);
+
   let navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -58,61 +70,64 @@ export const Register = () => {
   };
 
   return (
-    <div className="form-container">
-      <div className="register">
-        <form className="form">
-          <h1>Register</h1>
-          <span>Register and Rate A Beach</span>
-          <div className="name">
-            <input
-              className="input"
-              type="text"
-              name="firstName"
-              value={values.firstName}
-              onChange={handleChange}
-              placeholder="First Name"
-            />
-            {errors.firstName && <p className="error">{errors.firstName}</p>}
-            <div>
+    <div className="background-image" id="background-register-image">
+      <NavBar user={isLoggedIn} />
+      <div className="form-container">
+        <div className="register">
+          <form className="form">
+            <h1>Register</h1>
+            <span>Register and Rate A Beach</span>
+            <div className="name">
               <input
                 className="input"
                 type="text"
-                name="lastName"
-                value={values.lastName}
+                name="firstName"
+                value={values.firstName}
                 onChange={handleChange}
-                placeholder="Last Name"
+                placeholder="First Name"
               />
-              {errors.lastName && <p className="error">{errors.lastName}</p>}
+              {errors.firstName && <p className="error">{errors.firstName}</p>}
+              <div>
+                <input
+                  className="input"
+                  type="text"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name"
+                />
+                {errors.lastName && <p className="error">{errors.lastName}</p>}
+              </div>
             </div>
-          </div>
-          <div className="email">
-            <input
-              className="input"
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-              placeholder="Email"
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
-          <div className="password">
-            <input
-              className="input"
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-              placeholder="Password"
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-          </div>
-          <div>
-            <button className="btn" type="submit" onClick={handleFormSubmit}>
-              Sign Up
-            </button>
-          </div>
-        </form>
+            <div className="email">
+              <input
+                className="input"
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                placeholder="Email"
+              />
+              {errors.email && <p className="error">{errors.email}</p>}
+            </div>
+            <div className="password">
+              <input
+                className="input"
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+                placeholder="Password"
+              />
+              {errors.password && <p className="error">{errors.password}</p>}
+            </div>
+            <div>
+              <button className="btn" type="submit" onClick={handleFormSubmit}>
+                Sign Up
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,20 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
+import { NavBar } from "../../components/NavBar/NavBar";
 
 export function SignIn() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch(`/signin/user`, {})
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setIsLoggedIn(responseJson);
+      });
+  }, []);
+
   let navigate = useNavigate();
 
   // States for registration
@@ -66,40 +78,43 @@ export function SignIn() {
   };
 
   return (
-    <div className="form-container">
-      <div className="form">
-        <div>
-          <Header title="Sign In" />
+    <div className="background-image" id="background-sign-in-image">
+      <NavBar user={isLoggedIn} />
+      <div className="form-container">
+        <div className="form">
+          <div>
+            <Header title="Sign In" />
+          </div>
+
+          {/* Calling to the methods */}
+          <div className="messages">
+            {errorMessage()}
+            {/* {successMessage()} */}
+          </div>
+
+          <form>
+            {/* Labels and inputs for form data */}
+            <input
+              onChange={handleEmail}
+              className="input"
+              value={email}
+              type="email"
+              placeholder="Email"
+            />
+
+            <input
+              onChange={handlePassword}
+              className="input"
+              value={password}
+              type="password"
+              placeholder="Password"
+            />
+
+            <button onClick={handleSubmit} className="btn" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
-
-        {/* Calling to the methods */}
-        <div className="messages">
-          {errorMessage()}
-          {/* {successMessage()} */}
-        </div>
-
-        <form>
-          {/* Labels and inputs for form data */}
-          <input
-            onChange={handleEmail}
-            className="input"
-            value={email}
-            type="email"
-            placeholder="Email"
-          />
-
-          <input
-            onChange={handlePassword}
-            className="input"
-            value={password}
-            type="password"
-            placeholder="Password"
-          />
-
-          <button onClick={handleSubmit} className="btn" type="submit">
-            Submit
-          </button>
-        </form>
       </div>
     </div>
   );
