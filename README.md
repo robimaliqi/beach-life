@@ -5,6 +5,10 @@ By Aisha, Hafiz, Joe, Robi & Sophie
 
 Fancy a quick dip in the sea or a nice romantic walk on the beach? Not sure where your nearest beach actually is? Fear no more for Beach Life is here. Your one-stop-shop for locating all beaches in England (other countries possibly coming soon), along with a forecast for your chosen beach for the next 7 days, as well as tide information so you'll never miss high or low tide again!
 
+The project was built using the MERN tech stack. The database is connected to MongoDB Atlas via Mongoose. The front-end was built using React, the backend server uses Express and Node. 
+
+We used Jest as the test framework as well as React Testing Library. 
+
 # How to use
 
 ````console
