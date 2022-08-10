@@ -30,7 +30,6 @@ export const Address = ({ beachData, beachId }) => {
 
   return (
     <div>
-      <p>Location:</p>
       <p className="location">
         <Emoji symbol={"📍"} label="round pushpin" /> {geoLocation}
       </p>

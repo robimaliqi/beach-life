@@ -3,17 +3,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
 import { SmallMap } from "../components/SmallMap";
+import { Tides } from "../components/Tides/Tides";
 import { Address } from "../components/Address/Address";
-import { data } from "../components/beachApiResult";
-
-const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
-  const today = new Date().toISOString().split("T")[0];
-  const endDate = new Date(new Date().setDate(new Date().getDate() + 6))
-    .toISOString()
-    .split("T")[0];
   const { id } = useParams();
   const [beach, setBeach] = useState([
     {
@@ -23,11 +17,6 @@ export const Beaches = (props) => {
       lat: "",
       long: "",
     },
-  ]);
-
-  const [tides, setTides] = useState([
-    // don't change this
-    { time: "2022-08-09T05:06:07", type: "high" },
   ]);
 
   const getBeach = (id) => {
@@ -44,49 +33,15 @@ export const Beaches = (props) => {
     setBeach(getBeach(id));
   }, []);
 
-  
-
-  // this is commented out because there is a limit on how many times it can be called
-  // DO NOT DELETE
-
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.stormglass.io/v2/tide/extremes/point?lat=${lat}&lng=${long}&start=${today}&end=${endDate}`,
-  //     {
-  //       headers: {
-  //         Authorization: tidalAPIKey,
-  //       },
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
-  //       setTides(responseData.data);
-  //       console.log(tides);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString();
-  };
-
-  const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString("en-gb");
-  };
-
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
       <SmallMap lat={lat} long={long} />
-       <Address beachData={beaches} beachId={id} />
+      <Address beachData={beaches} beachId={id} />
+      <h3>Weather Forecast</h3>
       <Weather beach={beachCoOrds} />
-      <ul className="tides">
-        {tides.map((tide, index) => (
-          <li className="tide" key={index}>
-            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-          </li>
-        ))}
-      </ul>
+      <h3>Tides</h3>
+      <Tides lat={lat} long={long} />
       <div className="review">
         <h3>Reviews</h3>
         <Review id={id} user={props.user}/>
