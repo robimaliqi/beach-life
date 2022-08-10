@@ -24,6 +24,13 @@
   margin-top: 20px;
 }
 
+#marker {
+    background-image: url('./assets/beach-ball.png');
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+}
+
 .label {
   display: flex;
   justify-content: center;

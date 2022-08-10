@@ -22,9 +22,10 @@ function Map() {
     });
 
     beaches.forEach((beach) => {
+      var element = document.createElement('div');
+      element.id = 'marker';
       let marker = new tt.Marker({
-        width: 20,
-        height: 20,
+        element: element,
       })
         .setLngLat([beach.long, beach.lat])
         .addTo(map1);
