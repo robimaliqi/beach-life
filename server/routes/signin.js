@@ -3,10 +3,10 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-router.get("/", (req, res) => {
-  res.json({
-    name: "Sign In",
-  });
+router.get("/user", (req, res) => {
+  res.json(
+    req.session.user ? true : false
+  );
 });
 
 router.post("/new", async (req, res) => {

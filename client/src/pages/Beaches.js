@@ -1,10 +1,12 @@
 import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
-// import { data } from "../components/beachApiResult";
+import { SmallMap } from "../components/SmallMap";
 import { Address } from "../components/Address/Address";
-// const tidalAPIKey = require("../tide-api");
+import { data } from "../components/beachApiResult";
+
+const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
@@ -42,6 +44,8 @@ export const Beaches = (props) => {
     setBeach(getBeach(id));
   }, []);
 
+  
+
   // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
 
@@ -73,19 +77,19 @@ export const Beaches = (props) => {
   return (
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
-      <div className="body-container">
-        <Address beachData={beaches} beachId={id} />
-        <Weather beach={beachCoOrds} />
-        <ul className="tides">
-          {tides.map((tide, index) => (
-            <li className="tide" key={index}>
-              {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-            </li>
-          ))}
-        </ul>
-        <div className="review">
-          <Review id={id} />
-        </div>
+      <SmallMap lat={lat} long={long} />
+       <Address beachData={beaches} beachId={id} />
+      <Weather beach={beachCoOrds} />
+      <ul className="tides">
+        {tides.map((tide, index) => (
+          <li className="tide" key={index}>
+            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
+          </li>
+        ))}
+      </ul>
+      <div className="review">
+        <h3>Reviews</h3>
+        <Review id={id} user={props.user}/>
       </div>
     </div>
   );
