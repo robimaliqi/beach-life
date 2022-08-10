@@ -3,8 +3,7 @@
 }
 
 .mapContainer {
-  margin-top: 25px;
-  margin: auto;
+  height: 100%;
   width: 40%;
   text-align: center;
   padding: 10px;
@@ -25,10 +24,10 @@
 }
 
 #marker {
-    background-image: url('./assets/beach-ball.png');
-    background-size: cover;
-    width: 15px;
-    height: 15px;
+  background-image: url("./assets/beach-ball.png");
+  background-size: cover;
+  width: 15px;
+  height: 15px;
 }
 
 .label {
@@ -65,9 +64,6 @@
 .error {
   display: block;
   color: red;
-  /* width: fit-content; */
-  /* height: 50px;
-  padding: 5px; */
   text-align: center;
 }
 
@@ -77,4 +73,14 @@
   width: fit-content;
   height: 50px;
   padding: 5px;
+}
+
+.backgroundImage {
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
 }

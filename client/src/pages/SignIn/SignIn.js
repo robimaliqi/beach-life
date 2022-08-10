@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../../components/Header/Header";
 
 export function SignIn() {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   // States for registration
   const [email, setEmail] = useState("");
@@ -42,14 +40,15 @@ export function SignIn() {
       },
       body: JSON.stringify({
         email: email,
-        password: password
+        password: password,
       }),
-    })
-    .then((response) => {
-        console.log(response)
-        if (response.status === 200) {navigate('/')}
-      })
-    };
+    }).then((response) => {
+      console.log(response);
+      if (response.status === 200) {
+        navigate("/");
+      }
+    });
+  };
 
   // Showing error message if error is true
   const errorMessage = () => {
@@ -69,7 +68,7 @@ export function SignIn() {
     <div className="container">
       <div className="form">
         <div>
-          <Header title="Sign In" />
+          <h1>"Sign In" </h1>
         </div>
 
         {/* Calling to the methods */}

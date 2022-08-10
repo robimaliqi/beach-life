@@ -1,11 +1,11 @@
 import "./navBar.css";
-import { LogOut } from "../logOut"
+import { LogOut } from "../logOut";
 import { Link } from "react-router-dom";
 
 export const NavBar = (props) => {
   return (
-    <header className="navbar">
-      <div className="logo"> Beach Life</div>
+    <div className="navbar">
+      <div className="logo"> BeachLife.</div>
       <div className="menu">
         <div className="line"></div>
         <div className="line"></div>
@@ -20,9 +20,7 @@ export const NavBar = (props) => {
           </li>
           {props.user && (
             <li className="nav-item">
-              <LogOut className="nav-link">
-                Log Out
-              </LogOut>
+              <LogOut className="nav-link">Log Out</LogOut>
             </li>
           )}
           {!props.user && (
@@ -41,6 +39,6 @@ export const NavBar = (props) => {
           )}
         </ul>
       </nav>
-    </header>
-  )
+    </div>
+  );
 };

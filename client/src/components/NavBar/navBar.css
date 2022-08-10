@@ -1,12 +1,15 @@
-header {
-  width: 100%;
-  height: 60px;
-  background-color: darkblue;
+.navbar {
+  width: fit-content;
+  height: 80px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 100px;
-  margin-bottom: 4%;
+  align-items: normal;
+  padding: 0 1rem;
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  right: 0px;
 }
 
 .logo {
@@ -19,10 +22,11 @@ header {
   text-align: center;
   align-items: center;
   justify-content: center;
+  position: absolute;
 }
 
 .menu {
-  display: none;
+  display: flex;
 }
 
 /* ul = nav-bar-list
@@ -32,6 +36,7 @@ link = nav-link */
 .nav-bar .nav-bar-list {
   display: flex;
   list-style-type: none;
+  position: absolute;
 }
 .nav-bar .nav-bar-list .nav-item .nav-link {
   display: block;
@@ -51,7 +56,7 @@ link = nav-link */
 
 .nav-bar .nav-bar-list .nav-item .nav-link:hover {
   color: white;
-  background-color: rgb(116, 151, 237);
+  /* background-color: rgb(116, 151, 237); */
   padding: 2px 8px;
   margin: 5px 0;
 }
@@ -73,30 +78,29 @@ link = nav-link */
     padding: 0 30px;
     margin-bottom: 15%;
   }
-  /* .menu {
+  .menu {
     display: block;
   }
 
-  .menu .line {
+  /* .menu .line {
     width: 30px;
     height: 3px;
     background-color: blue;
     margin: 6px 0;
     border-radius: 1px;
   } */
-
   .logo {
     padding: auto;
   }
 
-  .nav-bar {
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
-    background-color: darkblue;
-  }
+  /* .nav-bar {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  background-color: darkblue;
+} */
 
   .nav-bar-list {
     display: block;
