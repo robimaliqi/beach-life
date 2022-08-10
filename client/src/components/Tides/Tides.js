@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
-const tidalAPIKey = require("../../tide-api");
+// const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
   const today = new Date().toISOString().split("T")[0];
-  const endDate = new Date(new Date().setDate(new Date().getDate() + 6))
+  const endDate = new Date(new Date().setDate(new Date().getDate() + 7))
     .toISOString()
     .split("T")[0];
 
@@ -36,13 +36,17 @@ export const Tides = (props) => {
     return new Date(date).toLocaleDateString();
   };
 
+  const fullDateFormat = (date) => {
+    return `${date.split("T")[0]}T00:58:00+00:00`
+  }
+
   const formatTime = (date) => {
     return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
   };
 
   const getDates = (tidesObject) => {
     const justDates = tidesObject.map(tide => {
-      return (tide.time)
+      return (fullDateFormat(tide.time))
     })
     return new Set(justDates)
   };
@@ -61,63 +65,35 @@ export const Tides = (props) => {
 
   const linkTides = () => {
     makeTideArray()
-    newTideArray.forEach(element => {
-      tides.forEach(tide => {
-        if (Object.keys(element)[0] === formatDate(tide.time)) {
-          return Object.values(element).push({type: tide.type, time: tide.time})
+    newTideArray.map(element => {
+      tides.map((tide) => {
+        if (formatDate(Object.keys(element)[0]) == formatDate(tide.time)) {
+          Object.values(element)[0].push({type: tide.type, time: tide.time})
         }
       })
     })
     return newTideArray;
   }
 
-
-  // [{"09/09/2022" : [{type: "high",
-  //                   time: "10:30"},
-  //                   {type: "low",
-  //                   time: "14:50"}]
-  //                 },
-  //   {"10/09/2022" : [{type: "high",
-  //                   time: "10:30"},
-  //                   {type: "low",
-  //                   time: "14:50"}]}
-  //                 ]
-  
-
   return (
     <div className="weather-container p-3">
-      {tides.map((tide, index) => (
+      {linkTides().map((date, index) => (
         <div key={index} className="col weather-day">
           <p className="weather-data" id="date">
-            {dayOfWeek(tide.time)}
+            {dayOfWeek(new Date(Object.keys(date)[0]))}
           </p>
-          <p className="weather-data" id="temp">
-            {formatTime(tide.time)}
-          </p>
-          <p className="weather-data" id="condition">
-            {tide.type}
-          </p>
+          {date[Object.keys(date)[0]].map((tide) => (
+            <div>
+              <p className="weather-data" id="temp">
+                {formatTime(tide.time)}
+              </p>
+              <p className="weather-data" id="condition">
+                {tide.type}
+              </p>
+            </div>
+          ))}
         </div>
       ))}
     </div>
-    // <div className="weather-container p-3">
-    //   {linkTides().map((date, index) => (
-    //     <div key={index} className="col weather-day">
-    //       <p className="weather-data" id="date">
-    //         {dayOfWeek(Object.keys(date)[0])}
-    //       </p>
-    //       {Object.values(date).map((element) => {
-    //         <div>
-    //           <p className="weather-data" id="temp">
-    //             {formatTime(element.time)}
-    //           </p>
-    //           <p className="weather-data" id="condition">
-    //             {element.type}
-    //           </p>
-    //         </div>
-    //       })}
-    //     </div>
-    //   ))}
-    // </div>
   )
 }
