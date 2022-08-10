@@ -42,10 +42,8 @@ function Map() {
 
   return (
     <div>
-      <div className="map">
-        <div className="mapContainer">
-          <div ref={mapElement} className="mapDiv" />
-        </div>
+      <div className="mapContainer">
+        <div ref={mapElement} className="mapDiv" />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import "./Weather.css";
-import { dayOfWeek } from "../../api/WeatherForecast";
+import { dayOfWeek } from "./WeatherForecastApi";
 export const WeatherCard = ({ forecasts }) => {
   return (
     <div className="weather-container p-3">

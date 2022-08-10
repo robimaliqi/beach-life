@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
 import { SmallMap } from "../components/SmallMap";
+import { Address } from "../components/Address/Address";
 import { data } from "../components/beachApiResult";
+
 const tidalAPIKey = require("../tide-api");
 const beaches = require("../components/beachList");
 
@@ -76,6 +78,7 @@ export const Beaches = (props) => {
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
       <SmallMap lat={lat} long={long} />
+       <Address beachData={beaches} beachId={id} />
       <Weather beach={beachCoOrds} />
       <ul className="tides">
         {tides.map((tide, index) => (
