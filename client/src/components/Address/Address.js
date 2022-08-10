@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { geolocationAPI_KEY } from "../../BeachAddressKey";
+import { Emoji } from "../Emojis/Emojis";
 
 export const Address = ({ beachData, beachId }) => {
   const getBeach = (id) => {
@@ -29,7 +30,10 @@ export const Address = ({ beachData, beachId }) => {
 
   return (
     <div>
-      <p className="location">Location: {geoLocation}</p>
+      <p>Location:</p>
+      <p className="location">
+        <Emoji symbol={"📍"} label="round pushpin" /> {geoLocation}
+      </p>
     </div>
   );
 };
