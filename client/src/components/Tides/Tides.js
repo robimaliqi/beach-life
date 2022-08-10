@@ -9,10 +9,7 @@ export const Tides = (props) => {
     .toISOString()
     .split("T")[0];
 
-    const [tides, setTides] = useState([
-      // don't change this
-      { time: "2022-08-09T05:06:07", type: "high" },
-    ]);
+    const [tides, setTides] = useState(data);
 
     // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
@@ -42,8 +39,45 @@ export const Tides = (props) => {
     return new Date(date).toLocaleTimeString("en-gb");
   };
 
+  const getDates = (tidesObject) => {
+    const justDates = tidesObject.map(tide => {
+      return formatDate(tide.time);
+    })
+    return new Set(justDates)
+  }
+
+  const dates = getDates(tides)
+
+  const createTideObject = () => {
+    console.log(dates)
+    let newObject = {}
+    dates.forEach(element => {
+      newObject[element] = [];
+    });
+    tides.forEach(tide => {
+      const time = formatTime(tide.time)
+      const date = formatDate(tide.time)
+      newTideObject[date].push({
+        time: time,
+        type: tide.type
+      })
+    })
+    return newObject;
+  }
+
+  const newTideObject = createTideObject;
+  
+
   return (
     <div>
+      {/* <ul className="tides">
+        {Object.keys(newTideObject).forEach((key) => (
+          <li className="tide" key={key}>
+            {key}
+          </li>
+        ))}
+      </ul> */}
+
       <ul className="tides">
         {tides.map((tide, index) => (
           <li className="tide" key={index}>
