@@ -54,7 +54,7 @@ export const Tides = (props) => {
       {tides.map((tide, index) => (
         <div key={index} className="col weather-day">
           <p className="weather-data" id="date">
-            {formatDate(tide.time)}
+            {dayOfWeek(tide.time)}
           </p>
           <p className="weather-data" id="temp">
             {formatTime(tide.time)}, {tide.type}
