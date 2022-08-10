@@ -38,7 +38,9 @@ export const Beaches = (props) => {
       <h1>Welcome to {beach[0].name}</h1>
       <SmallMap lat={lat} long={long} />
       <Address beachData={beaches} beachId={id} />
+      <h3>Weather Forecast</h3>
       <Weather beach={beachCoOrds} />
+      <h3>Tides</h3>
       <Tides lat={lat} long={long} />
       <div className="review">
         <h3>Reviews</h3>

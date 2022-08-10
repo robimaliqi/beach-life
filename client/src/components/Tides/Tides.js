@@ -37,12 +37,12 @@ export const Tides = (props) => {
   };
 
   const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString("en-gb");
+    return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
   };
 
   const getDates = (tidesObject) => {
     const justDates = tidesObject.map(tide => {
-      return formatDate(tide.time);
+      return formatDate(tide.time)
     })
     return new Set(justDates)
   }
@@ -63,24 +63,7 @@ export const Tides = (props) => {
             {tide.type}
           </p>
         </div>
-      ))};
+      ))}
     </div>
-    // <div>
-    //   <ul className="tide-dates">
-    //     {dates.map((date, index) => (
-    //       <li className="tide" key={index}>
-    //         {date}
-    //       </li>
-    //     ))}
-    //   </ul>
-
-    //   <ul className="tides">
-    //     {tides.map((tide, index) => (
-    //       <li className="tide" key={index}>
-    //         {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </div>
   )
 }
