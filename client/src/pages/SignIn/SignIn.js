@@ -80,7 +80,7 @@ export function SignIn() {
   return (
     <div className="background-image" id="background-sign-in-image">
       <NavBar user={isLoggedIn} />
-      <div className="form-container">
+      <div className="form-container" id="sign-in-container">
         <div className="form">
           <div>
             <Header title="Sign In" />

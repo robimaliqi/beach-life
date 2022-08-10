@@ -93,6 +93,10 @@
   border-radius: 8px;
 }
 
+#sign-in-container {
+  height: 45%;
+}
+
 #background-register-image {
   background-image: url("./assets/register.jpg");
   background-size: cover;
@@ -102,4 +106,7 @@
 
 #background-sign-in-image {
   background-image: url("./assets/sign-in.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
