@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { data } from "./beachApiResult";
-import { dayOfWeek } from "../../api/WeatherForecast";
+import { dayOfWeek } from "../Weather/WeatherForecastApi";
 const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {

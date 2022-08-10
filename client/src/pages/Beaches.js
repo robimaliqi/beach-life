@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
 import { SmallMap } from "../components/SmallMap";
 import { Tides } from "../components/Tides/Tides";
+import { Address } from "../components/Address/Address";
 const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
@@ -36,6 +37,7 @@ export const Beaches = (props) => {
     <div className="container">
       <h1>Welcome to {beach[0].name}</h1>
       <SmallMap lat={lat} long={long} />
+      <Address beachData={beaches} beachId={id} />
       <Weather beach={beachCoOrds} />
       <Tides lat={lat} long={long} />
       <div className="review">
