@@ -25,7 +25,9 @@ export const Home = () => {
           Explore the best beaches in England with our interactive map
         </h2>
       </div>
-      <Map />
+      <div className="map-card">
+        <Map />
+      </div>
     </div>
   );
 };
