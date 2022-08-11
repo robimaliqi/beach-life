@@ -3,25 +3,23 @@
 }
 
 .mapContainer {
-  margin: 400px 40px 50px 250px;
-  /* margin-top: 200px; */
-  /* margin-bottom: 1000px; */
-  width: 80%;
-  height: 90%;
-  text-align: center;
+  margin: auto;
+  margin-top: 25px;
+  width: 90%;
   padding: 10px;
+  padding-bottom: 80px;
 }
 
 .mapDiv {
-  height: 600px;
-  width: 900px;
-  /* margin-bottom: 100px; */
-  padding: 100px;
+  margin: auto;
+  margin-top: 300px;
+  width: 65%;
+  height: 700px;
 }
 
 .mapZoomDisplay {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 5px;
 }
 
@@ -248,11 +246,11 @@
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-top: 20px;
   font-size: 35px;
   margin-left: 2px;
@@ -260,7 +258,7 @@ h3 {
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
 
@@ -272,4 +270,3 @@ p {
   color: blue;
   margin-bottom: 0px;
 }
-
