@@ -245,7 +245,12 @@
   color: red;
 }
 
+h1 {
+  font-family: 'Poppins', sans-serif;
+}
+
 h3 {
+  font-family: 'Poppins', sans-serif;
   margin-top: 20px;
   font-size: 35px;
   margin-left: 2px;
@@ -253,6 +258,7 @@ h3 {
 }
 
 p {
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
 }
 
