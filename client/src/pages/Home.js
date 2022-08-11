@@ -20,10 +20,7 @@ export const Home = () => {
     <div id="background-home-image">
       <NavBar user={isLoggedIn} />
       <SearchBar placeholder="Where would you like to go?" data={BeachData} />
-      <h2 className="home-h2" id="map-h2">
-        Can't remember the name of the beach you are looking for? Use our
-        interactive map
-      </h2>
+      <h2 className="home-h2" id="map-h2"></h2>
       <Map />
     </div>
   );

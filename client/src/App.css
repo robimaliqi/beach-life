@@ -3,24 +3,25 @@
 }
 
 .mapContainer {
-  margin: auto;
-  margin-top: 400px;
-  margin-bottom: 1000px;
-  width: 70%;
-  height: 80%;
+  margin: 400px 40px 50px 250px;
+  /* margin-top: 200px; */
+  /* margin-bottom: 1000px; */
+  width: 80%;
+  height: 90%;
   text-align: center;
   padding: 10px;
 }
 
 .mapDiv {
-  height: 500px;
-  margin-bottom: 100px;
+  height: 600px;
+  width: 900px;
+  /* margin-bottom: 100px; */
   padding: 100px;
 }
 
 .mapZoomDisplay {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
   margin-top: 5px;
 }
 
@@ -263,10 +264,5 @@ p {
 
 #map-h2 {
   color: blue;
-}
-
-.home-background {
-  background-color: #add1ea;
-  width: 100%;
-  height: 100%;
+  margin-bottom: 0px;
 }
