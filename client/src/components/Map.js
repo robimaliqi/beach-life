@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 const beachList = require("./beachList");
-const ttApiKey = require("../tt-api-key");
+// const ttApiKey = require("../tt-api-key");
 
 function Map() {
   const mapElement = useRef();
@@ -15,15 +15,15 @@ function Map() {
 
   useEffect(() => {
     let map1 = tt.map({
-      key: ttApiKey,
+      key: process.env.ttApiKey,
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,
     });
 
     beaches.forEach((beach) => {
-      var element = document.createElement('div');
-      element.id = 'marker';
+      var element = document.createElement("div");
+      element.id = "marker";
       let marker = new tt.Marker({
         element: element,
       })
