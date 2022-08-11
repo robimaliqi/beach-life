@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
+import { Emoji } from "../Emojis/Emojis";
 // const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
@@ -10,9 +11,9 @@ export const Tides = (props) => {
     .toISOString()
     .split("T")[0];
 
-    const [tides, setTides] = useState(data);
+  const [tides, setTides] = useState(data);
 
-    // this is commented out because there is a limit on how many times it can be called
+  // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
 
   // useEffect(() => {
@@ -37,43 +38,43 @@ export const Tides = (props) => {
   };
 
   const fullDateFormat = (date) => {
-    return `${date.split("T")[0]}T00:58:00+00:00`
-  }
+    return `${date.split("T")[0]}T00:58:00+00:00`;
+  };
 
   const formatTime = (date) => {
     return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
   };
 
   const getDates = (tidesObject) => {
-    const justDates = tidesObject.map(tide => {
-      return (fullDateFormat(tide.time))
-    })
-    return new Set(justDates)
+    const justDates = tidesObject.map((tide) => {
+      return fullDateFormat(tide.time);
+    });
+    return new Set(justDates);
   };
 
-  const dates = getDates(tides)  
+  const dates = getDates(tides);
 
-  let newTideArray = []
+  let newTideArray = [];
 
   const makeTideArray = () => {
     dates.forEach((date) => {
-      let tideObject = {}
-      tideObject[date] = []
-      newTideArray.push(tideObject)
-    })
+      let tideObject = {};
+      tideObject[date] = [];
+      newTideArray.push(tideObject);
+    });
   };
 
   const linkTides = () => {
-    makeTideArray()
-    newTideArray.map(element => {
+    makeTideArray();
+    newTideArray.map((element) => {
       tides.map((tide) => {
         if (formatDate(Object.keys(element)[0]) == formatDate(tide.time)) {
-          Object.values(element)[0].push({type: tide.type, time: tide.time})
+          Object.values(element)[0].push({ type: tide.type, time: tide.time });
         }
-      })
-    })
+      });
+    });
     return newTideArray;
-  }
+  };
 
   return (
     <div className="weather-container p-3">
@@ -87,13 +88,27 @@ export const Tides = (props) => {
               <p className="weather-data" id="temp">
                 {formatTime(tide.time)}
               </p>
-              <p className="weather-data" id="condition">
-                {tide.type}
-              </p>
+              {tide.type === "low" ? (
+                <p
+                  className="weather-data"
+                  id="condition"
+                  style={{ color: "#4e7bf5" }}
+                >
+                  <Emoji symbol="⬇" /> {tide.type}
+                </p>
+              ) : (
+                <p
+                  className="weather-data"
+                  id="condition"
+                  style={{ color: "#f781b6" }}
+                >
+                  <Emoji symbol="⬆" /> {tide.type}
+                </p>
+              )}
             </div>
           ))}
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
