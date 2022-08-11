@@ -68,6 +68,7 @@
   text-align: center;
   color: white;
   background-color: darkblue;
+  font-weight: bolder;
 }
 
 .btn:hover {
@@ -153,15 +154,17 @@
   font-size: 20px;
   padding: 20px 20px 10px;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .review-container {
   background-color: #bbdefe;
   padding: 10px;
+  padding: auto;
   margin-top: 30px;
   margin: 10px;
   border-radius: 5px;
+  width: 97%;
 }
 
 .review {
@@ -204,6 +207,7 @@
 
 .review-p {
   padding: 10px;
+  text-align: center;
 }
 
 .review-card {
@@ -232,7 +236,6 @@
 }
 
 .header {
-  font-weight: Bolder;
   text-align: center;
 }
 
@@ -254,9 +257,10 @@ h1 {
 
 h3 {
   font-family: "Poppins", sans-serif;
-  margin-top: 20px;
+  margin-top: 80px;
+  margin-bottom: 20px;
   font-size: 35px;
-  margin-left: 2px;
+  margin-left: 15px;
   font-weight: bolder;
 }
 
@@ -267,6 +271,8 @@ p {
 
 .beaches-p {
   margin: 7px;
+  margin-left: 17px;
+  margin-bottom: 19px;
 }
 
 #map-h2 {
@@ -301,4 +307,8 @@ p {
   margin: auto;
   padding: auto;
   /* background-color: #abd1ea; */
+}
+
+#tide-container {
+  background-color: #736200c7;
 }
