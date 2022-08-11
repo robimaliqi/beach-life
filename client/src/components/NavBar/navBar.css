@@ -35,7 +35,7 @@ link = nav-link */
   color: white;
   font-size: 21px;
   padding: 2px 9px;
-  border-radius: 1px;
+  border-radius: 3px;
   margin: 5px;
   margin-top: 5px;
   transition: 0.2s;
@@ -68,17 +68,6 @@ link = nav-link */
   header {
     padding: 0 30px;
   }
-  /* .menu {
-    display: block;
-  }
-
-  .menu .line {
-    width: 30px;
-    height: 3px;
-    background-color: blue;
-    margin: 6px 0;
-    border-radius: 1px;
-  } */
 
   .logo {
     padding: auto;

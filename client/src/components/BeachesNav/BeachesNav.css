@@ -8,34 +8,40 @@
   box-shadow: 10px 10px 30px rgba(255, 255, 255, 0.348);
 }
 
-.logo {
+.beach-nav-logo {
   font-size: 34px;
   font-weight: bold;
   color: white;
   margin: auto;
   margin-right: 200px;
   margin-left: 20px;
+  padding: 10px;
   padding-bottom: 1%;
   text-align: center;
   align-items: center;
   justify-content: center;
-  /* padding: 20px 100px; */
+  min-width: 310px;
 }
 
-/* ul = nav-bar-list
-li = nav-item
-link = nav-link */
+/* ul = beach-nav-bar-list
+li = beach-nav-item
+link = beach-nav-link */
 
-.nav-bar .nav-bar-list {
+.beach-nav-bar .beach-nav-bar-list {
   display: flex;
   list-style-type: none;
 }
-.nav-bar .nav-bar-list .nav-item .nav-link {
+
+.beach-nav-bar-list {
+  margin-top: 20px;
+}
+
+.beach-nav-bar .beach-nav-bar-list .beach-nav-item .beach-nav-link {
   display: block;
   color: white;
-  font-size: 23.5px;
+  font-size: 21px;
   padding: 2px 9px;
-  border-radius: 1px;
+  border-radius: 3px;
   margin: 5px;
   margin-top: 5px;
   transition: 0.2s;
@@ -43,11 +49,13 @@ link = nav-link */
   border: none;
 }
 
-.nav-link {
+.beach-nav-link {
   font-weight: bolder;
+  text-decoration: none;
+  width: 100px;
 }
 
-.nav-bar .nav-bar-list .nav-item .nav-link:hover {
+.beach-nav-bar .beach-nav-bar-list .beach-nav-item .beach-nav-link:hover {
   background-color: white;
   color: rgb(116, 151, 237);
   padding: 2px 8px;
@@ -68,38 +76,24 @@ link = nav-link */
   header {
     padding: 0 30px;
   }
-  /* .menu {
-    display: block;
-  }
-
-  .menu .line {
-    width: 30px;
-    height: 3px;
-    background-color: blue;
-    margin: 6px 0;
-    border-radius: 1px;
-  } */
 
   .logo {
     padding: auto;
   }
 
-  .nav-bar {
+  .beach-nav-bar {
     position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
+    margin-top: 90px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.348);
-    /* background-color: darkblue;
-    opacity: 0; */
+    background-color: #80b5e4;
   }
 
-  .nav-bar-list {
+  .beach-nav-bar-list {
     display: block;
     width: fit-content;
-    margin: 5px 2000px 0 auto;
+    margin: 5px 0 auto;
     padding-bottom: 1px;
     text-align: center;
+    height: 45px;
   }
 }
