@@ -5,6 +5,7 @@
 .mapContainer {
   margin: auto;
   margin-top: 400px;
+  margin-bottom: 1000px;
   width: 70%;
   height: 80%;
   text-align: center;
@@ -13,6 +14,7 @@
 
 .mapDiv {
   height: 500px;
+  margin-bottom: 100px;
 }
 
 .mapZoomDisplay {
@@ -26,10 +28,10 @@
 }
 
 #marker {
-  background-image: url("./assets/beach-ball.png");
+  background-image: url("./assets/pushpin.png");
   background-size: cover;
   width: 15px;
-  height: 15px;
+  height: 25px;
 }
 
 .label {

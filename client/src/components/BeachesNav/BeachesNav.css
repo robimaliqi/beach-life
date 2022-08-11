@@ -1,12 +1,11 @@
-header {
+.beaches-container {
   width: 100%;
   height: 70px;
-  background-color: rgba(255, 255, 255, 0.348);
+  background-color: #80b5e4;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 100px;
-  box-shadow: 10px 10px 30px #80b5e4;
+  box-shadow: 10px 10px 30px rgba(255, 255, 255, 0.348);
 }
 
 .logo {
@@ -20,6 +19,7 @@ header {
   text-align: center;
   align-items: center;
   justify-content: center;
+  /* padding: 20px 100px; */
 }
 
 /* ul = nav-bar-list

@@ -5,7 +5,7 @@ import { Weather } from "../components/Weather/Weather";
 import { SmallMap } from "../components/SmallMap";
 import { Tides } from "../components/Tides/Tides";
 import { Address } from "../components/Address/Address";
-import { NavBar } from "../components/NavBar/NavBar";
+import { BeachesNav } from "../components/BeachesNav/BeachesNav";
 
 const beaches = require("../components/beachList");
 
@@ -47,7 +47,7 @@ export const Beaches = (props) => {
 
   return (
     <div className="beach-body">
-      <NavBar user={isLoggedIn} />
+      <BeachesNav user={isLoggedIn} />
       <div className="container">
         <div className="beachMap-container">
           <h1 className="page-title">Welcome to {beach[0].name}</h1>
