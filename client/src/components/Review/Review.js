@@ -75,19 +75,28 @@ export function Review(props) {
               <Emoji symbol="👤  " label="bust in silhouette" />
               {review.user.firstName}
             </div>
+
+            <div className="review-date">{formatDate(review.createdAt)}</div>
             <div className="review-card">
-              <div className="review-date">{formatDate(review.createdAt)}</div>
               <div className="review-text">{review.text} </div>
             </div>
           </li>
         ))}
       </ul>
       {props.user && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <textarea {...register("text", { required: true })} />
-          {errors.text && <span>This field is required</span>}
-          <input type="submit" />
-        </form>
+        <div className="form-wrapper">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <textarea
+              className="input"
+              id="reviews-input"
+              {...register("text", { required: true })}
+            />
+            {errors.text && (
+              <span className="require-message">This field is required</span>
+            )}
+            <input class="btn" id="review-btn" type="submit" />
+          </form>
+        </div>
       )}
       {!props.user && (
         <div className="login-advice">
