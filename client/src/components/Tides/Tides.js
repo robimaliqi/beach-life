@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Tides.css";
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
+import { Emoji } from "../Emojis/Emojis";
 const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
@@ -64,11 +65,11 @@ export const Tides = (props) => {
           </p>
           {tide.type === "low" ? (
             <p className="tide-data" id="condition" style={{ color: "blue" }}>
-              ⬇{tide.type}
+              <Emoji symbol="⬇" /> {tide.type}
             </p>
           ) : (
             <p className="tide-data" id="condition" style={{ color: "red" }}>
-              ⬆{tide.type}
+              <Emoji symbol="⬆" /> {tide.type}
             </p>
           )}
         </div>

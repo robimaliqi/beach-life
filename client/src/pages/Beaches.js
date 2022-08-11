@@ -74,7 +74,7 @@ export const Beaches = (props) => {
         <p className="beaches-p">
           The low tide is great if you're looking to go for a swim or just get
           your toes wet. If you want to ride the waves then a high tide will be
-          perfect for you.
+          perfect for you
         </p>
         <Tides lat={lat} long={long} />
         {/* </div>
