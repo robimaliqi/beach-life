@@ -107,12 +107,13 @@
   padding: 0px;
 }
 
-.home-h2 {
+.search-h2 {
   color: white;
   padding: auto;
   padding-bottom: 0px;
-  width: 42%;
-  margin: 200px auto 0px;
+  width: 50%;
+  margin: auto;
+  margin-top: 200px;
   font-size: 40px;
   font-weight: bolder;
 }

@@ -7,12 +7,12 @@
   margin-top: 25px;
   width: 90%;
   padding: 10px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 
 .mapDiv {
   margin: auto;
-  margin-top: 300px;
+  margin-top: 30px;
   width: 65%;
   height: 700px;
 }
@@ -268,5 +268,26 @@ p {
 
 #map-h2 {
   color: blue;
+  margin-top: 100px;
+  margin: auto;
   margin-bottom: 0px;
+  width: 70%;
+  font-size: 40px;
+  padding: auto;
+}
+.home-map-text {
+  width: 100%;
+  text-align: center;
+}
+
+.home-h2 {
+  color: black;
+  padding: auto;
+  /* padding-left: 7px;
+  padding-right: 70px; */
+  width: 75%;
+  margin: auto;
+  margin-top: 450px;
+  font-size: 32px;
+  font-weight: bolder;
 }
