@@ -1,26 +1,34 @@
 .search {
-  background-color: white;
-  width: 70%;
+  background-color: black;
+  width: 85%;
   display: block;
   font-size: 22px;
   margin: auto;
   margin-bottom: 60px;
-  padding: 20px;
+  margin-top: 220px;
+  /* padding: 20px; */
   border-radius: 4px;
+}
+
+.search-container {
+  width: 100%;
 }
 
 .search-inputs {
   margin: auto;
   display: flex;
-  width: 80%;
-  height: 90px;
+  width: 55%;
+  height: 95px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
-  border-radius: 4px;
+  border-radius: 3px;
+  background-color: white;
+  margin-top: 300px;
+  margin-bottom: -0.5px;
 }
 
 .search-field {
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 60px;
   border-radius: 3px;
   padding: 20px;
@@ -29,6 +37,7 @@
   margin-right: 0px;
   border: 0px;
   background-color: #f4f2f2;
+  font-size: 23px;
 }
 
 .search-field:focus {
@@ -41,7 +50,7 @@
   background-color: white;
   display: grid;
   place-items: center;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .search-icon svg {
@@ -49,14 +58,16 @@
 }
 
 .data-result {
-  margin: auto;
+  margin: 0 auto auto auto;
   padding: 10px;
-  width: 80%;
+  width: 55%;
+  min-width: 30%;
   height: 300px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: scroll;
+  font-size: 23px;
 }
 
 .dataResult::-webkit-scrollbar {
@@ -93,4 +104,5 @@
 
 #search-icon-only {
   margin-left: 10px;
+  padding: 0px;
 }

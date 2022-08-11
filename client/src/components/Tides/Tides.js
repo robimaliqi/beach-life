@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-
+import "./Tides.css";
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
+import { Emoji } from "../Emojis/Emojis";
 const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
@@ -10,9 +11,9 @@ export const Tides = (props) => {
     .toISOString()
     .split("T")[0];
 
-    const [tides, setTides] = useState(data);
+  const [tides, setTides] = useState(data);
 
-    // this is commented out because there is a limit on how many times it can be called
+  // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
 
   // useEffect(() => {
@@ -37,33 +38,42 @@ export const Tides = (props) => {
   };
 
   const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
+    return new Date(date)
+      .toLocaleTimeString("en-gb", { hour: "numeric", hour12: true })
+
+      .slice(0, 5);
   };
 
   const getDates = (tidesObject) => {
-    const justDates = tidesObject.map(tide => {
-      return formatDate(tide.time)
-    })
-    return new Set(justDates)
-  }
+    const justDates = tidesObject.map((tide) => {
+      return formatDate(tide.time);
+    });
+    return new Set(justDates);
+  };
 
-  const dates = getDates(tides)  
+  const dates = getDates(tides);
 
   return (
-    <div className="weather-container p-3">
+    <div className="tide-container p-3">
       {tides.map((tide, index) => (
-        <div key={index} className="col weather-day">
-          <p className="weather-data" id="date">
+        <div key={index} className="col-3 tide-day">
+          <p className="tide-data" id="date">
             {dayOfWeek(tide.time)}
           </p>
-          <p className="weather-data" id="temp">
+          <p className="tide-data" id="temp">
             {formatTime(tide.time)}
           </p>
-          <p className="weather-data" id="condition">
-            {tide.type}
-          </p>
+          {tide.type === "low" ? (
+            <p className="tide-data" id="condition" style={{ color: "blue" }}>
+              <Emoji symbol="⬇" /> {tide.type}
+            </p>
+          ) : (
+            <p className="tide-data" id="condition" style={{ color: "red" }}>
+              <Emoji symbol="⬆" /> {tide.type}
+            </p>
+          )}
         </div>
       ))}
     </div>
-  )
-}
+  );
+};

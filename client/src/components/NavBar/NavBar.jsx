@@ -1,11 +1,15 @@
 import "./navBar.css";
-import { LogOut } from "../logOut"
+import { LogOut } from "../logOut";
 import { Link } from "react-router-dom";
+import { Emoji } from "../Emojis/Emojis";
 
 export const NavBar = (props) => {
   return (
     <header className="navbar">
-      <div className="logo"> Beach Life</div>
+      <div className="logo">
+        BeachFinder
+        <Emoji symbol={" 🔎"} label="Magnifying Glass Tilted Right" />
+      </div>
       <div className="menu">
         <div className="line"></div>
         <div className="line"></div>
@@ -20,9 +24,7 @@ export const NavBar = (props) => {
           </li>
           {props.user && (
             <li className="nav-item">
-              <LogOut className="nav-link">
-                Log Out
-              </LogOut>
+              <LogOut className="nav-link">Log Out</LogOut>
             </li>
           )}
           {!props.user && (
@@ -42,5 +44,5 @@ export const NavBar = (props) => {
         </ul>
       </nav>
     </header>
-  )
+  );
 };

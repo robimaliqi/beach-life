@@ -4,24 +4,21 @@ import { Home } from "./pages/Home";
 import { Register } from "./pages/register/Register";
 import { SignIn } from "./pages/SignIn/SignIn";
 import { Beaches } from "./pages/Beaches";
-import { NavBar } from "./components/NavBar/NavBar";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetch(`/signin/user`, {
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      setIsLoggedIn(responseJson)
-    })
+    fetch(`/signin/user`, {})
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setIsLoggedIn(responseJson);
+      });
   }, []);
 
   return (
     <div>
-      <NavBar user={isLoggedIn}/>
       <Routes>
         <Route path="/beaches/:id" element={<Beaches user={isLoggedIn} />} />
         <Route path="/" element={<Home />} />
