@@ -28,7 +28,7 @@ export const SmallMap = (props) => {
 
   return (
     <div>
-      <div ref={mapElement} className="mapDiv" />
+      <div ref={mapElement} className="small-map" />
     </div>
   );
 };

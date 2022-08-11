@@ -76,7 +76,7 @@ export const Register = () => {
         <div className="register">
           <form className="form">
             <h1>Register</h1>
-            <span>Register and Rate A Beach</span>
+            <span>Create an account and review your favourite beaches</span>
             <div className="name">
               <input
                 className="input"

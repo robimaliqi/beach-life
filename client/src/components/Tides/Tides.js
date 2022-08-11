@@ -10,9 +10,9 @@ export const Tides = (props) => {
     .toISOString()
     .split("T")[0];
 
-    const [tides, setTides] = useState(data);
+  const [tides, setTides] = useState(data);
 
-    // this is commented out because there is a limit on how many times it can be called
+  // this is commented out because there is a limit on how many times it can be called
   // DO NOT DELETE
 
   // useEffect(() => {
@@ -41,13 +41,13 @@ export const Tides = (props) => {
   };
 
   const getDates = (tidesObject) => {
-    const justDates = tidesObject.map(tide => {
-      return formatDate(tide.time)
-    })
-    return new Set(justDates)
-  }
+    const justDates = tidesObject.map((tide) => {
+      return formatDate(tide.time);
+    });
+    return new Set(justDates);
+  };
 
-  const dates = getDates(tides)  
+  const dates = getDates(tides);
 
   return (
     <div className="weather-container p-3">
@@ -65,5 +65,5 @@ export const Tides = (props) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
