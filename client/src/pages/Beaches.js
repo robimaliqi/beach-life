@@ -48,7 +48,7 @@ export const Beaches = (props) => {
   return (
     <div className="beach-body">
       <NavBar user={isLoggedIn} />
-      <div class="container">
+      <div className="container">
         <div className="beachMap-container">
           <h1 className="page-title">Welcome to {beach[0].name}</h1>
           <SmallMap id="small-map" lat={lat} long={long} />
