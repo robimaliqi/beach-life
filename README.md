@@ -1,5 +1,6 @@
 Beach Finder
 ==========
+*The beach finds a way...*
 
 By Aisha, Hafiz, Joe, Robi & Sophie
 
@@ -55,12 +56,17 @@ The beaches is a CSV file we have loaded locally, which we found on [Environment
 # Approaching the task
 Coming up with a solid idea of what we wanted to achieve was quite the challenge itself. We bounced ideas back and forth only knowing we were building something related to holidays. We settled on the idea of Beach Finder, decided what tech stack we wanted to use and why we thought it was appropriate, then looked at features and functionality we would like to implement. 
 
-The task was then broken down into user stories using GitHub Projects. 
+The task was then broken down into user stories using GitHub Projects, and then broken further down into tasks for the team to get started on. 
 
-# Getting Started with Create React App
+We knew we wanted to work with React, as we believed it would not only be a good experience to try out one of the most popular frameworks when it comes to frontend web development, and we also thought the dynamic features of React would create a more engaging website. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We also knew we wanted a map to show the locations of beaches. Ideally we wanted this to be UK-wide, but finding that data proved difficult in the time restraints we had, so we settled with England to begin with. 
 
+The map API was a trickier challenge than anticipated too. At first we all wanted to use Google Maps, but upon looking into it, we found that the JavaScript API required a fee and was no longer free. After digging around, we settled on TomTom's API due to the better documentation that was readily available. 
+
+With the map solved, the next biggest hurdle was adding pins for each beach location that we found from the Environment Agency's website. Our first plan was to to have our backend connect to our MongoDB Atlas cluster and then have our frontend get the pins from the database and place them on the map. 
+
+# Issues with React?
 ## Available Scripts
 
 In the project directory, you can run:
