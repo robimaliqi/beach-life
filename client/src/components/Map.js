@@ -9,7 +9,7 @@ function Map() {
   const mapElement = useRef();
   const [mapLongitude, setMapLongitude] = useState(-1.4582515931151268);
   const [mapLatitude, setMapLatitude] = useState(53.39687281540704);
-  const [mapZoom, setMapZoom] = useState(5);
+  const [mapZoom, setMapZoom] = useState(5.5);
   const [map, setMap] = useState({});
   const [beaches, setBeaches] = useState(beachList);
 
@@ -41,10 +41,8 @@ function Map() {
   }, []);
 
   return (
-    <div>
-      <div className="mapContainer">
-        <div ref={mapElement} className="mapDiv" />
-      </div>
+    <div className="mapContainer">
+      <div ref={mapElement} className="mapDiv" />
     </div>
   );
 }

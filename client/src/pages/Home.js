@@ -19,10 +19,9 @@ export const Home = () => {
   return (
     <div id="background-home-image">
       <NavBar user={isLoggedIn} />
-      <div data-spy="scroll">
-        <SearchBar placeholder="Where would you like to go?" data={BeachData} />
-        <div className="map">{<Map />}</div>
-      </div>
+      <SearchBar placeholder="Where would you like to go?" data={BeachData} />
+      <h2 className="home-h2" id="map-h2"></h2>
+      <Map />
     </div>
   );
 };
