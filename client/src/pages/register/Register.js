@@ -75,7 +75,7 @@ export const Register = () => {
       <div className="form-container">
         <div className="register">
           <form className="form">
-            <h1>Register</h1>
+            <h1 className="header">Register</h1>
             <span>Create an account and review your favourite beaches</span>
             <div className="name">
               <input
@@ -121,11 +121,9 @@ export const Register = () => {
               />
               {errors.password && <p className="error">{errors.password}</p>}
             </div>
-            <div>
-              <button className="btn" type="submit" onClick={handleFormSubmit}>
-                Sign Up
-              </button>
-            </div>
+            <button className="btn" type="submit" onClick={handleFormSubmit}>
+              Sign Up
+            </button>
           </form>
         </div>
       </div>

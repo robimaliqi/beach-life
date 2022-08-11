@@ -42,30 +42,33 @@
 }
 
 .input {
-  width: 80%;
-  height: 20%;
-  padding: 5px;
-  font-size: 22px;
-  display: block;
-  padding: 5px;
-  margin: 24px auto;
+  display: flex;
+  width: 85%;
+  height: 50px;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 15px auto 20px;
+  border: 0px;
+  background-color: #f4f2f2;
+  font-size: 21px;
 }
 
 .btn {
-  width: 80%;
-  height: 20%;
+  display: block;
+  width: 85%;
+  height: 50px;
+  border-radius: 5px;
   padding: 5px;
+  margin: 15px auto 20px;
+  border: 0px;
+  font-size: 21px;
+  text-align: center;
   color: white;
   background-color: darkblue;
-  border-radius: 4px;
-  font-size: 20px;
-  display: block;
-  padding: 5px;
-  margin: 10px auto;
 }
 
 .btn:hover {
-  background-color: rgb(108, 159, 217);
+  background-color: rgb(116, 151, 237);
   color: white;
 }
 
@@ -132,11 +135,11 @@
   margin: auto;
   border-radius: 5px;
   height: 500px;
-  width: 100%;
+  width: 80%;
 }
 
 .address-container {
-  width: 100%;
+  width: 80%;
   height: 20%;
   box-shadow: 0px 0px 30px 1px rgba(50, 50, 50, 0.2);
   border-bottom-left-radius: 10px;
@@ -188,4 +191,9 @@
   border-radius: 5px;
   width: 100%;
   background-color: rgb(246, 244, 244);
+}
+
+.header {
+  font-weight: Bolder;
+  text-align: center;
 }
