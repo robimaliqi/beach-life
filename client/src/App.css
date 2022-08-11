@@ -40,22 +40,22 @@
 }
 
 .input {
-  width: 70%;
+  width: 80%;
   height: 20%;
   padding: 5px;
-  font-size: 20px;
+  font-size: 22px;
   display: block;
   padding: 5px;
   margin: 24px auto;
 }
 
 .btn {
-  width: 70%;
+  width: 80%;
   height: 20%;
   padding: 5px;
   color: white;
   background-color: darkblue;
-  border-radius: 2px;
+  border-radius: 4px;
   font-size: 20px;
   display: block;
   padding: 5px;
@@ -84,18 +84,20 @@
 
 .form-container {
   background-color: white;
-  width: 30%;
-  height: 69%;
+  width: 33%;
+  height: 54%;
   margin: auto;
-  margin-top: 85px;
+  margin-top: 95px;
   padding-top: 50px;
-  padding: 20px;
-  box-shadow: 10px 10px 30px grey;
+  padding: 25px;
+  box-shadow: 10px 10px 30px rgb(156, 156, 156);
   border-radius: 8px;
 }
 
 #sign-in-container {
-  height: 45%;
+  margin: 155px auto;
+  width: 28%;
+  height: 35%;
 }
 
 #background-register-image {
