@@ -20,6 +20,7 @@ export const Home = () => {
     <div id="background-home-image">
       <NavBar user={isLoggedIn} />
       <div data-spy="scroll">
+        <h2>Find the best beaches in the U.K</h2>
         <SearchBar placeholder="Where would you like to go?" data={BeachData} />
         <div className="map">{<Map />}</div>
       </div>

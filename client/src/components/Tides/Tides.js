@@ -3,7 +3,7 @@ import "./Tides.css";
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
 import { Emoji } from "../Emojis/Emojis";
-const tidalAPIKey = require("../../tide-api");
+// const tidalAPIKey = require("../../tide-api");
 
 export const Tides = (props) => {
   const today = new Date().toISOString().split("T")[0];
