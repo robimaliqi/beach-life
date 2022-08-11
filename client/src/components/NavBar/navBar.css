@@ -6,12 +6,11 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 50px 100px;
-  box-shadow: 10px 10px 30px #80b5e4;
 }
 
 .logo {
+  font-family: 'Rubik Dirt', sans-serif;
   font-size: 32px;
-  font-weight: bold;
   color: white;
   margin: auto;
   margin-right: 200px;
@@ -22,6 +21,16 @@ header {
   justify-content: center;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 /* ul = nav-bar-list
 li = nav-item
 link = nav-link */
@@ -30,7 +39,8 @@ link = nav-link */
   display: flex;
   list-style-type: none;
 }
-.nav-bar .nav-bar-list .nav-item .nav-link {
+
+.nav-link {
   display: block;
   color: white;
   font-size: 21px;
@@ -41,9 +51,6 @@ link = nav-link */
   transition: 0.2s;
   background-color: transparent;
   border: none;
-}
-
-.nav-link {
   font-weight: bolder;
 }
 
