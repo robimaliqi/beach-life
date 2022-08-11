@@ -21,6 +21,16 @@ header {
   justify-content: center;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 /* ul = nav-bar-list
 li = nav-item
 link = nav-link */

@@ -7,8 +7,10 @@ export const BeachesNav = (props) => {
   return (
     <header className="navbar">
       <div className="logo">
-        BeachFinder
-        <Emoji symbol={" 🔎"} label="Magnifying Glass Tilted Right" />
+        <Link to="/" className="logo-link">
+          BeachFinder
+          <Emoji symbol={" 🔎"} label="Magnifying Glass Tilted Right" />
+        </Link>
       </div>
       <div className="menu">
         <div className="line"></div>

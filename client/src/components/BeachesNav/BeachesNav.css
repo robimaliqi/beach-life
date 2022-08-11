@@ -21,6 +21,16 @@ header {
   justify-content: center;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .nav-bar .nav-bar-list {
   display: flex;
   list-style-type: none;
