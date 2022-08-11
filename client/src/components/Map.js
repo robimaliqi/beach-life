@@ -22,8 +22,8 @@ function Map() {
     });
 
     beaches.forEach((beach) => {
-      var element = document.createElement('div');
-      element.id = 'marker';
+      var element = document.createElement("div");
+      element.id = "marker";
       let marker = new tt.Marker({
         element: element,
       })

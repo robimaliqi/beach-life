@@ -27,11 +27,12 @@ export const SearchBar = ({ placeholder, data }) => {
   };
 
   return (
-    <div className="search">
+    <div className="search-container">
       <div className="search-inputs">
         <div className="search-icon">
           <SearchRoundedIcon id="search-icon-only" />
         </div>
+
         <input
           type="text"
           placeholder={placeholder}
@@ -39,6 +40,7 @@ export const SearchBar = ({ placeholder, data }) => {
           onChange={handleFilter}
           className="search-field"
         />
+
         <div className="search-icon">
           {wordEntered.length !== 0 ? (
             <CloseRoundedIcon id="clear-text-btn" onClick={clearInput} />
@@ -47,6 +49,7 @@ export const SearchBar = ({ placeholder, data }) => {
           )}
         </div>
       </div>
+
       {filteredData.length !== 0 && (
         <div className="data-result">
           {filteredData.slice(0, 6).map((value, key) => {

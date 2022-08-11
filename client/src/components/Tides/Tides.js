@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-
+import "./Tides.css";
 import { data } from "./beachApiResult";
 import { dayOfWeek } from "../Weather/WeatherForecastApi";
 import { Emoji } from "../Emojis/Emojis";
 // const tidalAPIKey = require("../../tide-api");
+
 
 export const Tides = (props) => {
   const today = new Date().toISOString().split("T")[0];
@@ -42,7 +43,10 @@ export const Tides = (props) => {
   };
 
   const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
+    return new Date(date)
+      .toLocaleTimeString("en-gb", { hour: "numeric", hour12: true })
+
+      .slice(0, 5);
   };
 
   const getDates = (tidesObject) => {

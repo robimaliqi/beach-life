@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { useEffect } from "react";
 
 export const Register = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  let navigate = useNavigate()
+  useEffect(() => {
+    fetch(`/signin/user`, {})
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setIsLoggedIn(responseJson);
+      });
+  }, []);
+
+  let navigate = useNavigate();
 
   const [values, setValues] = useState({
     firstName: "",
@@ -31,8 +42,8 @@ export const Register = () => {
       errors.password = "Password is required.";
     } else if (values.password.length < 5) {
       errors.password = "Password must be at least five characters.";
-    } else{
-        navigate('/signin')
+    } else {
+      navigate("/signin");
     }
 
     return errors;
@@ -56,64 +67,65 @@ export const Register = () => {
       },
       body: JSON.stringify(values),
     });
-   
   };
 
   return (
-    <div className="container">
-      <div className="app-wrapper">
-        <form className="form">
-          <h1>Register</h1>
-          <div className="name">
-            <label className="label">First Name</label>
-            <input
-              className="input"
-              type="text"
-              name="firstName"
-              value={values.firstName}
-              onChange={handleChange}
-            />
-            {errors.firstName && <p className="error">{errors.firstName}</p>}
-            <div>
-              <label className="label">Last Name</label>
+    <div className="background-image" id="background-register-image">
+      <NavBar user={isLoggedIn} />
+      <div className="form-container">
+        <div className="register">
+          <form className="form">
+            <h1 className="header">Register</h1>
+            <span>Create an account and review your favourite beaches</span>
+            <div className="name">
               <input
                 className="input"
                 type="text"
-                name="lastName"
-                value={values.lastName}
+                name="firstName"
+                value={values.firstName}
                 onChange={handleChange}
+                placeholder="First Name"
               />
-              {errors.lastName && <p className="error">{errors.lastName}</p>}
+              {errors.firstName && <p className="error">{errors.firstName}</p>}
+              <div>
+                <input
+                  className="input"
+                  type="text"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name"
+                />
+                {errors.lastName && <p className="error">{errors.lastName}</p>}
+              </div>
             </div>
-          </div>
-          <div className="email">
-            <label className="label">Email</label>
-            <input
-              className="input"
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
-          <div className="password">
-            <label className="label">Password</label>
-            <input
-              className="input"
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-          </div>
-          <div>
+            <div className="email">
+              <input
+                className="input"
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                placeholder="Email"
+              />
+              {errors.email && <p className="error">{errors.email}</p>}
+            </div>
+            <div className="password">
+              <input
+                className="input"
+                type="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
+                placeholder="Password"
+              />
+              {errors.password && <p className="error">{errors.password}</p>}
+            </div>
             <button className="btn" type="submit" onClick={handleFormSubmit}>
               Sign Up
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
