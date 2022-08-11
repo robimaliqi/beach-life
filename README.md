@@ -4,7 +4,7 @@ Beach Finder
 
 By Aisha, Hafiz, Joe, Robi & Sophie
 
-Fancy a quick dip in the sea or a nice romantic walk on the beach? Not sure where your nearest beach actually is? Fear no more for Beach Life is here. Your one-stop-shop for locating all beaches in England (other countries possibly coming soon), along with a forecast for your chosen beach for the next 7 days, as well as tide information so you'll never miss high or low tide again!
+Fancy a quick dip in the sea or a nice romantic walk on the beach? Not sure where your nearest beach actually is? Fear no more for Beach Finder is here. Your one-stop-shop for locating all beaches in England (other countries possibly coming soon), along with a forecast for your chosen beach for the next 7 days, as well as tide information so you'll never miss high or low tide again!
 
 The project was built using the MERN tech stack. The database is connected to MongoDB Atlas via Mongoose. The front-end was built using React, the backend server uses Express and Node. 
 
@@ -64,7 +64,11 @@ We also knew we wanted a map to show the locations of beaches. Ideally we wanted
 
 The map API was a trickier challenge than anticipated too. At first we all wanted to use Google Maps, but upon looking into it, we found that the JavaScript API required a fee and was no longer free. After digging around, we settled on TomTom's API due to the better documentation that was readily available. 
 
-With the map solved, the next biggest hurdle was adding pins for each beach location that we found from the Environment Agency's website. Our first plan was to to have our backend connect to our MongoDB Atlas cluster and then have our frontend get the pins from the database and place them on the map. 
+With the map solved, the next biggest hurdle was adding pins for each beach location that we found from the Environment Agency's website. Our first plan was to to have our backend connect to our MongoDB Atlas cluster and then have our frontend get the pins from the database and place them on the map. We did get this working, however it was very inconsistent and we could not find a way to reliably and consistently get the pins to load. To get around this issue, we ultimately decided to store the beach locations in a CSV file which we then turned into a JavaScript object. 
+
+The weather and tide APIs were also problematic. Understanding how to access them and get the required information whilst avoiding either call limits, or even just understanding where to place the calls inside React caused a lot of headaches for us all. 
+
+Understanding how the front and backend connect and how to get React to submit or fetch the data from the server was confusing, especially for user information when it came to logging in and reflecting that change of state on the website. 
 
 # Issues with React?
 ## Available Scripts
