@@ -1,31 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Emoji } from "../Emojis/Emojis";
 
 export function Review(props) {
-  const { register, handleSubmit, reset, formState, formState: { errors, isSubmitSuccessful } } = useForm();
-  const [reviews, setReviews ] = useState({reviews: [{
-    _id: "",
-    user: {
-      firstName: "",
-    },
-    text: "",
-    beachId: "",
-    createdAt: "",
-  }]
-})
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm();
+  const [reviews, setReviews] = useState({
+    reviews: [
+      {
+        _id: "",
+        user: {
+          firstName: "",
+        },
+        text: "",
+        beachId: "",
+        createdAt: "",
+      },
+    ],
+  });
 
-const fetchReviews = () => {
-  fetch(`/reviews/${props.id}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      setReviews(responseJson);
-    });
-};
+  const fetchReviews = () => {
+    fetch(`/reviews/${props.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setReviews(responseJson);
+      });
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -37,11 +47,11 @@ const fetchReviews = () => {
       body: JSON.stringify(data),
     });
     fetchReviews();
-  }
+  };
 
   useEffect(() => {
     fetchReviews();
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -51,10 +61,27 @@ const fetchReviews = () => {
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString();
-  }
+  };
 
   return (
-    <div>
+    <div className="review-container">
+      <p className="review-p">
+        Have a look at the lovely reviews about this beach{" "}
+      </p>
+      <ul className="reviews-list">
+        {reviews.reviews.map((review) => (
+          <li className="review" key={review._id}>
+            <div className="review-author">
+              <Emoji symbol="👤  " label="bust in silhouette" />
+              {review.user.firstName}
+            </div>
+            <div className="review-card">
+              <div className="review-date">{formatDate(review.createdAt)}</div>
+              <div className="review-text">{review.text} </div>
+            </div>
+          </li>
+        ))}
+      </ul>
       {props.user && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea {...register("text", { required: true })} />
@@ -63,17 +90,13 @@ const fetchReviews = () => {
         </form>
       )}
       {!props.user && (
-        <div className="login-advice">You must be logged in to leave a review</div>
+        <div className="login-advice">
+          <p className="review-p">
+            If you would like to leave a review, you will need to log in or
+            register and create an account.
+          </p>
+        </div>
       )}
-        <ul className="reviews">
-          {reviews.reviews.map((review) => (
-            <li className="review" key={review._id}>
-              <div className="review-author">{review.user.firstName}</div>
-              <div className="reviewDate">{formatDate(review.createdAt)}</div>
-              <div className="review-text">{review.text} </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+    </div>
   );
 }
