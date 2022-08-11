@@ -9,7 +9,7 @@ function Map() {
   const mapElement = useRef();
   const [mapLongitude, setMapLongitude] = useState(-1.4582515931151268);
   const [mapLatitude, setMapLatitude] = useState(53.39687281540704);
-  const [mapZoom, setMapZoom] = useState(5);
+  const [mapZoom, setMapZoom] = useState(5.5);
   const [map, setMap] = useState({});
   const [beaches, setBeaches] = useState(beachList);
 
@@ -22,9 +22,10 @@ function Map() {
     });
 
     beaches.forEach((beach) => {
+      var element = document.createElement("div");
+      element.id = "marker";
       let marker = new tt.Marker({
-        width: 20,
-        height: 20,
+        element: element,
       })
         .setLngLat([beach.long, beach.lat])
         .addTo(map1);
@@ -40,12 +41,8 @@ function Map() {
   }, []);
 
   return (
-    <div>
-      <div className="map">
-        <div className="mapContainer">
-          <div ref={mapElement} className="mapDiv" />
-        </div>
-      </div>
+    <div className="mapContainer">
+      <div ref={mapElement} className="mapDiv" />
     </div>
   );
 }

@@ -33,6 +33,8 @@ yarn-error.log*
 /server/db-config.js
 
 # Client - Api
-client/src/api/tt-api-key.js
-client/src/weatherApiKey.js
+/client/src/tt-api-key.js
+/client/src/weatherApiKey.js
+/client/src/tide-api.js
+/client/src/BeachAddressKey.js
 

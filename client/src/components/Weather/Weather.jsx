@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getBeachWeatherData } from "../../api/WeatherForecast";
+import { getBeachWeatherData } from "./WeatherForecastApi";
 import { WeatherCard } from "./WeatherCard";
 
 export const Weather = ({ beach }) => {
@@ -28,8 +28,9 @@ export const Weather = ({ beach }) => {
 
   return (
     <div>
-      <p>Weather Forecast</p>
-      <div>{weather && <WeatherCard forecasts={weather} />}</div>
+      <div>
+        {weather && <WeatherCard forecasts={weather} />}
+      </div>
     </div>
   );
 };

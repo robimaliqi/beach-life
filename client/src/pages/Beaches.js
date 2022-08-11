@@ -1,16 +1,25 @@
 import { Review } from "../components/Review/Review";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Weather } from "../components/Weather/Weather";
-import { data } from "../components/beachApiResult";
-const tidalAPIKey = require("../tide-api");
+import { SmallMap } from "../components/SmallMap";
+import { Tides } from "../components/Tides/Tides";
+import { Address } from "../components/Address/Address";
+import { BeachesNav } from "../components/BeachesNav/BeachesNav";
+
 const beaches = require("../components/beachList");
 
 export const Beaches = (props) => {
-  const today = new Date().toISOString().split("T")[0];
-  const endDate = new Date(new Date().setDate(new Date().getDate() + 6))
-    .toISOString()
-    .split("T")[0];
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch(`/signin/user`, {})
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setIsLoggedIn(responseJson);
+      });
+  }, []);
+
   const { id } = useParams();
   const [beach, setBeach] = useState([
     {
@@ -20,11 +29,6 @@ export const Beaches = (props) => {
       lat: "",
       long: "",
     },
-  ]);
-
-  const [tides, setTides] = useState([
-    // don't change this
-    { time: "2022-08-09T05:06:07", type: "high" },
   ]);
 
   const getBeach = (id) => {
@@ -41,48 +45,44 @@ export const Beaches = (props) => {
     setBeach(getBeach(id));
   }, []);
 
-  // this is commented out because there is a limit on how many times it can be called
-  // DO NOT DELETE
-
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.stormglass.io/v2/tide/extremes/point?lat=${lat}&lng=${long}&start=${today}&end=${endDate}`,
-  //     {
-  //       headers: {
-  //         Authorization: tidalAPIKey,
-  //       },
-  //     }
-  //   )
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
-  //       setTides(responseData.data);
-  //       console.log(tides);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString();
-  };
-
-  const formatTime = (date) => {
-    return new Date(date).toLocaleTimeString("en-gb");
-  };
-
   return (
-    <div className="container">
-      <h1>Welcome to {beach[0].name}</h1>
-      <Weather beach={beachCoOrds} />
-      <ul className="tides">
-        {tides.map((tide, index) => (
-          <li className="tide" key={index}>
-            {formatDate(tide.time)}, {formatTime(tide.time)}: {tide.type}
-          </li>
-        ))}
-      </ul>
-      <div className="review">
-        <Review id={id} />
+    <div className="beach-body">
+      <BeachesNav user={isLoggedIn} />
+      <div className="container">
+        <div className="beachMap-container">
+          <h1 className="page-title">Welcome to {beach[0].name}</h1>
+          <SmallMap id="small-map" lat={lat} long={long} />
+          <div className="address-container">
+            <Address beachData={beaches} beachId={id} />
+          </div>
+        </div>
+        {/* <div className="weather-container"> */}
+        <h3>Weather Forecast</h3>
+        <p className="beaches-p">
+          Here is the weather forecast for the next 7 days
+        </p>
+        <p className="beaches-p">
+          {`Have a look and pick a day that would be best to visit ${beach[0].name} beach!`}
+        </p>
+        <Weather beach={beachCoOrds} />
+        {/* </div> */}
+        {/* <div className="tide-container"> */}
+        <h3>Tides</h3>
+        <p className="beaches-p">
+          Here is the tide forecast for the next 7 days
+        </p>
+        <p className="beaches-p">
+          The low tide is great if you're looking to go for a swim or just get
+          your toes wet. If you want to ride the waves then a high tide will be
+          perfect for you
+        </p>
+        <Tides lat={lat} long={long} />
+        {/* </div>
+        <div className="review-container"> */}
+        <h3>Reviews</h3>
+        <Review id={id} user={props.user} />
       </div>
     </div>
+    // </div>
   );
 };
