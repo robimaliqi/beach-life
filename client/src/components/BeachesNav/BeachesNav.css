@@ -9,7 +9,7 @@
 }
 
 .logo {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: bold;
   color: white;
   margin: auto;
@@ -33,7 +33,7 @@ link = nav-link */
 .nav-bar .nav-bar-list .nav-item .nav-link {
   display: block;
   color: white;
-  font-size: 21px;
+  font-size: 23.5px;
   padding: 2px 9px;
   border-radius: 1px;
   margin: 5px;
