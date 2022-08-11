@@ -78,4 +78,4 @@ We did also end up using the beaches collection that we created in Atlas in orde
 
 Understanding how the front and backend connect and how to get React to submit or fetch the data from the server was confusing, especially for user information when it came to logging in and reflecting that change of state on the website. This took some getting used to, but between pairing and researching we got more comfortable with it. 
 
-Heroku.
+Initially we did want to stage the website on Heroku, but due to time constraints we did not get round to successfully doing this. 
