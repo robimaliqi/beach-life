@@ -66,7 +66,7 @@ export function Review(props) {
   return (
     <div className="review-container">
       <p className="review-p">
-        Have a look at the lovely reviews about this beach{" "}
+        Have a look at the lovely reviews about this beach
       </p>
       <ul className="reviews-list">
         {reviews.reviews.map((review) => (

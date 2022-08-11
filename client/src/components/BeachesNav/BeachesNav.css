@@ -58,8 +58,8 @@ link = beach-nav-link */
 .beach-nav-bar .beach-nav-bar-list .beach-nav-item .beach-nav-link:hover {
   background-color: white;
   color: rgb(116, 151, 237);
-  padding: 2px 8px;
-  margin: 5px 1px;
+  padding: 2px 9px;
+  margin: 5px 3px;
 }
 
 @media only screen and (max-width: 1320px) {

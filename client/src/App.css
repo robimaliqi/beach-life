@@ -129,6 +129,9 @@
 .page-title {
   margin-top: 60px;
   margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 55px;
+  text-align: center;
 }
 
 .small-map {
@@ -240,4 +243,19 @@
   margin: auto;
   width: 100%;
   color: red;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 35px;
+  margin-left: 2px;
+  font-weight: bolder;
+}
+
+p {
+  font-size: 20px;
+}
+
+.beaches-p {
+  margin: 7px;
 }
