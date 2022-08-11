@@ -1,0 +1,24 @@
+{
+  "name": "beach-life",
+  "version": "1.0.0",
+  "description": "Beach Life ==========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "cd server && nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robimaliqi/beach-life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robimaliqi/beach-life/issues"
+  },
+  "homepage": "https://github.com/robimaliqi/beach-life#readme"
+}

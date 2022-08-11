@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config({ path: "../.env" });
 const cors = require("cors");
-const port = process.env.PORT || 1111; // If the .env file is not working then the port number will be 9999
+const port = process.env.PORT || 1111; // If the .env file is not working then the port number will be 1111
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -69,6 +69,11 @@ mongoose
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+// Check Heroku is working
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // // clear the cookies after user logs out
 // app.use((req, res, next) => {
