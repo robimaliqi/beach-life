@@ -55,11 +55,37 @@ link = beach-nav-link */
   width: 100px;
 }
 
+.nav-link {
+  display: block;
+  color: white;
+  font-size: 21px;
+  padding: 2px 9px;
+  border-radius: 3px;
+  margin: 5px;
+  margin-top: 5px;
+  transition: 0.2s;
+  background-color: transparent;
+  border: none;
+}
+
 .beach-nav-bar .beach-nav-bar-list .beach-nav-item .beach-nav-link:hover {
   background-color: white;
   color: rgb(116, 151, 237);
   padding: 2px 9px;
   margin: 5px 3px;
+}
+
+.nav-link:hover {
+  display: block;
+  color: white;
+  font-size: 21px;
+  padding: 2px 9px;
+  border-radius: 3px;
+  margin: 5px;
+  margin-top: 5px;
+  transition: 0.2s;
+  background-color: transparent;
+  border: none;
 }
 
 @media only screen and (max-width: 1320px) {

@@ -43,10 +43,7 @@ export const Tides = (props) => {
   };
 
   const formatTime = (date) => {
-    return new Date(date)
-      .toLocaleTimeString("en-gb", { hour: "numeric", hour12: true })
-
-      .slice(0, 5);
+    return new Date(date).toLocaleTimeString("en-gb").slice(0, 5);
   };
 
   const getDates = (tidesObject) => {

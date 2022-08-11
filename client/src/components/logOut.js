@@ -15,9 +15,7 @@ export function LogOut() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="nav-item">
           <input type="submit" className="nav-link" value="Log Out"/>
-        </div>
       </form>
     </div>
   );
