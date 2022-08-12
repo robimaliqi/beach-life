@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export function LogOut() {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const { handleSubmit } = useForm();
   const onSubmit = () => {
     fetch(`/signin/destroy`, {
       method: "DELETE",
     });
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="submit" className="nav-link" value="Log Out"/>
+        <input type="submit" className="nav-link" value="Sign Out" />
       </form>
     </div>
   );

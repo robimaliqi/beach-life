@@ -20,8 +20,14 @@ export const Home = () => {
     <div id="background-home-image">
       <NavBar user={isLoggedIn} />
       <SearchBar placeholder="Where would you like to go?" data={BeachData} />
-      <h2 className="home-h2" id="map-h2"></h2>
-      <Map />
+      <div className="home-map-text">
+        <h2 className="home-h2">
+          Explore the best beaches in England with our interactive map
+        </h2>
+      </div>
+      <div className="map-card">
+        <Map />
+      </div>
     </div>
   );
 };

@@ -3,26 +3,27 @@
 }
 
 .mapContainer {
-  margin: 400px 40px 50px 250px;
-  /* margin-top: 200px; */
-  /* margin-bottom: 1000px; */
-  width: 80%;
-  height: 90%;
-  text-align: center;
+  margin: auto;
+  width: 65%;
+  height: 91%;
+  margin-top: 42px;
+  margin-bottom: 0px;
   padding: 10px;
+  /* padding-bottom: 50px; */
+  /* background-color: white; */
+  box-shadow: 0px 0px 30px 1px rgba(50, 50, 50, 0.2);
 }
 
 .mapDiv {
-  height: 600px;
-  width: 900px;
-  /* margin-bottom: 100px; */
-  padding: 100px;
+  margin: auto;
+  width: 100%;
+  height: 705px;
 }
 
 .mapZoomDisplay {
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .updateButton {
@@ -67,10 +68,11 @@
   text-align: center;
   color: white;
   background-color: darkblue;
+  font-weight: bolder;
 }
 
 .btn:hover {
-  background-color: rgb(116, 151, 237);
+  background-color: #71b1de;
   color: white;
 }
 
@@ -92,7 +94,7 @@
 .form-container {
   background-color: white;
   width: 33%;
-  height: 54%;
+  height: 60%;
   margin: auto;
   margin-top: 95px;
   padding-top: 50px;
@@ -103,8 +105,8 @@
 
 #sign-in-container {
   margin: 155px auto;
-  width: 28%;
-  height: 35%;
+  width: 30%;
+  height: 40%;
 }
 
 #background-register-image {
@@ -152,15 +154,17 @@
   font-size: 20px;
   padding: 20px 20px 10px;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .review-container {
   background-color: #bbdefe;
   padding: 10px;
+  padding: auto;
   margin-top: 30px;
   margin: 10px;
   border-radius: 5px;
+  width: 97%;
 }
 
 .review {
@@ -203,6 +207,7 @@
 
 .review-p {
   padding: 10px;
+  text-align: center;
 }
 
 .review-card {
@@ -231,7 +236,6 @@
 }
 
 .header {
-  font-weight: Bolder;
   text-align: center;
 }
 
@@ -248,28 +252,63 @@
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h3 {
-  font-family: 'Poppins', sans-serif;
-  margin-top: 20px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 80px;
+  margin-bottom: 20px;
   font-size: 35px;
-  margin-left: 2px;
+  margin-left: 15px;
   font-weight: bolder;
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
 
 .beaches-p {
   margin: 7px;
+  margin-left: 17px;
+  margin-bottom: 19px;
 }
 
 #map-h2 {
   color: blue;
+  margin-top: 100px;
+  margin: auto;
   margin-bottom: 0px;
+  width: 70%;
+  font-size: 40px;
+  padding: auto;
+}
+.home-map-text {
+  width: 100%;
+  text-align: center;
 }
 
+.home-h2 {
+  color: black;
+  padding: auto;
+  height: 47px;
+  width: 65%;
+  margin: auto;
+  margin-top: 385px;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #71b1de;
+}
+
+.map-card {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: auto;
+  /* background-color: #abd1ea; */
+}
+
+#tide-container {
+  background-color: #736200c7;
+}

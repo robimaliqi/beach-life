@@ -1,7 +1,6 @@
 .weather-container {
   margin: 20px;
-  /* background-color: #dcf3ff; */
-  background-color: white;
+  background-color: #bbdefe;
   border-radius: 5px;
   display: flex;
   flex-direction: row;

@@ -101,7 +101,7 @@ export function Review(props) {
       {!props.user && (
         <div className="login-advice">
           <p className="review-p">
-            If you would like to leave a review, you will need to log in or
+            If you would like to leave a review, you will need to sign in or
             register and create an account.
           </p>
         </div>

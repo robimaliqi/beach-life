@@ -29,7 +29,9 @@ export const SearchBar = ({ placeholder, data }) => {
   return (
     <div>
       <div className="search-container">
-        <h2 className="home-h2">Find the best beaches in the U.K</h2>
+        <h2 className="search-h2">
+          Search to find the best beaches in England
+        </h2>
         <div className="search-inputs">
           <div className="search-icon">
             <SearchRoundedIcon id="search-icon-only" />
