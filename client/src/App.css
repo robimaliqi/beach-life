@@ -94,7 +94,7 @@
 .form-container {
   background-color: white;
   width: 33%;
-  height: 54%;
+  height: 60%;
   margin: auto;
   margin-top: 95px;
   padding-top: 50px;
@@ -105,8 +105,8 @@
 
 #sign-in-container {
   margin: 155px auto;
-  width: 28%;
-  height: 35%;
+  width: 30%;
+  height: 40%;
 }
 
 #background-register-image {

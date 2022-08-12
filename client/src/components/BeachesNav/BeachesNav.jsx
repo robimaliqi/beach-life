@@ -39,7 +39,7 @@ export const BeachesNav = (props) => {
           {!props.user && (
             <li className="nav-item">
               <Link to="/signin" className="nav-link">
-                Log In
+                Sign In
               </Link>
             </li>
           )}
