@@ -1,7 +1,14 @@
-Beach Life
+Beach Finder
 ==========
+*The beach finds a way...*
 
-By Aisha, Hafiz, Joe, Robi & Sophie
+***By Aisha, Hafiz, Joe, Robi & Sophie***
+
+Fancy a quick dip in the sea or a nice romantic walk on the beach? Not sure where your nearest beach actually is? Fear no more for Beach Finder is here. Your one-stop-shop for locating all beaches in England (other countries possibly coming soon), along with a forecast for your chosen beach for the next 7 days, as well as tide information so you'll never miss high or low tide again!
+
+The project was built using the MERN tech stack. The database is connected to MongoDB Atlas via Mongoose. The frontend was built using React, the backend server uses Express and Node. 
+
+We used Jest as the test framework as well as React Testing Library. 
 
 # How to use
 
@@ -24,73 +31,51 @@ cd client
 npm start
 ````
 
-# Getting Started with Create React App
+# Testing
+To run the unit tests on the backend:
+```terminal
+cd server
+jest
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run the unit tests on the frontend:
+```terminal
+cd client
+npm test
+```
 
-## Available Scripts
+# Dependencies and APIs
+The map is rendered using [TomTom's Map API](https://developer.tomtom.com/map-display-api/documentation/product-information/introduction). 
 
-In the project directory, you can run:
+To get the information regarding high/low tides, we used the [Stormglass API](https://stormglass.io/). The free key that we used is limited to 10 calls a day, which was problematic for testing however the API was much easier to work with than the Admiralty Tidal API which we also came across. 
 
-### `npm start`
+The weather information uses [Visual Crossing's Weather API](https://www.visualcrossing.com/weather-api) to get the 7 day forecast.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Mapbox](https://www.mapbox.com/) was used to get the address of the beach using the latitude and longitude from the beach itself. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+We created a JavaScript object locally for the beaches; we found the information on [Environment Agency's Bathing Water website](https://environment.data.gov.uk/bwq/profiles/) and they are also stored on the MongoDB Atlas database.
 
-### `npm test`
+# Approaching the task
+Coming up with a solid idea of what we wanted to achieve was quite the challenge itself. We bounced ideas back and forth only knowing we were building something related to holidays. We settled on the idea of Beach Finder, decided what tech stack we wanted to use and why we thought it was appropriate, then looked at features and functionality we would like to implement. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We came up with the mockup (see below) to initially help guide our journey throughout the project, however we ultimately decided that the number of pages didn't fit within the spirit of React web applications. 
 
-### `npm run build`
+![alt our mockup](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/C67eed4c333cf41939ff2690a971adc19/projects/MsOxqHTlBh/pages/d97f3b133bd64695b87f11948a674509/image/d97f3b133bd64695b87f11948a674509.png?1659371621637)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The task was then broken down into user stories using GitHub Projects, and then broken further down into tasks for the team to get started on. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We knew we wanted to work with React as we believed it would not only be a good experience to try out one of the most popular frameworks when it comes to frontend web development, but also thought the dynamic features of React would create a more engaging website. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We also knew we wanted a map to show the locations of beaches. Ideally we wanted this to be UK-wide, but finding that data proved difficult in the time restraints we had, so we settled with England to begin with. 
 
-### `npm run eject`
+The map API was a trickier challenge than anticipated. We wanted to use Google Maps, but upon looking into it we found that the JavaScript API required a fee and was no longer free. After digging around, we settled on TomTom's API due to the documentation that was readily available. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The weather and tide APIs were also challenging. Understanding how to access them and get the required information whilst avoiding either call limits, or even just understanding where to place the calls inside React.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The next biggest hurdle was adding pins for each beach location that we found from the Environment Agency's website. Our first plan was to to have our backend connect to our MongoDB Atlas cluster, where we uploaded the CSV file to Atlas and then have our frontend get the pins from the database and place them on the map. We did get this working, however it was very inconsistent and we could not find a way to reliably and consistently get the pins to load. To get around this, we stored the beach information locally in a JavaScript object.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+We did also end up using the beaches collection that we created in Atlas in order for us to create user reviews for the beaches.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Understanding how the front and backend connect and how to get React to submit or fetch the data from the server was confusing, especially for user information when it came to logging in and reflecting that change of state on the website. This took some getting used to, but between pairing and researching we got more comfortable with it. 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Initially we did want to stage the website on Heroku, but due to time constraints we did not get round to successfully doing this. 

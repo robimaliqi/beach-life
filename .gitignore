@@ -19,6 +19,10 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/client/src/tt-api-key.js
+/client/src/weatherApiKey.js
+/client/src/tide-api.js
+/client/src/BeachAddressKey.js
 
 npm-debug.log*
 yarn-debug.log*
