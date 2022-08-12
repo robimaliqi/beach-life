@@ -14,7 +14,7 @@ function Map() {
 
   useEffect(() => {
     let map1 = tt.map({
-      key: ttApiKey,
+      key: process.env.ttApiKey,
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: mapZoom,

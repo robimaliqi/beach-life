@@ -9,7 +9,7 @@ const getWeatherData = (searchParams) => {
     contentType: "json",
     iconSet: "icons1",
     ...searchParams,
-    key: weatherAPI_KEY,
+    key: process.env.weatherAPI_KEY,
   });
 
   return fetch(url)

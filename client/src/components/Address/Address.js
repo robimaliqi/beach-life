@@ -16,7 +16,7 @@ export const Address = ({ beachData, beachId }) => {
 
   useEffect(() => {
     fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${beachCoOrds}.json?access_token=${geolocationAPI_KEY}&types=address`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${beachCoOrds}.json?access_token=${process.env.geolocationAPI_KEY}&types=address`
     )
       .then((res) => {
         return res.json();

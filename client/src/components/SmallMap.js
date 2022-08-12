@@ -8,7 +8,7 @@ export const SmallMap = (props) => {
 
   useEffect(() => {
     let map = tt.map({
-      key: ttApiKey,
+      key: process.env.ttApiKey,
       container: mapElement.current,
       center: [props.long, props.lat],
       zoom: 15,
