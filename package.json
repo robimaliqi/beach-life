@@ -1,5 +1,6 @@
 {
   "name": "beach-life",
+  "homepage": ".",
   "version": "1.0.0",
   "engines": {
     "node": "18.5.0"
@@ -23,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/robimaliqi/beach-life/issues"
   },
-  "homepage": ".",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",

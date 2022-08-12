@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/robimaliqi/beach-life/issues"
   },
-  "homepage": "https://github.com/robimaliqi/beach-life#readme",
+  "homepage": ".",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-session": "^2.0.0",
