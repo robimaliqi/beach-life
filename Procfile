@@ -1,1 +1,1 @@
-web:npm start
+echo "web: nodemon index.js > Procfile
