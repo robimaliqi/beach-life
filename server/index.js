@@ -49,8 +49,9 @@ app.use("/signin", signinRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/beaches", beachesRouter);
 
-app.get("/", (req, res) => {
-  res.send({ express: "Backend connected to React" });
+app.get("/preload", (req, res) => {
+  res.json({ status: 200 });
+  // res.send({ express: "Backend connected to React" });
 });
 
 // Connect to the database
@@ -73,11 +74,11 @@ app.listen(port, () => {
 
 // Check Heroku is working
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use("/static", express.static(path.join(__dirname, "../client/build")));
 }
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("../client/build", "../public/index.html"));
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve("./client/build", "../public/index.html"));
 });
 
 // clear the cookies after user logs out
