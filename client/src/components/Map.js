@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
 const beachList = require("./beachList");
-const ttApiKey = require("../tt-api-key");
 
 function Map() {
   const mapElement = useRef();

@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import * as tt from "@tomtom-international/web-sdk-maps";
-const ttApiKey = require("../tt-api-key");
 
 export const SmallMap = (props) => {
   const mapElement = useRef();
