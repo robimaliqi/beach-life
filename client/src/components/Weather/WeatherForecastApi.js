@@ -1,4 +1,3 @@
-import { weatherAPI_KEY } from "../../weatherApiKey";
 const BASE_URL =
   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast";
 

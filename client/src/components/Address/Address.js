@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { geolocationAPI_KEY } from "../../BeachAddressKey";
 import { Emoji } from "../Emojis/Emojis";
-
 export const Address = ({ beachData, beachId }) => {
   const getBeach = (id) => {
     return beachData.filter((beach) => {
